@@ -1,38 +1,19 @@
-import { history } from 'umi';
-import {
-  BasicLayoutProps,
-  Settings as LayoutSettings,
-} from '@ant-design/pro-layout';
+// 运行时配置
 
-interface InitialState {
-  username: string;
-  nickname: string;
-  currentUser: string;
+// 全局初始化数据配置，用于 Layout 用户信息和权限初始化
+// 更多信息见文档：https://umijs.org/docs/api/runtime-config#getinitialstate
+export async function getInitialState(): Promise<{ name: string }> {
+  return { name: '@umijs/max' };
 }
 
-export async function getInitialState() {
-  /**
-   * 获取初始状态
-   */
-  const msg = {
-    username: 'admin',
-    nickname: 'admin',
-    currentUser: 'admin',
-  };
-  return msg;
-}
-
-export const layout = ({ initialState }): BasicLayoutProps => {
+export const layout = ({initialState}) => {
+    console.log(initialState);
+    const { name } = initialState;
+    console.log(name);
   return {
-    onPageChange: () => {
-      const { currentUser } = initialState;
-      console.error(currentUser);
-      const { location } = history;
-      // 如果没有登录，重定向到login
-      if (!currentUser && location.pathname !== '/user/login') {
-        history.push('/user/login');
-      }
+    logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
+    menu: {
+      locale: false,
     },
-    menuHeaderRender: undefined,
   };
 };
