@@ -2,6 +2,20 @@
 // 该文件由 OneAPI 自动生成，请勿手动修改！
 
 declare namespace API {
+  interface User {
+    id?: string;
+    userid?: string;
+    username?: string;
+    nickname?: string;
+  }
+
+  interface CurrentUser {
+    id?: string;
+    userid?: string;
+    username?: string;
+    nickname?: string;
+  }
+
   interface PageInfo {
     /** 
 1 */

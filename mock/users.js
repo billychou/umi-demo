@@ -1,4 +1,6 @@
-export default {
+import { defineMock } from "@umijs/max";
+
+export default defineMock({
     'GET /api/users': [
         {id: 1, name: 'foo'},
         {id: 2, name: 'bar'}
@@ -7,12 +9,12 @@ export default {
         id: 1, 
         name: 'foo'
     },
-    'GET /api/user/getCurrentUser': {
-        id: 1, 
-        name: 'foo',
-        nickname: 'foo',  
-        menus: []
-    },
+    // 'GET /api/user/getCurrentUser': {
+    //     id: 1, 
+    //     name: 'foo',
+    //     nickname: 'foo',  
+    //     menus: []
+    // },
     'POST /user/login': {
         success: true,
         message: "success",
@@ -25,6 +27,13 @@ export default {
     },
 
     'GET /api/user/getUserData': (req, res) => {
-        res.json();
-    } 
-}
+        res.status(200).json({id:2, name:'bar'});
+    },
+    'GET /api/users/getCurrentUser': (req, res) => {
+        res.status(200).json({
+            userid: "002436",
+            username: "admin",
+            nickname: "admin",
+        });
+    }
+});

@@ -1,17 +1,19 @@
 // 运行时配置
 
-import { RunTimeLayoutConfig } from "@umijs/max";
+import { RequestConfig, RunTimeLayoutConfig } from "@umijs/max";
 import { createRef } from "react";
+import { getCurrentUser } from "./services/demo/UserController";
+import { ConsoleSqlOutlined } from "@ant-design/icons";
 
 export interface CurrentUser {
-  userid: string;
-  name: string;
-  nickname: string;
+  userid?: string;
+  username?: string;
+  nickname?: string;
 }
 
 export interface InitialState {
-  name: string;
-  currentUser: CurrentUser;
+  name?: string;
+  currentUser?: CurrentUser;
 }
 
 
@@ -20,15 +22,28 @@ export interface InitialState {
 // 更多信息见文档：https://umijs.org/docs/api/runtime-config#getinitialstate
 export async function getInitialState(): Promise<InitialState> {
   // 获取当前用户信息
+  const currentUser = await getCurrentUser();
   return { 
     name: 'sanfendi',
-    currentUser: {
-      userid: '002436',
-      name: "admin",
-      nickname: "admin"
-    }
+    currentUser: currentUser,
   };
+}
 
+/**
+ * 运行时配置，为项目进行统一的个性化的请求设定
+ */
+export const request: RequestConfig = {
+  timeout: 1000,
+  errorConfig: {
+    errorHandler() {
+
+    },
+    errorThrower() {
+
+    }
+  },
+  requestInterceptors: [],
+  responseInterceptors: []
 }
 
 export const layout: RunTimeLayoutConfig = ({initialState}) => {

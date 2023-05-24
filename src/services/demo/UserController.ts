@@ -24,6 +24,18 @@ export async function queryUserList(
   });
 }
 
+export async function getCurrentUser(params?: {
+  userid?: string
+},  options?: {[key:string]: any}, ) {
+  return request<API.CurrentUser>('/api/users/getCurrentUser', {
+    method: 'GET',
+    params: {
+      ...params,
+    },
+    ...(options || {}),
+  });
+}
+
 /** 此处后端没有提供注释 POST /api/v1/user */
 export async function addUser(
   body?: API.UserInfoVO,

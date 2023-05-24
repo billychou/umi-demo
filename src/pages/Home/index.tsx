@@ -34,7 +34,7 @@ const HomePage: React.FC = () => {
       <div className={styles.container}>
         {/* <Guide name={trim(name)} /> */}
         <Card>
-          {currentUser.name}
+          {currentUser.username}
         </Card>
       </div>
     </PageContainer>
