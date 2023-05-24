@@ -7,6 +7,13 @@ export default [
         name: '首页',
         path: '/home',
         component: './Home',
+        routes: [
+            {
+                // name: '子路径',
+                path: '/home/index',
+                component: './Home'
+            }
+        ]
     },
     {
         name: '权限演示',

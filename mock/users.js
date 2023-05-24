@@ -22,5 +22,9 @@ export default {
     'POST /api/users/create': (req, res) => {
         res.setHeader('Access-Control-Allow-Origin', '*');
         res.end('ok');
-    }
+    },
+
+    'GET /api/user/getUserData': (req, res) => {
+        res.json();
+    } 
 }
