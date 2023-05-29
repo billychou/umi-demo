@@ -7,11 +7,15 @@ export default [
         name: '首页',
         path: '/home',
         component: './Home',
+    },
+    {
+        name: '系统设置',
+        path: '/settings',
         routes: [
             {
-                // name: '子路径',
-                path: '/home/index',
-                component: './Home'
+                name: '用户管理',
+                path: '/settings/user',
+                component: './Alert/Users',
             }
         ]
     },
