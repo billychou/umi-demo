@@ -14,7 +14,6 @@ const UserPage: React.FC = () => {
   return (
     <PageContainer ghost>
         <ProCard>
-          {currentUser.username}
         </ProCard>
     </PageContainer>
   );

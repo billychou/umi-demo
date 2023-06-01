@@ -27,7 +27,6 @@ const HomePage: React.FC = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const a = searchParams.get('a');
-  message.warning(searchParams.toString());
 
   return (
     <PageContainer ghost>

@@ -9,12 +9,6 @@ export default defineMock({
         id: 1, 
         name: 'foo'
     },
-    // 'GET /api/user/getCurrentUser': {
-    //     id: 1, 
-    //     name: 'foo',
-    //     nickname: 'foo',  
-    //     menus: []
-    // },
     'POST /user/login': {
         success: true,
         message: "success",
@@ -29,7 +23,7 @@ export default defineMock({
     'GET /api/user/getUserData': (req, res) => {
         res.status(200).json({id:2, name:'bar'});
     },
-    'GET /api/users/getCurrentUser': (req, res) => {
+    'GET /api/user/getCurrentUser': (req, res) => {
         res.status(200).json({
             userid: "002436",
             username: "admin",
