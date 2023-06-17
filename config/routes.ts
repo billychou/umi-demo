@@ -29,4 +29,9 @@ export default [
         path: '/table',
         component: './Table',
     },
+    {
+        name:  'example',
+        path: '/example',
+        component: './Example/proxy_demo'
+    }
 ];
