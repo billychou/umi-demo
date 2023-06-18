@@ -29,5 +29,12 @@ export default defineMock({
       success: true,
       errorCode: 0,
     });
+  },
+
+  'GET /api/v1/queryUserList': (req, res) => {
+    res.status(200).json({
+      success: true,
+      errorCode: 0
+    });
   }
 });

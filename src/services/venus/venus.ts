@@ -18,7 +18,7 @@ export async function getUserList(
     },
     options?: { [key: string]: any },
   ) {
-    return request<API.Result_PageInfo_UserInfo__>('/api/venus/v1/local/user/queryAll', {
+    return request<VENUS.VenusLocalUserResponse>('/api/venus/v1/local/user/queryAll', {
       method: 'GET',
       params: {
         ...params,

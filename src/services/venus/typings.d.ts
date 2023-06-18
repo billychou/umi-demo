@@ -14,6 +14,12 @@ declare namespace VENUS {
       userGroupIdRefs?: Array<Record<string, any>>;
   };
 
+  interface  VenusLocalUserResponse {
+    code?: number;
+    msg?: string;
+    data?: Array<VenusUser>;
+  }
+
   interface  CatInfo {
     age: number;
     breed: string;

@@ -9,6 +9,11 @@ export default [
         component: './Home',
     },
     {
+        name: 'demo',
+        path: '/demo',
+        component: './Demo',
+    },
+    {
         name: '系统设置',
         path: '/settings',
         routes: [
