@@ -11,7 +11,14 @@ export default [
     {
         name: 'demo',
         path: '/demo',
-        component: './Demo',
+        // component: './Demo',
+        routes: [
+            {
+                name: "ref",
+                path: "/demo/ref",
+                component: './Demo/ref_demo'
+            }
+        ]
     },
     {
         name: '系统设置',
