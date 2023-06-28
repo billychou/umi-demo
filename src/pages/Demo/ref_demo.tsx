@@ -2,22 +2,30 @@ import React, { useRef, useState } from "react";
 import { Button, Card } from "antd";
 
 /**
+ * ref， 
+ * 当你希望组件记住一些信息，但不希望这些信息重新触发渲染的时候，你可以使用ref，它像一个秘密的口袋，用于在组件中存储信息
+ */
+
+let intervalId;
+/**
  * useRef案例 
  * @returns 
  */
 const RefDemoComponent: React.FC = () => {
+    console.log("开始渲染");
     let ref = useRef(0);
     const [startTime, setStartTime] = useState(null);
     const [now, setNow] = useState(null);
-    let intervalId;
+    const intervalRef = useRef(null);
 
     /**
-     * 开始定时器
+     * 开始
      */
     function handleStart() {
         setStartTime(Date.now());
         setNow(Date.now());
-        intervalId = setInterval(() => {
+        clearInterval(intervalRef.current)
+        intervalRef.current = setInterval(() => {
             // 每10ms更新一次当前时间
             setNow(Date.now())
         }, 10);
@@ -25,12 +33,10 @@ const RefDemoComponent: React.FC = () => {
     
 
     /**
-     * 结束定时器 
+     * 停止 
      */
     const handleStop = () => {
-        console.log("handleStop");
-        clearInterval(intervalId);
-        intervalId = null;
+        clearInterval(intervalRef.current);
     }
 
     let secondsPassed = 0;
