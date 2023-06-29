@@ -1,25 +1,27 @@
 import React, { useRef, useState } from "react";
 import { Button, Card } from "antd";
 
-/**
- * ref， 
- * 当你希望组件记住一些信息，但不希望这些信息重新触发渲染的时候，你可以使用ref，它像一个秘密的口袋，用于在组件中存储信息
- */
+
 
 let intervalId;
 /**
- * useRef案例 
+ * RefDemoComponent 
+ * useRef is a React Hook that  lets you reference a 
+ * value that's not needed for rendering
+ * Reference: https://github.com/
+ * 
+ * useRef
  * @returns 
  */
 const RefDemoComponent: React.FC = () => {
-    console.log("开始渲染");
+    //Call useRef at the top level of your component to declare a ref
     let ref = useRef(0);
     const [startTime, setStartTime] = useState(null);
     const [now, setNow] = useState(null);
     const intervalRef = useRef(null);
 
     /**
-     * 开始
+     *  eventHandler
      */
     function handleStart() {
         setStartTime(Date.now());

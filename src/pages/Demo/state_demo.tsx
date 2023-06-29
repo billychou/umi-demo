@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { sculptureList } from "./data"
 
-
+/**
+ * StateDemoComponent component 
+ * @returns 
+ */
 const StateDemoComponent: React.FC = () => {
     // let index = 0;
     const [index, setIndex] = useState(0);
     function handleClick() {
-        if  (index  < sculptureList.length - 1) {
+        if (index < sculptureList.length - 1) {
             setIndex(index + 1);
         }
         // index = index + 1;
