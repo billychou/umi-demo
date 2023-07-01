@@ -34,7 +34,7 @@ const RefDemoComponent: React.FC = () => {
     }
 
     let secondsPassed = 0;
-    if  (startTime != null && now != null) {
+    if  (startTime !== null && now !== null) {
         secondsPassed = (now - startTime)/1000;
     }
     
