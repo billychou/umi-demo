@@ -17,6 +17,11 @@ export default [
                 name: "ref",
                 path: "/demo/ref",
                 component: './Demo/ref_demo'
+            },
+            {
+                name: "state",
+                path: "/demo/state",
+                component: './Demo/state_demo'
             }
         ]
     },

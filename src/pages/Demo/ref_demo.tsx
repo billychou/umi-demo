@@ -1,23 +1,33 @@
 import React, { useRef, useState } from "react";
 import { Button, Card } from "antd";
 
+
+
+let intervalId;
 /**
- * useRef案例 
+ * RefDemoComponent 
+ * useRef is a React Hook that  lets you reference a 
+ * value that's not needed for rendering
+ * Reference: https://github.com/
+ * 
+ * useRef
  * @returns 
  */
 const RefDemoComponent: React.FC = () => {
+    //Call useRef at the top level of your component to declare a ref
     let ref = useRef(0);
     const [startTime, setStartTime] = useState(null);
     const [now, setNow] = useState(null);
-    let intervalId;
+    const intervalRef = useRef(null);
 
     /**
-     * 开始定时器
+     *  eventHandler
      */
     function handleStart() {
         setStartTime(Date.now());
         setNow(Date.now());
-        intervalId = setInterval(() => {
+        clearInterval(intervalRef.current)
+        intervalRef.current = setInterval(() => {
             // 每10ms更新一次当前时间
             setNow(Date.now())
         }, 10);
@@ -25,12 +35,10 @@ const RefDemoComponent: React.FC = () => {
     
 
     /**
-     * 结束定时器 
+     * 停止 
      */
     const handleStop = () => {
-        console.log("handleStop");
-        clearInterval(intervalId);
-        intervalId = null;
+        clearInterval(intervalRef.current);
     }
 
     let secondsPassed = 0;
