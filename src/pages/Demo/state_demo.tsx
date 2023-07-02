@@ -4,6 +4,21 @@ import { Button, Card } from "antd";
 import styles from './index.less';
 
 /**
+ * init functions
+ */
+function createInitialTodos() {
+    const initialTodos = [];
+    for (let i=0; i<50; i++) {
+        initialTodos.push({ 
+            id: i, 
+            text: 'ITEM' + (i + 1)
+        });
+    }
+    return initialTodos;
+}
+
+
+/**
  * StateDemoComponent component 
  * 
  * @returns 
@@ -20,6 +35,9 @@ const StateDemoComponent: React.FC = () => {
         lastName: "Chou",
         email: "xxxx@gmail.com"
     });
+    // passing the initializer function 
+    const [todos, setTodos] = useState(createInitialTodos);
+    const [text, setText] = useState("welcome");
 
     /**
      * age+1
@@ -67,7 +85,7 @@ const StateDemoComponent: React.FC = () => {
                 <p>{stateDemo}</p>
                 <p className={styles.age}>{age}</p>
             </Card>
-            <Card title="表单状态">
+            <Card title="传递对象演示">
                 <label>
                     FirstName: 
                     <input type="text" value={form.firstName} onChange={
@@ -77,6 +95,26 @@ const StateDemoComponent: React.FC = () => {
                     } />
                 </label>
                 <p>{form.firstName}</p>
+            </Card>
+            <Card title="传递初始函数演示">
+                <input type="text" value={text} onChange={e => {
+                    setText(e.target.value);
+                }} />
+                <Button onClick={ ()=>{
+                        setText("");
+                        setTodos([{
+                            id: todos.length,
+                            text: text
+                        }, ...todos]);
+                    }
+                } type="primary">
+                    Add
+                </Button>
+                <ul>
+                    {todos.map(item => {
+                        return (<li key={item.id}>{item.text}</li>);
+                    })}
+                </ul>
             </Card>
         </>
     );
