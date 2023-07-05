@@ -20,6 +20,11 @@ const RefDemoComponent: React.FC = () => {
     const [now, setNow] = useState(null);
     const intervalRef = useRef(null);
 
+    let secondsPassed = 0;
+    if  (startTime != null && now != null) {
+        secondsPassed = (now - startTime)/1000;
+    }
+
     /**
      *  eventHandler
      */
@@ -29,27 +34,33 @@ const RefDemoComponent: React.FC = () => {
         clearInterval(intervalRef.current)
         intervalRef.current = setInterval(() => {
             // 每10ms更新一次当前时间
-            setNow(Date.now())
+            setNow(Date.now());
         }, 10);
     }
     
 
     /**
-     * 停止 
+     *  stop handler 
      */
     const handleStop = () => {
         clearInterval(intervalRef.current);
     }
 
-    let secondsPassed = 0;
-    if  (startTime != null && now != null) {
-        secondsPassed = (now - startTime)/1000;
+    /**
+     * 清零时间
+     */
+    const handleClear = () => {
+        secondsPassed = 0;
     }
-    
+
+    /**
+     * click
+     */
     const handleClick = () => {
         ref.current = ref.current + 1;
         alert("Click " + ref.current + "次");
     }
+    
     
     return (
         <>
@@ -57,7 +68,8 @@ const RefDemoComponent: React.FC = () => {
             <h1>时间过去了：{secondsPassed}</h1>
             <Card>
                 <Button onClick={handleStart} type="primary">开始</Button> <></>
-                <Button onClick={handleStop} type="ghost">停止</Button>
+                <Button onClick={handleStop} type="primary">停止</Button>
+                <Button onClick={handleClear} type="primary">清零</Button>
             </Card>
 
         </>
