@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Button, Card } from "antd";
+import { Button, Card, Row, Col } from "antd";
 
 let intervalId;
 
@@ -21,7 +21,7 @@ const RefDemoComponent: React.FC = () => {
     const intervalRef = useRef(null);
 
     let secondsPassed = 0;
-    if  (startTime != null && now != null) {
+    if  (startTime !== null && now !== null) {
         secondsPassed = (now - startTime)/1000;
     }
 
@@ -47,14 +47,11 @@ const RefDemoComponent: React.FC = () => {
     }
 
     /**
-     * 清零时间
+     * clear handler
      */
     const handleClear = () => {
-    let secondsPassed = 0;
-    if  (startTime !== null && now !== null) {
-        secondsPassed = (now - startTime)/1000;
+        console.log("handler clear");
     }
-
     /**
      * click
      */
@@ -62,14 +59,13 @@ const RefDemoComponent: React.FC = () => {
         ref.current = ref.current + 1;
         alert("Click " + ref.current + "次");
     }
-    
-    
+     
     return (
         <>
-            <button onClick={handleClick}>点击</button>
+            <Button onClick={handleClick}>点击</Button>
             <h1>时间过去了：{secondsPassed}</h1>
             <Card>
-                <Button onClick={handleStart} type="primary">开始</Button> <></>
+                <Button onClick={handleStart} type="primary">开始</Button>
                 <Button onClick={handleStop} type="primary">停止</Button>
                 <Button onClick={handleClear} type="primary">清零</Button>
             </Card>

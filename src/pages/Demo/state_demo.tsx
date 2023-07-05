@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { sculptureList } from "./data"
-import { Button, Card } from "antd";
+import { Button, Card, Row, Col } from "antd";
 import styles from './index.less';
 
 /**
@@ -52,9 +52,7 @@ const StateDemoComponent: React.FC = () => {
         incrementAge();
     }
 
-    /**
-     * eventHandler 
-     */
+    /** * eventHandler */
     function onClickHandler() {
         setAge(a => a+1);
         if (index < sculptureList.length - 1) {
@@ -73,49 +71,61 @@ const StateDemoComponent: React.FC = () => {
 
     return (
         <>
-            <Card title="图片状态">
-                <Button onClick={onClickHandler} type="primary">Next</Button>
-                <Button onClick={ageOnClickHandler} type="primary">年龄</Button>
-                <h2>
-                    <i>{sculpture.name}</i> by {sculpture.artist}
-                </h2>
-                <h3>({index+1} of {sculptureList.length})</h3>
-                <img src={sculpture.url} alt={sculpture.alt}></img>
-                <p>{sculpture.description}</p>
-                <p>{stateDemo}</p>
-                <p className={styles.age}>{age}</p>
-            </Card>
-            <Card title="传递对象演示">
-                <label>
-                    FirstName: 
-                    <input type="text" value={form.firstName} onChange={
-                        e => {
-                            setForm({...form, firstName: e.target.value});
-                        }
-                    } />
-                </label>
-                <p>{form.firstName}</p>
-            </Card>
-            <Card title="传递初始函数演示">
-                <input type="text" value={text} onChange={e => {
-                    setText(e.target.value);
-                }} />
-                <Button onClick={ ()=>{
-                        setText("");
-                        setTodos([{
-                            id: todos.length,
-                            text: text
-                        }, ...todos]);
-                    }
-                } type="primary">
-                    Add
-                </Button>
-                <ul>
-                    {todos.map(item => {
-                        return (<li key={item.id}>{item.text}</li>);
-                    })}
-                </ul>
-            </Card>
+            <Row>
+                <Col span={12}>
+                     <Card title="图片状态">
+                        <Button onClick={onClickHandler} type="primary">Next</Button>
+                        <Button onClick={ageOnClickHandler} type="primary">年龄</Button>
+                        <h2>
+                            <i>{sculpture.name}</i> by {sculpture.artist}
+                        </h2>
+                        <h3>({index+1} of {sculptureList.length})</h3>
+                        <img src={sculpture.url} alt={sculpture.alt}></img>
+                        <p>{sculpture.description}</p>
+                        <p>{stateDemo}</p>
+                        <p className={styles.age}>{age}</p>
+                     </Card>   
+                </Col>
+                <Col span={12}>
+                     <Card title="传递对象演示">
+                        <label>
+                            FirstName: 
+                            <input type="text" value={form.firstName} onChange={
+                                e => {
+                                    setForm({...form, firstName: e.target.value});
+                                }
+                            } />
+                        </label>
+                        <p>{form.firstName}</p>
+                     </Card>   
+                </Col>
+            </Row>
+            <Row>
+                <Col span={24}>
+                    <Card title="传递初始函数演示">
+                        <input type="text" value={text} onChange={e => {
+                            setText(e.target.value);
+                        }} />
+                        <Button onClick={ ()=>{
+                                setText("");
+                                setTodos([{
+                                    id: todos.length,
+                                    text: text
+                                }, ...todos]);
+                            }
+                        } type="primary">
+                            Add
+                        </Button>
+                        <ul>
+                            {todos.map(item => {
+                                return (<li key={item.id}>{item.text}</li>);
+                            })}
+                        </ul>
+                    </Card>
+
+                </Col>
+            </Row>
+            
         </>
     );
 };
