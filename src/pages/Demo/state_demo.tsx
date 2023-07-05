@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { sculptureList } from "./data"
-import { Button, Card, Row, Col } from "antd";
+import { Button, Card, Row, Col, Input } from "antd";
 import styles from './index.less';
 
 /**
@@ -28,6 +28,7 @@ const StateDemoComponent: React.FC = () => {
      * index, setIndex
      */
     const [index, setIndex] = useState(0);
+    const [text, setText] = useState('hello');
     const [stateDemo, setStateDemo] = useState(0);
     const [age, setAge] = useState(0);
     const [form, setForm] = useState({
@@ -37,22 +38,27 @@ const StateDemoComponent: React.FC = () => {
     });
     // passing the initializer function 
     const [todos, setTodos] = useState(createInitialTodos);
-    const [text, setText] = useState("welcome");
 
     /**
      * age+1
      */
     const incrementAge = () => {
         setAge(a => a+1);
+        console.error(age);
     }
 
+    /**
+     * increment age + 3
+     */
     const ageOnClickHandler = () => {
         incrementAge();
         incrementAge();
         incrementAge();
     }
 
-    /** * eventHandler */
+    /**  
+     * eventHandler 
+     * */
     function onClickHandler() {
         setAge(a => a+1);
         if (index < sculptureList.length - 1) {
@@ -61,6 +67,13 @@ const StateDemoComponent: React.FC = () => {
         } else {
             setIndex(0);
         }
+    }
+
+    /**
+     * text  exampel handler
+     */
+    function handleChangeText(e) {
+        setText(e.target.value);
     }
 
 
@@ -101,7 +114,7 @@ const StateDemoComponent: React.FC = () => {
                 </Col>
             </Row>
             <Row>
-                <Col span={24}>
+                <Col span={12}>
                     <Card title="传递初始函数演示">
                         <input type="text" value={text} onChange={e => {
                             setText(e.target.value);
@@ -122,7 +135,13 @@ const StateDemoComponent: React.FC = () => {
                             })}
                         </ul>
                     </Card>
-
+                </Col>
+                <Col span={12}>
+                    <Card title="文本字段字符串">
+                        <Input value={text} onChange={handleChangeText}></Input>
+                        <p>您输入了:{text}</p>
+                        <Button onClick={() => setText('hello')}>重置</Button>
+                    </Card>
                 </Col>
             </Row>
             

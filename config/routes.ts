@@ -9,9 +9,8 @@ export default [
         component: './Home',
     },
     {
-        name: 'demo',
+        name: '样例',
         path: '/demo',
-        // component: './Demo',
         routes: [
             {
                 name: "ref",
