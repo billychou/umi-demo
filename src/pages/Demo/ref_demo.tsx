@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
 import { Button, Card } from "antd";
 
-
-
 let intervalId;
+
 /**
- * RefDemoComponent 
+ * RefDemoComponent
+ * 秒表样例 
  * useRef is a React Hook that  lets you reference a 
  * value that's not needed for rendering
  * Reference: https://github.com/
@@ -50,7 +50,9 @@ const RefDemoComponent: React.FC = () => {
      * 清零时间
      */
     const handleClear = () => {
-        secondsPassed = 0;
+    let secondsPassed = 0;
+    if  (startTime !== null && now !== null) {
+        secondsPassed = (now - startTime)/1000;
     }
 
     /**
@@ -71,7 +73,6 @@ const RefDemoComponent: React.FC = () => {
                 <Button onClick={handleStop} type="primary">停止</Button>
                 <Button onClick={handleClear} type="primary">清零</Button>
             </Card>
-
         </>
     );
 }

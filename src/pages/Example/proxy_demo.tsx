@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
 
-
+/**
+ *  proxy  instance
+ * 
+ */
 let person = {
     name: "张三"
 };
@@ -18,12 +21,27 @@ const handler = {
 // proxy demo 
 let personProxy = new Proxy(person, handler);
 
-const ProxyDemo  = () => {
 
+// get方法可以继承
+let proto = new Proxy({}, {
+    get: (target, propertyKey, receiver) => {
+        console.log("Proxy GET " + propertyKey);
+        return target[propertyKey];
+    }
+});
+let obj = Object.create(proto);
+
+
+/**
+ * react component
+ * @returns 
+ */
+const ProxyDemo: React.FC = () => {
     console.log(personProxy.name);
     return (
         <>
             <div>welcome, {personProxy.age}</div>
+            <div>obj: {obj.name}</div>
         </>
     )
 }
