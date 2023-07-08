@@ -35,17 +35,23 @@ const RefDemoComponent: React.FC = () => {
     
 
     /**
-     * 停止 
+     *  stop handler
      */
     const handleStop = () => {
         clearInterval(intervalRef.current);
     }
 
+    /**
+     * secondsPassed
+     */
     let secondsPassed = 0;
     if  (startTime !== null && now !== null) {
         secondsPassed = (now - startTime)/1000;
     }
     
+    /**
+     * handleClick 
+     */
     const handleClick = () => {
         ref.current = ref.current + 1;
         alert("Click " + ref.current + "次");
