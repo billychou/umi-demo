@@ -9,9 +9,8 @@ export default [
         component: './Home',
     },
     {
-        name: 'demo',
+        name: '样例',
         path: '/demo',
-        // component: './Demo',
         routes: [
             {
                 name: "ref",
@@ -22,8 +21,13 @@ export default [
                 name: "state",
                 path: "/demo/state",
                 component: './Demo/state_demo'
+            },
+            {
+                name: "tree",
+                path: "/demo/tree",
+                component: './Demo/state_tree'
             }
-        ]
+       ]
     },
     {
         name: '系统设置',
