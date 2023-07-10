@@ -1,15 +1,22 @@
 import { useState } from "react";
 
 import styles from "./index.less";
+
 /**
  * app  component
  */
 export default function App() {
-    const counter = <Counter />;
+    const [showB, setShowB] = useState(true);
     return (
         <div>
-            {counter}
-            {counter}
+            <Counter />
+            {showB && <Counter />}
+            <label htmlFor="">
+                <input type="checkbox"  checked={showB} onChange={e => { 
+                    setShowB(e.target.checked);
+                }} />
+                渲染第二个计数器
+            </label>
         </div>
     );
 }
