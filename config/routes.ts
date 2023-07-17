@@ -26,6 +26,11 @@ export default [
                 name: "tree",
                 path: "/demo/tree",
                 component: './Demo/state_tree'
+            },
+            {
+                name: "feedback",
+                path: "/demo/feedback",
+                component: './Demo/state_feedback_form'
             }
        ]
     },
