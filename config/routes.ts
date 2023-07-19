@@ -31,6 +31,11 @@ export default [
                 name: "feedback",
                 path: "/demo/feedback",
                 component: './Demo/state_feedback_form'
+            },
+            {
+                name: "canvas",
+                path: "/demo/canvas",
+                component: "./Demo/canvas"
             }
        ]
     },
@@ -45,19 +50,19 @@ export default [
             }
         ]
     },
-    {
-        name: '权限演示',
-        path: '/access',
-        component: './Access',
-    },
-    {
-        name: ' CRUD 示例',
-        path: '/table',
-        component: './Table',
-    },
-    {
-        name:  'example',
-        path: '/example',
-        component: './Example/proxy_demo'
-    }
+    // {
+    //     name: '权限演示',
+    //     path: '/access',
+    //     component: './Access',
+    // },
+    // {
+    //     name: ' CRUD 示例',
+    //     path: '/table',
+    //     component: './Table',
+    // },
+    // {
+    //     name:  'example',
+    //     path: '/example',
+    //     component: './Example/proxy_demo'
+    // }
 ];

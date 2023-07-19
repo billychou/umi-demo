@@ -1,9 +1,7 @@
 // 运行时配置
 
 import { RequestConfig, RunTimeLayoutConfig } from "@umijs/max";
-import { createRef } from "react";
 import { getCurrentUser } from "./services/demo/UserController";
-import { ConsoleSqlOutlined } from "@ant-design/icons";
 
 export interface CurrentUser {
   userid?: string;
@@ -47,7 +45,7 @@ export const request: RequestConfig = {
 
 export const layout: RunTimeLayoutConfig = ({initialState}) => {
   return {
-    title: '三分地管理平台',
+    title: '有趣的灵魂',
     logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
     menu: {
       locale: false,

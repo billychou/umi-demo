@@ -8,7 +8,7 @@ export default defineConfig({
   initialState: {},
   request: {},
   layout: {
-    title: '三分地管理平台',
+    title: '有趣的灵魂',
   },
   routes: routes, 
   npmClient: 'pnpm',
