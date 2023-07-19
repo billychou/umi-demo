@@ -17,13 +17,8 @@ const MyText = () =>  {
 
 
 const MyButton = () => {
-  return (
-    <Button 
-      type="primary" 
-      onClick={onClick}
-    > 提交
-    </Button>
-  );
+  const rElement = <Button type="primary" onClick={onClick}>提交</Button>;
+  return rElement;
 }
 
 const user = {
