@@ -2,6 +2,17 @@
 
 import { RequestConfig, RunTimeLayoutConfig } from "@umijs/max";
 import { getCurrentUser } from "./services/demo/UserController";
+import { registerMicroApps, start } from "qiankun";
+
+registerMicroApps([
+  {
+    name: 'react app',
+    entry: '//localhost:7001',
+    container:  '#yourContainer',
+    activeRule: '/yourActiveRule'
+  }
+]);
+start();
 
 export interface CurrentUser {
   userid?: string;
