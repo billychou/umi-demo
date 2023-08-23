@@ -19,7 +19,7 @@
 
             .nav {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 align-content: center;
                 justify-self: center;
                 gap: 60px;
@@ -30,6 +30,20 @@
                 font-size: 1.2rem;
                 color: crimson;
             }
+
+            .x {
+                background-color: lightblue;
+            }
+
+            .z {
+                background-color: lightcoral;
+            }
+
+            .y {
+                background-color: lightyellow;
+                font-weight: bold;
+            }
+
         </style>
     </head>
     <body>
@@ -42,5 +56,6 @@
                 <li><a href="https://www.freecodecamp.org">Contact</a></li>
             </ul>
         </div> 
+        <div id="my" class="x y z">text</div>
     </body>
 </html>
