@@ -40,14 +40,33 @@
             }
 
             .y {
-                background-color: lightyellow;
+                background-color: lightgreen;
                 font-weight: bold;
+            }
+            p::first-line {
+                text-transform: uppercase;
+                font-size: 2rem;
+                float: left;
+            }
+
+            div>p#a {
+                color: green;
+            }
+            div::first-line {
+                color: blue;
+            }
+
+            .inner {
+                width: 33.33%;
+                height: 300px;
+                display: inline-block;
+                outline: solid 1px blue;
             }
 
         </style>
     </head>
     <body>
-        <div class="header">
+        <!-- <div class="header">
             <h2 class="logo">中原银行</h2>
             <ul class="nav">
                 <li><a href="https://www.freecodecamp.org">Home</a></li>
@@ -57,5 +76,18 @@
             </ul>
         </div> 
         <div id="my" class="x y z">text</div>
+        <p>This is a simple demo content,you can modify it, and practive this by this content</p>
+        <div>
+            <p id="a">First paragraph</p>
+            <p>Second paragraph</p>
+        </div> -->
+        <div class="outer">
+            <div class="inner">innet1</div>
+            <div class="inner">inner2</div>
+            <div class="inner">inner3</div>
+        </div>
+
+
+
     </body>
 </html>
