@@ -24,6 +24,14 @@ export async function queryUserList(
   });
 }
 
+/**
+ * A function that retrieves the current user.
+ *
+ * @param {Object} params - Optional parameters for the request.
+ * @param {string} params.userid - The user ID.
+ * @param {Object} options - Additional options for the request.
+ * @return {Promise<API.CurrentUser>} A promise that resolves to the current user.
+ */
 export async function getCurrentUser(params?: {
   userid?: string
 },  options?: {[key:string]: any}, ) {

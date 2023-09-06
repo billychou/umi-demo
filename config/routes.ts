@@ -9,7 +9,7 @@ export default [
         component: './Home',
     },
     {
-        name: '样例',
+        name: '可视化',
         path: '/demo',
         routes: [
             {
@@ -40,7 +40,7 @@ export default [
        ]
     },
     {
-        name: '系统设置',
+        name: '系统管理',
         path: '/settings',
         routes: [
             {
@@ -50,19 +50,4 @@ export default [
             }
         ]
     },
-    // {
-    //     name: '权限演示',
-    //     path: '/access',
-    //     component: './Access',
-    // },
-    // {
-    //     name: ' CRUD 示例',
-    //     path: '/table',
-    //     component: './Table',
-    // },
-    // {
-    //     name:  'example',
-    //     path: '/example',
-    //     component: './Example/proxy_demo'
-    // }
 ];
