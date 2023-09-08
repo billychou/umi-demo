@@ -15,17 +15,55 @@
                 top: 0;
                 transform: translateY(180px);
             }
+
+            p {
+                font-family: "helvetica neue", helvetica, sans-serif;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                text-align: center;
+                border: 2px solid rgb(0 0 200 / 0.6);
+                background: rgb(0 0 200 / 0.6);
+                color: rgb(255 255 255 / 1);
+                box-shadow: 1px 1px 2px rgb(0 0 200 / 0.4);
+                border-radius: 10px;
+                padding: 3px 10px;
+                display: inline-block;
+                cursor: pointer;
+            }
         </style>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                function createParagrap() {
+                    const p = document.createElement("p");
+                    p.textContent = "Hello";
+                    document.body.appendChild(p);
+                }
+    
+                const buttons = document.querySelectorAll("button");
+                for (const button of buttons) {
+                    button.addEventListener("click", createParagrap);
+                }
+            });
+        </script>
     </head>
     <body>
-        <label>运动时间： <input value="3.6" type="number" id="t" /></label><br />
+        <!-- <label>运动时间： <input value="3.6" type="number" id="t" /></label><br />
         <label>初速度： <input value="-21" type="number" id="vy" /></label><br />
         <label>水平速度： <input value="3.6" type="number" id="t" /></label><br />
-        <label>运动时间： <input value="3.6" type="number" id="t" /></label><br />
+        <label>运动时间： <input value="3.6" type="number" id="t" /></label><br /> -->
+        <p>你好</p>
+        <button>确认</button>
+        <script>
+            const para = document.querySelector("p");
+            para.addEventListener("click", () => {
+                const name = prompt("请输入你的名字");
+                localStorage.setItem("name", name);
+                para.textContent = `Hello ${name}`;
+            });
+            var a = "a_b";
+            var c = a.split("_")[0];
+            console.info(c);
+        </script>
     </body>
-    <script>
-        Object.keys(document.body.style).filter( e => !e.match(/^webkit/)).forEach( e => {
-           console.log 
-        })
-    </script>
+
 </html>
