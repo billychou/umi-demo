@@ -1,3 +1,5 @@
+import { patchAtBootstrapping } from "qiankun/es/sandbox/patchers";
+
 export default [
     {
         path: '/',
@@ -13,31 +15,52 @@ export default [
         path: '/demo',
         routes: [
             {
-                name: "ref",
+                name: "计算机图形学",
                 path: "/demo/ref",
                 component: './Demo/ref_demo'
             },
             {
-                name: "state",
+                name: "渲染",
                 path: "/demo/state",
                 component: './Demo/state_demo'
             },
             {
-                name: "tree",
+                name: "动画",
                 path: "/demo/tree",
                 component: './Demo/state_tree'
             },
             {
-                name: "feedback",
+                name: "机器学习",
                 path: "/demo/feedback",
                 component: './Demo/state_feedback_form'
             },
             {
-                name: "canvas",
+                name: "人工智能",
                 path: "/demo/canvas",
                 component: "./Demo/canvas"
             }
        ]
+    },
+    {
+        name: '服务端',
+        path: '/about',
+        routes: [
+            {
+                name: "服务端",
+                path: "/about/server",
+                component: './Home'
+            }, 
+            {
+                name: "量化交易",
+                path: "/about/qualinity",
+                component: './Home'
+            },
+            {
+                name: "调度中心",
+                path: "/about/schedule",
+                component: './Home'
+            } 
+        ]
     },
     {
         name: '系统管理',
