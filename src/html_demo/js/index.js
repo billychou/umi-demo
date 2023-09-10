@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 // import random from "./utils";
 
 const formGuessField = document.querySelector(".guessField");
@@ -41,7 +39,6 @@ console.log(formGuessField);
 console.log(formSubmit);
 formSubmit.addEventListener("click", guessCheck);
 
->>>>>>> dd05a5fb2ed4e799eeb1193dc01658a53ea2c45f
 function handleOnClick() {
 
 }
