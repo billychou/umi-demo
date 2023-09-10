@@ -2,16 +2,123 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <style>
+            html {
+                font-family: sans-serif;
+            }
+
+            body {
+                width: 50%;
+                max-width: 800px;
+                min-width: 480px;
+                margin: 0 auto;
+            }
+
+            .form input[type="number"] {
+                width: 200px;
+            }
+
+            .lastResult {
+                color: white;
+                padding: 3px;
+            }
+        </style>
     </head>
     <body>
+
         <div id="app"></div>
         <div id="demo"></div>
-        <h2>Number guessing game</h2>
+        <!-- input paragraph -->
+        <h1>Number guessing game</h1>
         <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
-        <div>
-            Enter a guess: <input type="number" />
-            <button onClick="handleOnClick">Submit guess</button>
+        <div class="form">
+            <label for="guessField">Enter a guess: </label> 
+            <input type="number" min="1" max="100" required id="guessField" class="guessField">
+            <input type="submit" value="Submit guess" class="guessSubmit">
         </div>
+
+         <!-- result paragraph -->
+        <div class="resultParas">
+            <p class="guesses"></p>
+            <p class="lastResult"></p>
+            <p class="lowOrHi"></p>
+        </div>
+
        <script src="./js/index.js"></script> 
+       <script>
+           /**
+            * .guess class类选择器 class="guess"
+            * #guess id选择器 id="guess"
+            * 属性选择器
+            */
+           // generate random number 
+           let randomNumber = Math.floor(Math.random() * 100) + 1;
+           // result paragraph guess result
+           const guesses = document.querySelector(".guesses");
+           // last result
+           const lastResult = document.querySelector(".lastResult");
+           // low or high
+           const lowOrHi = document.querySelector(".lowOrHi");
+           // guess input
+           const guessField = document.querySelector(".guessField");
+           // submit
+           const guessSubmit = document.querySelector(".guessSubmit");
+
+
+           let guessCount = 1;
+           let resetButton;
+
+           /**
+            * 猜谜
+            */
+           function  checkGuess() {
+               const useGuess = Number(guessField.value);
+               console.log(useGuess);
+            //    if  (guessCount === 1) {
+            //         guesses.textContent = "Previous guesses:";
+            //    }
+            //    guesses.textContent += userGuess + ' ';
+               if (useGuess > randomNumber) {
+                    alert("Too high");
+               } else if (useGuess < randomNumber) {
+                    alert("Too low");
+               }  else {
+                    alert("You got it!");
+               }
+           }
+
+           /**
+            * 游戏结束 
+            */
+           function setGameOver() {
+                guessField.disabled = true;
+                guessSubmit.disabled = true;
+                resetButton = document.createElement("button"); 
+                resetButton.value = "开始";
+                document.body.appendChild(resetButton);
+                resetButton.addEventListener("click", resetGame);
+           }
+
+           /**
+            * 重新开始
+            */
+           function resetGame() {
+                guessCount = 1;
+                const  resetParagraph = document.querySelectorAll(".resultParas p");
+                for (const resetPara of resetParas) {
+                    resetPara.textContent = '';
+                }
+                resetButton.parentNode.removeChild(resetButton);
+                guessField.disabled = false;
+                guessSubmit.disabled = false;
+                guessField.value = '';
+                guessField.focus();
+                lastResult.style.backgroundcolor = 'white';
+                randomNumber = Math.floor(Math.random()*100) + 1;
+           }
+           guessSubmit.addEventListener("click", checkGuess);
+
+
+       </script>
     </body>
 </html>
