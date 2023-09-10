@@ -78,7 +78,17 @@ function tipsMsg() {
     // button
     const closeBtn = document.createElement("button");
     closeBtn.textContent = "关闭"
-    pannel.append(closeBtn)
+    pannel.append(closeBtn);
+
+    /**
+     * Deletes the pannel element when the close button is clicked.
+     *
+     * @param {MouseEvent} event - The click event object.
+     * @return {undefined} This function does not return anything.
+     */
+    closeBtn.onclick = () =>  {
+        pannel.parentNode.removeChild(pannel);
+    };
 }
 
 /**
