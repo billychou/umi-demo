@@ -22,10 +22,21 @@
                 color: white;
                 padding: 3px;
             }
+
+            .guessContainer {
+                margin: 20px;
+                background-color: aqua; 
+            }
+
+            .msgBox {
+                margin: 5px;
+                display: flex;
+                background-color: gray;
+            }
         </style>
+        <script src="./js/utils.js"></script>
     </head>
     <body>
-
         <div id="app"></div>
         <div id="demo"></div>
         <!-- input paragraph -->
@@ -43,8 +54,24 @@
             <p class="lastResult"></p>
             <p class="lowOrHi"></p>
         </div>
-
-       <script src="./js/index.js"></script> 
+        <div  class="guessContainer">
+            <h2>Number guessing game</h2>
+            <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
+            <div class="form">
+                <label for="guess">Enter a guess: </label>
+                <input type="number" id="guess" name="guess" class="guessField" />
+                <input type="submit" class="guessSubmit" value="猜谜" /> 
+                <!-- <button onClick="handleOnClick">Submit guess</button> -->
+            </div>
+            <div class="resultPara">
+                <!-- 猜谜数字 -->
+                <div class="resultGuess"></div>  
+                <!-- 猜谜正确与否 -->
+                <div class="resultHighOrLow"></div>
+                <!-- 预留位置 -->
+                <div class="demo"></div>
+            </div>
+        </div>
        <script>
            /**
             * .guess class类选择器 class="guess"
@@ -74,10 +101,6 @@
            function  checkGuess() {
                const useGuess = Number(guessField.value);
                console.log(useGuess);
-            //    if  (guessCount === 1) {
-            //         guesses.textContent = "Previous guesses:";
-            //    }
-            //    guesses.textContent += userGuess + ' ';
                if (useGuess > randomNumber) {
                     alert("Too high");
                } else if (useGuess < randomNumber) {
@@ -117,8 +140,8 @@
                 randomNumber = Math.floor(Math.random()*100) + 1;
            }
            guessSubmit.addEventListener("click", checkGuess);
-
-
        </script>
+       <!--猜谜模块-->
+       <script src="./js/index.js"></script> 
     </body>
 </html>
