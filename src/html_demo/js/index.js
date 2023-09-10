@@ -1,3 +1,5 @@
+// import random from "./utils";
+
 const formGuessField = document.querySelector(".guessField");
 const formSubmit = document.querySelector(".guessSubmit");
 
@@ -7,7 +9,9 @@ const resultHighOrLow = document.querySelector(".resultHighOrLow");
 const demo = document.querySelector(".demo");
 
 
-const randomValue = Math.floor(Math.random() * 100);
+// const randomValue = Math.floor(Math.random() * 100);
+const  randomValue = random(500);
+console.log(randomValue);
 
 /**
  * 提交后check事件
@@ -36,7 +40,7 @@ console.log(formSubmit);
 formSubmit.addEventListener("click", guessCheck);
 
 function handleOnClick() {
-    
+
 }
 
 function app() {
@@ -54,6 +58,39 @@ const appDemo = () => {
     document.getElementById("demo").innerHTML = "demo";
 }
 
-app();
-appDemo();
+/**
+ * Generates a message box with a close button.
+ *
+ * @param {type} paramName - description of parameter
+ * @return {type} description of return value
+ */
+function tipsMsg() {
+    const html = document.querySelector("html");
+    const pannel = document.createElement("div");
+    pannel.setAttribute("class", "msgBox");
+    html.appendChild(pannel);
+    
+    // msg box
+    const msg = document.createElement("p");
+    msg.textContent = "This is a message box";
+    pannel.append(msg);
 
+    // button
+    const closeBtn = document.createElement("button");
+    closeBtn.textContent = "关闭"
+    pannel.append(closeBtn)
+}
+
+/**
+ * Executes the main function.
+ *
+ * @param {type} - None
+ * @return {undefined} - Does not return a value
+ */
+function main() {
+    tipsMsg();
+    app();
+    appDemo();
+}
+
+main();
