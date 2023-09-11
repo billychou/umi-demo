@@ -8,11 +8,9 @@
             }
 
             body {
-                width: 50%;
-                max-width: 800px;
-                min-width: 480px;
                 margin: 0 auto;
             }
+            
 
             .form input[type="number"] {
                 width: 200px;
@@ -32,6 +30,14 @@
                 margin: 5px;
                 display: flex;
                 background-color: gray;
+            }
+
+            .container {
+                margin: 20px;
+                height: 100px;
+                width: 25%;
+                /* float: left; */
+                background-color: lightcoral;
             }
         </style>
         <script src="./js/utils.js"></script>
@@ -72,7 +78,10 @@
                 <div class="demo"></div>
             </div>
         </div>
-       <script>
+        <div class="container">点击我</div>
+        <!-- <div id="canvas"></div> -->
+        <canvas id="canvas1"></canvas>
+        <script>
            /**
             * .guess class类选择器 class="guess"
             * #guess id选择器 id="guess"
@@ -90,11 +99,8 @@
            const guessField = document.querySelector(".guessField");
            // submit
            const guessSubmit = document.querySelector(".guessSubmit");
-
-
            let guessCount = 1;
            let resetButton;
-
            /**
             * 猜谜
             */
@@ -140,8 +146,9 @@
                 randomNumber = Math.floor(Math.random()*100) + 1;
            }
            guessSubmit.addEventListener("click", checkGuess);
-       </script>
-       <!--猜谜模块-->
-       <script src="./js/index.js"></script> 
+        </script>
+        <!--猜谜模块-->
+        <!-- 绑定事件随机更换颜色模块 -->
+        <script src="./js/index.js"></script> 
     </body>
 </html>

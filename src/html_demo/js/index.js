@@ -65,7 +65,7 @@ const appDemo = () => {
  * @return {type} description of return value
  */
 function tipsMsg() {
-    const html = document.querySelector("html");
+    const html = document.querySelector("body");
     const pannel = document.createElement("div");
     pannel.setAttribute("class", "msgBox");
     html.appendChild(pannel);
@@ -92,15 +92,95 @@ function tipsMsg() {
 }
 
 /**
+ * Attaches a click event listener to the container element.
+ * When the container is clicked, it changes the background color of the clicked element.
+ *
+ * @param {Event} event - The click event object.
+ * @return {void} This function does not return anything.
+ */
+function containerEvent() {
+    const container = document.querySelector(".container");
+    container.addEventListener("click", (event) => {
+        event.target.style.backgroundColor = bgChange();
+    });
+}
+
+
+
+function demoCanvas() {
+    const canvas = document.querySelector("canvas");
+    console.log(canvas);
+    const ctx = canvas.getContext("2d");
+    const width = (canvas.width = window.innerWidth);
+    const height = (canvas.height = window.innerHeight);
+    Ball.prototype.draw = function () {
+        ctx.beginPath();
+        ctx.fillStyle = this.color;
+        ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+        ctx.fill();
+    };
+
+    Ball.prototype.update = function () {
+        if (this.x + this.size >= width) {
+          this.velX = -this.velX;
+        }
+      
+        if (this.x - this.size <= 0) {
+          this.velX = -this.velX;
+        }
+      
+        if (this.y + this.size >= height) {
+          this.velY = -this.velY;
+        }
+      
+        if (this.y - this.size <= 0) {
+          this.velY = -this.velY;
+        }
+      
+        this.x += this.velX;
+        this.y += this.velY;
+    };
+
+
+
+}
+
+
+
+/**
  * Executes the main function.
  *
  * @param {type} - None
  * @return {undefined} - Does not return a value
  */
 function main() {
+    // 消息提醒
     tipsMsg();
     app();
     appDemo();
+    // 通过绑定事件更换随机颜色模块
+    containerEvent();
+    demoCanvas();
+    let testBall = new Ball(50, 100, 4, 4, "blue", 10);
+    testBall.x;
+    testBall.size;
+    testBall.color;
+    testBall.draw();
+
+    let balls = [];
+    while (balls.length < 25) {
+        let size = randomMinMax(10, 20);
+        let ball = new Ball(
+            // 为避免绘制错误，球至少离画布边缘球本身一倍宽度的距离
+            randomMinMax(0 + size, width - size),
+            randomMinMax(0 + size, height - size),
+            randomMinMax(-7, 7),
+            randomMinMax(-7, 7),
+            randomColor(),
+            size,
+        );
+        balls.push(ball);
+    }
 }
 
 main();
