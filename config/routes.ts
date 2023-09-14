@@ -38,6 +38,11 @@ export default [
                 name: "人工智能",
                 path: "/demo/canvas",
                 component: "./Demo/canvas"
+            },
+            {
+                name: "demo",
+                path: "/demo/demo",
+                component: "./Demo/effect_demo",
             }
        ]
     },
