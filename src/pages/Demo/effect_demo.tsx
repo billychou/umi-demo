@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 
 const EffectDemo: React.FC = () => {
     const [number, setNumber]  = useState(0);
+    const [state, setState] = useState({
+        name: "",
+        selected: false,
+    });
     console.count("render");
 
     /**
