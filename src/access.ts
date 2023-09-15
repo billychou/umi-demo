@@ -6,5 +6,10 @@ export default (initialState: API.UserInfo) => {
   );
   return {
     canSeeAdmin,
+    canReadFoo: true,
+    canUpdateFoo: true,
+    canDeleteFoo: (foo: any) => {
+      return foo.name === 'foo';
+    }
   };
 };
