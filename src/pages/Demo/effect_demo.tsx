@@ -14,7 +14,13 @@ const EffectDemo: React.FC = () => {
      * Case1: 连接到聊天服务器
      */
     useEffect(()=>{
-        
+        const githubUrl = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+        const fetchPromise = fetch(githubUrl);
+        console.log(fetchPromise);
+        fetchPromise.then(res => {
+            console.log(`收到相应: ${res.status}`);
+        })
+        console.log("已发送请求...");
     }, []);
 
 
