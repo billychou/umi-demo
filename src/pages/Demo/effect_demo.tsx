@@ -4,6 +4,10 @@ import { Card } from 'antd';
 const EffectDemo: React.FC = () => {
     const [number, setNumber]  = useState(0);
     const [position, setPosition] = useState({x: 0, y: 0});
+    const [state, setState] = useState({
+        name: "",
+        selected: false,
+    });
     console.count("render");
 
     /**
