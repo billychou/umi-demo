@@ -1,5 +1,4 @@
-import { useState } from "react"
-
+import { useState } from "react";
 
 const o = {a: 10, b: 20};
 Object.defineProperty(o, "c", {enumerable: false, value:30});
