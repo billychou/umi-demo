@@ -60,12 +60,10 @@ export const layout: RunTimeLayoutConfig = ({initialState}) => {
     logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
     menu: {
       locale: false,
-      // params: {
-      // userId: initialState?.currentUser?.userid,
-      // },
-      // actionRef: layoutActionRef,
-      // reuqest: async (params, defaultMenuData) => {
-      // },
     },
+    menuDataRender: (menuItems) => {
+      const menuData = initialState?.currentUser?.menu;
+      return menuData; 
+    }
   };
 };

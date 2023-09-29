@@ -68,6 +68,9 @@ declare namespace API {
     /** email */
     email?: string;
     gender?: UserGenderEnum;
+    menu?: {
+      
+    }
   }
 
   interface UserInfoVO {

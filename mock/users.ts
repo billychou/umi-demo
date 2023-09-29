@@ -23,11 +23,31 @@ export default defineMock({
     'GET /api/user/getUserData': (req, res) => {
         res.status(200).json({id:2, name:'bar'});
     },
-    'GET /api/user/getCurrentUser': (req, res) => {
+    'GET /api/users/getCurrentUser': (req, res) => {
         res.status(200).json({
             userid: "002436",
             username: "admin",
             nickname: "admin",
+            menu: [
+                {
+                    path: "/",
+                    name: "首页"
+                },
+                {
+                    path: "/demo",
+                    name: "产品管理",
+                    routes: [
+                        {
+                            path: '/demo/ref',
+                            name: '产品哈哈'
+                        },
+                        {
+                            path: '/demo/tree',
+                            name: '产品列表',
+                        }
+                    ]
+                }
+            ]
         });
     }
 });

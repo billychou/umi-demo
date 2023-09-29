@@ -72,7 +72,6 @@ const EffectDemo: React.FC = () => {
         for (const i of fruits) {
             console.log(i);
         }
-        
     }, []);
 
     return (
