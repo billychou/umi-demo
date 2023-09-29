@@ -105,7 +105,6 @@ const EffectDemo: React.FC<TextTypingEffectProps> = ({
         for (const i of fruits) {
             console.log(i);
         }
-        
     }, []);
 
     return (

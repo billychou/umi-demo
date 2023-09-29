@@ -29,11 +29,11 @@ export default defineMock({
     'GET /api/user/getUserData': (req, res) => {
         res.status(200).json({id:2, name:'bar'});
     },
-    'GET /api/users/getCurrentUser': (req, res) => {
-        res.status(200).json({
-            userid: "002436",
-            username: "admin",
-            nickname: "admin",
-        });
-    }
+    // 'GET /api/users/getCurrentUser': (req, res) => {
+    //     res.status(200).json({
+    //         userid: "002436",
+    //         username: "admin",
+    //         nickname: "admin",
+    //     });
+    // }
 });
