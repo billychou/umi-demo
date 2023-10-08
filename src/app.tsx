@@ -14,10 +14,16 @@ registerMicroApps([
 ]);
 start();
 
+interface menuData {
+  name?: string;
+  path?: string;
+}
+
 export interface CurrentUser {
   userid?: string;
   username?: string;
   nickname?: string;
+  menu?: menuData[];
 }
 
 export interface InitialState {
@@ -44,10 +50,8 @@ export const request: RequestConfig = {
   timeout: 1000,
   errorConfig: {
     errorHandler() {
-
     },
     errorThrower() {
-
     }
   },
   requestInterceptors: [],
@@ -60,10 +64,11 @@ export const layout: RunTimeLayoutConfig = ({initialState}) => {
     logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
     menu: {
       locale: false,
-    },
-    menuDataRender: (menuItems) => {
-      const menuData = initialState?.currentUser?.menu;
-      return menuData; 
+      params: {},
+      request: async (params, defaultMenuData) => {
+        const menuData = initialState?.currentUser?.menu;
+        return  menuData;
+      }
     }
   };
 };
