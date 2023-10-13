@@ -60,10 +60,18 @@ export const layout: RunTimeLayoutConfig = ({initialState}) => {
     logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
     menu: {
       locale: false,
+      params: {
+        userId: initialState?.currentUser?.userid  
+      },
+      request: async (params, defaultMenuData) => {
+        // const menuData = await getCurrentUser();
+        const menuData = initialState?.currentUser?.menu;
+        return menuData;
+      }
     },
-    menuDataRender: (menuItems) => {
-      const menuData = initialState?.currentUser?.menu;
-      return menuData; 
-    }
+    // menuDataRender: (menuItems) => {
+    //   const menuData = initialState?.currentUser?.menu;
+    //   return menuData; 
+    // }
   };
 };

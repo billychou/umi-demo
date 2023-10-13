@@ -4,6 +4,7 @@ export default [
     {
         path: '/',
         component: './Home',
+        icon: 'HomeOutlined'
     },
     {
         path: '/demo/ref',
