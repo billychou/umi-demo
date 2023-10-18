@@ -35,6 +35,9 @@
                 console.log(a, b);
             }
 
+            /**
+             * 迭代
+             */
             function demoIterator() {
                 const iterable1 = {};
                 iterable1[Symbol.iterator] = function* () {
@@ -45,9 +48,53 @@
                 console.log([...iterable1]);
             }
 
+            
+            /**
+             * 对象计算属性名
+             */
+            function demoObjComputerProperty() {
+                const user = "billy";
+                const user_info = {
+                    [user + "_id"]: 123, 
+                    age: 42
+                };
+                console.log(user_info);
+            }
+
+            /**
+             * for of demo
+            */
+            function demoForOf() {
+                const people = [
+                    {
+                        name: "billy", 
+                        family: {
+                            "mother": "lousheng",
+                            "father": "zhou",
+                            "sister": "fangyuan"
+                        },
+                        age: 35
+                    },
+                    {
+                        name: "mickey",
+                        family: {
+                            "mother": "mouse",
+                            "father": "chou",
+                            "sister": "xxxx"
+                        },
+                        age: 18
+                    }
+                ];
+                for (let {name, family: {father}, age} of people) {
+                    console.log(`name:${name}, age:${age}, father:${father}`);
+                }
+            }
+
             function main() {
                 demoObjFunc();
                 demoIterator();
+                demoObjComputerProperty();
+                demoForOf();
             }
             main();
         </script>   
