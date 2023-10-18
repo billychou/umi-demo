@@ -27,6 +27,19 @@ const HomePage: React.FC = () => {
     });
   }
 
+
+  /**
+   * param0 
+   * @param param0 
+   */
+  const demoObjFunc = ({a}) => {
+    console.log(a);
+  }
+
+  const demoFunc = (a) => {
+    console.log(a.a);
+  };
+
   /**
    * 获取最新日期
    */
@@ -39,6 +52,9 @@ const HomePage: React.FC = () => {
     const nextMonthDays = getDayDates(nextMonth);
     return [...lastMonthDays,...curDays, ...nextMonthDays];
   }
+
+  demoFunc({a: 1});
+  demoFunc({b: 1});
 
   return (
     <PageContainer ghost>
