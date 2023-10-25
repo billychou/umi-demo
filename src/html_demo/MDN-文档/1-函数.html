@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+
+        function demoThis() {
+            console.log(this);
+        }
+        demoThis();  // window 
+
+        const obj = {
+            firstName: "hello",
+            sayHi: function () {
+                console.log(this);
+                console.log("sayHi");
+            }
+        }
+        obj.sayHi("hello");
+   </script> 
+</body>
+</html>

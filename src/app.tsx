@@ -1,18 +1,6 @@
 // 运行时配置
-
 import { RequestConfig, RunTimeLayoutConfig } from "@umijs/max";
 import { getCurrentUser } from "./services/demo/UserController";
-import { registerMicroApps, start } from "qiankun";
-
-registerMicroApps([
-  {
-    name: 'react app',
-    entry: '//localhost:7001',
-    container:  '#yourContainer',
-    activeRule: '/yourActiveRule'
-  }
-]);
-start();
 
 interface menuData {
   name?: string;
@@ -44,7 +32,7 @@ export async function getInitialState(): Promise<InitialState> {
 }
 
 /**
- * 运行时配置，为项目进行统一的个性化的请求设定
+ * global request config
  */
 export const request: RequestConfig = {
   timeout: 1000,
@@ -58,17 +46,25 @@ export const request: RequestConfig = {
   responseInterceptors: []
 }
 
-export const layout: RunTimeLayoutConfig = ({initialState}) => {
+/**
+ * runtime layout config 
+ * @param param0 
+ * @returns 
+ */
+export const layout: RunTimeLayoutConfig = ({initialState, setInitialState}) => {
   return {
     title: '有趣的灵魂',
     logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
     menu: {
       locale: false,
       params: {},
-      request: async (params, defaultMenuData) => {
+      request: async () => {
         const menuData = initialState?.currentUser?.menu;
         return  menuData;
       }
+    },
+    childrenRender: (children) => {
+      return (<>{children}</>)
     }
   };
 };
