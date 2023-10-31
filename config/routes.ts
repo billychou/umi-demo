@@ -13,6 +13,10 @@ export default [
         path: '/demo/tree',
         component: './Demo/state_tree'
     },
+    {
+        path: '/demo/feedback',
+        component: './Demo/state_feedback_form' 
+    }
     //{
     //    path: '/demo',
     //    routes: [
