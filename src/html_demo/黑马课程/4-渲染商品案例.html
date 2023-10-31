@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="list">
+    </div>
+    <script>
+       const products = [
+         {
+             name: "zsc",
+             age: 18,
+             address: "郑州",
+         },
+         {
+             name: "qpp",
+             age: 15,
+             address: "许昌"
+         }
+       ];
+       let str = "";
+       products.forEach((item, index) => {
+             str += `<li>${item.name}--${item.age}--${item.address}</li>`;
+       });
+       const eleList = document.querySelector(".list");
+       eleList.innerHTML = str;
+       eleList.addEventListener("click", function(e) {
+             console.log(e.target.tagName);
+       });
+    </script> 
+</body>
+</html>

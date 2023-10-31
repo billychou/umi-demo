@@ -1,0 +1,102 @@
+<html>
+    <head>
+    </head>
+
+    <body>
+        <script type="text/javascript">
+            console.log("start");
+            const obj = {a:1, b:2};
+            const numbers = [];
+            /**
+             * Parses the given URL and extracts the protocol.
+             * @params url: string, A string representing the url to be parsed
+             */
+            function parseProtocol(url) {
+                const parsedURL = /^(\w+):\/\/([^/]+)\/(.*)$/.exec(url);
+                if (!parsedURL) {
+                    return false;
+                }
+                console.log(parsedURL);
+                const [, protocol, fullhost, fullpath] = parsedURL;
+                return protocol;
+            }
+
+
+            function demoObjFunc() {
+                const obj = {
+                    *[Symbol.iterator]() {
+                        for (const v of [0, 1, 2, 3]) {
+                            console.log(v);
+                            yield v;
+                        }
+                    }
+                };
+                const [a, b] = obj;
+                console.log(a, b);
+            }
+
+            /**
+             * 迭代
+             */
+            function demoIterator() {
+                const iterable1 = {};
+                iterable1[Symbol.iterator] = function* () {
+                    yield 1;
+                    yield 2;
+                    yield 3;
+                }
+                console.log([...iterable1]);
+            }
+
+            
+            /**
+             * 对象计算属性名
+             */
+            function demoObjComputerProperty() {
+                const user = "billy";
+                const user_info = {
+                    [user + "_id"]: 123, 
+                    age: 42
+                };
+                console.log(user_info);
+            }
+
+            /**
+             * for of demo
+            */
+            function demoForOf() {
+                const people = [
+                    {
+                        name: "billy", 
+                        family: {
+                            "mother": "lousheng",
+                            "father": "zhou",
+                            "sister": "fangyuan"
+                        },
+                        age: 35
+                    },
+                    {
+                        name: "mickey",
+                        family: {
+                            "mother": "mouse",
+                            "father": "chou",
+                            "sister": "xxxx"
+                        },
+                        age: 18
+                    }
+                ];
+                for (let {name, family: {father}, age} of people) {
+                    console.log(`name:${name}, age:${age}, father:${father}`);
+                }
+            }
+
+            function main() {
+                demoObjFunc();
+                demoIterator();
+                demoObjComputerProperty();
+                demoForOf();
+            }
+            main();
+        </script>   
+    </body>
+</html>

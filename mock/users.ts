@@ -31,7 +31,8 @@ export default defineMock({
             menu: [
                 {
                     path: "/",
-                    name: "首页"
+                    name: "首页",
+                    icon: "HomeOutlined"
                 },
                 {
                     path: "/demo",
