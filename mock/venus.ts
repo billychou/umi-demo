@@ -3,7 +3,7 @@ import { defineMock } from "@umijs/max";
 export default defineMock({
     'GET /api/venus/v1/local/user/queryAll': (req, res) => {
         res.status(200).json({
-            code: 0,
+            success: true,
             msg: "成功",
             data: [
                 {

@@ -1,3 +1,4 @@
 {
-    "javascript.suggest.completeFunctionCalls": true
+    "javascript.suggest.completeFunctionCalls": true,
+    "typescript.tsdk": "node_modules/typescript/lib"
 }

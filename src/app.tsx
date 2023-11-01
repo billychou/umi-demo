@@ -55,14 +55,14 @@ export const layout: RunTimeLayoutConfig = ({initialState, setInitialState}) => 
   return {
     title: '有趣的灵魂',
     logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
-    menu: {
-      locale: false,
-      params: {},
-      request: async () => {
-        const menuData = initialState?.currentUser?.menu;
-        return  menuData;
-      }
-    },
+    //menu: {
+    //  locale: false,
+    //  params: {},
+    //  request: async () => {
+    //    // const menuData = initialState?.currentUser?.menu;
+    //    // return  menuData;
+    //  }
+    //},
     childrenRender: (children) => {
       return (<>{children}</>)
     }
