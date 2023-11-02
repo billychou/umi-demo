@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Card } from 'antd';
+import { Button, Card } from 'antd';
 import { ProCard } from '@ant-design/pro-components';
 // import { Line } from '@antv/g2plot';
 import { Line } from '@ant-design/charts';
@@ -35,7 +35,11 @@ const AntV: React.FC = () => {
 
     return (<>
         <ProCard title="antv"> 
-            <Line {...config} />
+            <ProCard>
+                <Line {...config} />
+            </ProCard>
+            <ProCard>
+            </ProCard>
         </ProCard>
     </>);
 };
