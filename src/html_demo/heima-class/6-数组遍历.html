@@ -18,10 +18,11 @@
         const res = myArr.every(item => item>0);
         console.log(res);
         // every
-        
 
-
-
+        const total = myArr.reduce( (prev, current) => {
+            return prev + current;
+        });
+        console.log(total);
     </script>
 </body>
 </html>
