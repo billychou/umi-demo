@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // entries
+        const myArr = [1, 2, 4, 5, 6];
+        for([k, v] of myArr.entries()) {
+            console.log(k, v);
+        }
+
+        //every 
+        // every()是对数组中的每一项运行给定函数，如果该函数对每一项返回True,则返回True
+        const res = myArr.every(item => item>0);
+        console.log(res);
+        // every
+        
+
+
+
+    </script>
+</body>
+</html>
