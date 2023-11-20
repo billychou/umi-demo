@@ -35,7 +35,7 @@ export async function getInitialState(): Promise<InitialState> {
  * global request config
  */
 export const request: RequestConfig = {
-  timeout: 1000,
+  timeout: 5000,
   errorConfig: {
     errorHandler() {
     },
