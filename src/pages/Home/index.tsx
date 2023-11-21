@@ -9,7 +9,7 @@ import { Space, Flex } from 'antd';
  */
 const HomePage: React.FC = () => {
   return (
-    <PageContainer>
+    <PageContainer className={styles.container} header={{title: "", breadcrumb: ""}}>
       <Space size="small" direction="vertical">
         <BusinessCard />
         <HomeRow />
