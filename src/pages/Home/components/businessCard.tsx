@@ -2,6 +2,11 @@ import { useState } from 'react';
 import { StatisticCard } from '@ant-design/pro-components';
 import { Card, Divider, Row, Col } from 'antd';
 import { ProCard } from '@ant-design/pro-components';
+import CountSvg from '@/assets/icons/count.svg';
+import SuccessRateSvg from '@/assets/icons/success_rate.svg';
+import ResponseRateSvg from '@/assets/icons/response_rate.svg';
+import RtSvg from '@/assets/icons/rt.svg';
+
 
 const BusinessCard: React.FC = () => {
     const [responsive, setResponsive] = useState(false);
@@ -17,8 +22,7 @@ const BusinessCard: React.FC = () => {
                                     value: 12456,
                                     icon: (
                                         <img
-                                            // src={require('./assets/icon/icon_pay.png')}
-                                            src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*dr_0RKvVzVwAAAAAAAAAAABkARQnAQ"
+                                            src={CountSvg}
                                             alt="icon"
                                             style={{
                                                 width: 32,
@@ -37,8 +41,7 @@ const BusinessCard: React.FC = () => {
                                     value: "30%",
                                     icon: (
                                         <img
-                                            // src={require('./assets/icon/icon_pay.png')}
-                                            src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*dr_0RKvVzVwAAAAAAAAAAABkARQnAQ"
+                                            src={SuccessRateSvg}
                                             alt="icon"
                                             style={{
                                                 width: 32,
@@ -60,8 +63,7 @@ const BusinessCard: React.FC = () => {
                                     value: "30%",
                                     icon: (
                                         <img
-                                            // src={require('./assets/icon/icon_pay.png')}
-                                            src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*dr_0RKvVzVwAAAAAAAAAAABkARQnAQ"
+                                            src={ResponseRateSvg}
                                             alt="icon"
                                             style={{
                                                 width: 32,
@@ -79,8 +81,7 @@ const BusinessCard: React.FC = () => {
                                     value: "30%",
                                     icon: (
                                         <img
-                                            // src={require('./assets/icon/icon_pay.png')}
-                                            src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*dr_0RKvVzVwAAAAAAAAAAABkARQnAQ"
+                                            src={RtSvg}
                                             alt="icon"
                                             style={{
                                                 width: 32,
