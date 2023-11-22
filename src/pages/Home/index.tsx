@@ -2,6 +2,8 @@ import { PageContainer } from '@ant-design/pro-components';
 import styles from './index.less';
 import HomeRow from './components/homeRow';
 import BusinessCard from './components/businessCard';
+import FilterBox from './components/formSelect';
+import MetricLine from './components/metricLine';
 import { Space, Flex } from 'antd';
 
 /**
@@ -12,6 +14,8 @@ const HomePage: React.FC = () => {
     <PageContainer className={styles.container} header={{title: "", breadcrumb: ""}}>
       <Space size="small" direction="vertical">
         <BusinessCard />
+        <FilterBox />
+        <MetricLine></MetricLine>
         <HomeRow />
       </Space>
     </PageContainer>
