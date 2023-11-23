@@ -20,7 +20,8 @@
     "@antv/g-webgl": "^1.9.34",
     "@antv/g2plot": "^2.4.31",
     "@umijs/max": "^4.0.69",
-    "antd": "^5.5.1"
+    "antd": "^5.5.1",
+    "interactjs": "^1.10.21"
   },
   "devDependencies": {
     "@types/react": "^18.2.6",
