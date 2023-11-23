@@ -12,4 +12,9 @@ export default defineConfig({
   },
   routes: routes, 
   npmClient: 'pnpm',
+  theme: {
+    // '@primary-color': '#1890ff',
+    'root-entry-name': 'variable',
+    primaryColor: '#25b864',
+  },
 });

@@ -14,10 +14,13 @@
     "@ant-design/charts": "^1.4.2",
     "@ant-design/icons": "^5.1.0",
     "@ant-design/pro-components": "^2.4.16",
+    "@antv/g": "^5.18.21",
+    "@antv/g-canvas": "^1.11.24",
+    "@antv/g-svg": "^1.10.23",
+    "@antv/g-webgl": "^1.9.34",
     "@antv/g2plot": "^2.4.31",
     "@umijs/max": "^4.0.69",
-    "antd": "^5.5.1",
-    "qiankun": "^2.10.11"
+    "antd": "^5.5.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.6",

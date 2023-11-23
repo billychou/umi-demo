@@ -1,8 +1,14 @@
 import { ProCard } from "@ant-design/pro-components";
+import { Space, DatePicker, Button} from "antd";
 
 const FilterBox: React.FC = () => {
     return (
-        <ProCard>筛选框</ProCard>
+        <ProCard>
+            <Space.Compact size="small" style={{float: "right"}}> 
+                <DatePicker /> 
+                <Button type="primary">查询</Button> 
+            </Space.Compact>
+        </ProCard>
     )
 }
 

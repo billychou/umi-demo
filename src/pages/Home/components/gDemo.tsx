@@ -1,19 +1,17 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect } from 'react';
 import { Canvas, CanvasEvent, Circle } from '@antv/g';
 import { Text } from '@antv/g';
 import { Renderer } from '@antv/g-canvas';
 
-/**
- * g-demo 
- * @returns 
- */
-export default function GDemo() {
+
+const GDemo:React.FC = () => {
     useEffect(() => {
+        
         const node1 = new Circle({
             style: {
                 r: 50,
-                fill: "green",
-                stroke: 'red',
+                fill:'red',
+                stroke: 'blue',
                 lineWidth: 2,
                 lineCap: 'round',
                 lineJoin: 'round',
@@ -22,18 +20,17 @@ export default function GDemo() {
         });
         const text1 = new Text({
             style: {
-                text: 'hello',
+                text: 'hello world',
                 fill: 'blue',
-                fontSize: 5,
+                fontSize: 20,
                 shadowColor:'red',
             }
         });
         node1.appendChild(text1);
+
         const renderer = new Renderer();
         const canvas = new Canvas({
             container: 'container',
-            x: 400,
-            y: 400,
             width: 500,
             height: 500,
             renderer,
@@ -41,9 +38,11 @@ export default function GDemo() {
         canvas.addEventListener(CanvasEvent.READY, () => {
             canvas.appendChild(node1);
         });
-
+        // canvas.draw();
     }, []);
     return (
         <div id="container"></div>
     );
-}
+};
+
+export default GDemo;
