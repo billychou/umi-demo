@@ -1,10 +1,11 @@
 import { useEffect, useState, useRef } from "react";
-import { 
-    Canvas, 
-    CanvasEvent, 
-    Circle, 
-    Text, 
-    Line } from '@antv/g';
+import {
+    Canvas,
+    CanvasEvent,
+    Circle,
+    Text,
+    Line
+} from '@antv/g';
 import { Renderer } from '@antv/g-canvas';
 import interact from 'interactjs';
 
@@ -24,7 +25,7 @@ export default function GDemo() {
                 lineWidth: 2,
                 lineCap: 'round',
                 lineJoin: 'round',
-                shadowColor:'red',
+                shadowColor: 'red',
                 cursor: 'pointer',
             }
         });
@@ -37,10 +38,11 @@ export default function GDemo() {
                 lineWidth: 2,
                 lineCap: 'round',
                 lineJoin: 'round',
-                shadowColor:'red',
+                shadowColor: 'red',
                 cursor: 'pointer',
             }
-        })
+        });
+
         const text1 = new Text({
             style: {
                 text: 'start',
@@ -62,23 +64,9 @@ export default function GDemo() {
         });
         node1.appendChild(text1);
         node1.setPosition(200, 200);
-        node1.addEventListener('mouseenter', () => {
-            node1.style.fill = "red";
-        });
-
-        node1.addEventListener("mouseleave", () => {
-            node1.style.fill = "green";
-        });
 
         node2.appendChild(text2);
         node2.setPosition(400, 200);
-        node2.addEventListener('mouseenter', () => {
-            node2.style.fill = "red";
-        });
-
-        node2.addEventListener("mouseleave", () => {
-            node2.style.fill = "green";
-        });
 
         const renderer = new Renderer();
 
@@ -86,14 +74,13 @@ export default function GDemo() {
             style: {
                 x1: 200,
                 y1: 200,
-                x2: 400, 
+                x2: 400,
                 y2: 200,
                 lineWidth: 2,
-                fill: 'red', 
+                fill: 'red',
                 stroke: "red"
             },
         });
-
 
         const canvas = new Canvas({
             container: 'container',
@@ -101,6 +88,30 @@ export default function GDemo() {
             width: 800,
             height: 800,
             renderer,
+        });
+
+        canvas.appendChild(edge);
+        canvas.appendChild(node1);
+        canvas.appendChild(node2);
+
+        node1.addEventListener('mouseenter', () => {
+            node1.style.fill = "red";
+            console.log("node1 mouseenter");
+        });
+
+        node1.addEventListener("mouseleave", () => {
+            node1.style.fill = "green";
+            console.log("node1 mouseleave");
+        });
+
+        node2.addEventListener('mouseenter', () => {
+            node2.style.fill = "red";
+            console.log("node2 mouseenter");
+        });
+
+        node2.addEventListener("mouseleave", () => {
+            node2.style.fill = "green";
+            console.log("node2 mouseleave");
         });
 
         interact(node1, {
@@ -115,12 +126,8 @@ export default function GDemo() {
                 edge.style.y1 = y1;
             },
         });
-       
-        canvas.addEventListener(CanvasEvent.READY, () => {
-            canvas.appendChild(edge);
-            canvas.appendChild(node1);
-            canvas.appendChild(node2);
-        });
+
+
 
 
     }, []);
