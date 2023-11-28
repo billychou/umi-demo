@@ -20,6 +20,18 @@ export default defineMock({
                 description: "中国人民是中国共产党领导的多党、多领域、多阶层的政权机关，是中国人民政治协商会议的执行机关",
                 updatedAt: '2018-08-23T07:30:43.751Z',
             }
-        ] 
+        ]
+    },
+    'GET /api/calendar': {
+        success: true,
+        message: null,
+        data: {
+            "2023-11-28": [{ type: 'warning', content: 'This is warning event.' }],
+            "2023-11-27": [{ type: 'success', content: 'This is usual event.' }],
+            "2023-11-26": [{ type: 'error', content: 'This is error event.' }],
+            "2023-11-25": [{ type: 'error', content: 'This is error event.' }],
+            "2023-11-24": [{ type: 'error', content: 'This is error event.' }],
+            "2023-11-23": [{ type: 'error', content: 'This is error event.' }],
+        }
     }
 });

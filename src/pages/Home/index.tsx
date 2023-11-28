@@ -4,6 +4,7 @@ import HomeRow from './components/homeRow';
 import BusinessCard from './components/businessCard';
 import FilterBox from './components/formSelect';
 import MetricLine from './components/metricLine';
+import CalendarDemo from './components/calendarDemo';
 import GDemo from './components/gDemo';
 import { Space, Flex } from 'antd';
 
@@ -18,6 +19,7 @@ const HomePage: React.FC = () => {
         <BusinessCard />
         <FilterBox />
         <MetricLine />
+        <CalendarDemo />
         <HomeRow />
         {/* <GDemo /> */}
       </Space>

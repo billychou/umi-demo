@@ -24,3 +24,14 @@ export async function getHomeData(
         ...(options || {}),
     });
 }
+
+
+export async function getCalendarData(params?: any, options?: { [key: string]: any }) {
+    return request<HomeResponse>('/api/calendar', {
+        method: 'GET',
+        params: {
+           ...params,
+        },
+       ...(options || {}),
+    });
+}
