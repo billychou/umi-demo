@@ -17,9 +17,10 @@
 </head>
 
 <body>
-    <div class="box">
+    <div class="box"
         <div id="container"></div>
         <div id="container2"></div>
+        <div id="container3"></div>
     </div>
 
     <script>
@@ -55,6 +56,26 @@
             value: 'https://gw.alipayobjects.com/os/antvdemo/assets/data/scatter.json'
         }).encode('x', 'weight').encode('y', 'height').encode('color', 'gender');
         chart2.render();
+
+        // chart3
+        const chart3 = new G2.Chart({
+            container: 'container3',
+        });
+        chart3.options({
+            type: 'interval',
+            data: [
+                { genre: 'Sports', sold: 20 },
+                { genre: 'Strategy', sold: 100 },
+                { genre: 'Action', sold: 120 },
+                { genre: 'Shooter', sold: 350 },
+                { genre: 'Other', sold: 150 },
+            ],
+            encode: {
+                x: 'genre',
+                y:'sold',
+            },
+        });
+        chart3.render();
     </script>
 </body>
 
