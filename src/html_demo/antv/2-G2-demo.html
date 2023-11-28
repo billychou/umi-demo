@@ -6,11 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://unpkg.com/@antv/g2/dist/g2.min.js"></script>
+    <style>
+        .box {
+            display: flex;
+            flex-direction: row;
+            flex-flow: row wrap;
+        }
+
+    </style>
 </head>
 
 <body>
-    <div id="container"></div>
-    <div id="container2"></div>
+    <div class="box">
+        <div id="container"></div>
+        <div id="container2"></div>
+    </div>
+
     <script>
         // 准备数据
         const data = [
