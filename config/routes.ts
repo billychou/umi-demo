@@ -5,33 +5,45 @@ export default [
         path: '/',
         name: "首页",
         component: './Home',
-        icon: 'HomeOutlined'
+        icon: 'HomeOutlined',
     },
     {
-        name: "demo",
-        path: '/demo/ref',
-        component: './Demo/ref_demo'
+        name: "日历",
+        path: '/calendar',
+        component: './Home/components/calendarDemo',
+        icon: 'CalendarOutlined',
     },
     {
-        name: "tree",
-        path: '/demo/tree',
-        component: './Demo/state_tree'
+        name: "监控趋势图",
+        path: '/trade',
+        component: './Home/components/metricLine',
+        icon: 'LineChartOutlined',
     },
-    {
-        name: "feedback",
-        path: '/demo/feedback',
-        component: './Demo/state_feedback_form' 
-    },
-    {
-        name: "canvas",
-        path: '/demo/canvas',
-        component: './Demo/canvas'
-    },
-    {
-        name: "antv",
-        path: "/demo/antv",
-        component: "./Demo/antv"
-    }
+    // {
+    //     name: "ref",
+    //     path: '/demo/ref',
+    //     component: './Demo/ref_demo'
+    // },
+    // {
+    //     name: "tree",
+    //     path: '/demo/tree',
+    //     component: './Demo/state_tree'
+    // },
+    // {
+    //     name: "feedback",
+    //     path: '/demo/feedback',
+    //     component: './Demo/state_feedback_form' 
+    // },
+    // {
+    //     name: "canvas",
+    //     path: '/demo/canvas',
+    //     component: './Demo/canvas'
+    // },
+    // {
+    //     name: "antv",
+    //     path: "/demo/antv",
+    //     component: "./Demo/antv"
+    // }
     //{
     //    path: '/demo',
     //    routes: [

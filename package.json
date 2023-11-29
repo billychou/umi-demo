@@ -18,6 +18,7 @@
     "@antv/g-canvas": "^1.11.24",
     "@antv/g-svg": "^1.10.23",
     "@antv/g-webgl": "^1.9.34",
+    "@antv/g2": "^5.1.10",
     "@antv/g2plot": "^2.4.31",
     "@umijs/max": "^4.0.69",
     "antd": "^5.5.1",
