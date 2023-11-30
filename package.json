@@ -11,7 +11,7 @@
     "start": "npm run dev"
   },
   "dependencies": {
-    "@ant-design/charts": "^1.4.2",
+    "@ant-design/charts": "^2.0.0",
     "@ant-design/icons": "^5.1.0",
     "@ant-design/pro-components": "^2.4.16",
     "@antv/g": "^5.18.21",
