@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
-import { Chart } from '@antv/g2';
 import dayjs from 'dayjs';
+import { Line } from '@ant-design/plots';
 
 const generateLineData = () => {
   const result = [];
@@ -17,38 +16,26 @@ const generateLineData = () => {
 }
 
 const lineData = generateLineData();
-
+const config = {
+  data: lineData,
+  xField: 'key',
+  yField: 'value',
+  point: {
+    shapeField: 'square',
+    sizeField: 4,
+  },
+  interaction: {
+    tooltip: {
+      marker: false,
+    },
+  },
+  style: {
+    lineWidth: 2,
+  },
+};
 const MetricLine: React.FC = () => {
-  useEffect(() => {
-    const chart = new Chart({
-      container: 'container',
-    });
-    chart.options({
-      type: 'line',
-      autoFit: true,
-      data: {
-        type: "inline",
-        value: lineData,
-        transform: [
-          
-        ]
-        // callback: (data) => {
-        //   return data;
-        // }
-      },
-      encode: {
-        x: 'key',
-        y: 'value'
-      },
-      // axis: {
-        // x: {
-        // }
-      // }
-    });
-    chart.render();
-  }, []);
   return (
-    <div id="container"></div>
+    <Line {...config}></Line>
   );
 }
 
