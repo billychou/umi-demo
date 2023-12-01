@@ -20,14 +20,18 @@ const config = {
   data: lineData,
   xField: 'key',
   yField: 'value',
-  point: {
-    shapeField: 'square',
-    sizeField: 4,
-  },
   interaction: {
     tooltip: {
       marker: false,
     },
+  },
+  axis: {
+    x: {
+      title: "时间"
+    },
+    y: {
+      title: "交易量"
+    }
   },
   style: {
     lineWidth: 2,
