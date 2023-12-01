@@ -26,7 +26,16 @@ const MetricLine: React.FC = () => {
     chart.options({
       type: 'line',
       autoFit: true,
-      data: lineData,
+      data: {
+        type: "inline",
+        value: lineData,
+        transform: [
+          
+        ]
+        // callback: (data) => {
+        //   return data;
+        // }
+      },
       encode: {
         x: 'key',
         y: 'value'
