@@ -17,9 +17,14 @@ const generateLineData = () => {
 
 const lineData = generateLineData();
 const config = {
-  data: lineData,
-  xField: 'key',
-  yField: 'value',
+  data: {
+    type: 'inline',
+    value: lineData
+  },
+  encode: {
+    x: i => dayjs(i.key).format('HH:mm'),
+    y: 'value'
+  },
   interaction: {
     tooltip: {
       marker: false,
@@ -27,10 +32,19 @@ const config = {
   },
   axis: {
     x: {
-      title: "时间"
+      title: "时间",
+      tick: true,
+      label: true,
+      line: true,
+      tickCount: 5,
     },
     y: {
       title: "交易量"
+    }
+  },
+  scale: {
+    x: {
+      padding: 10,
     }
   },
   style: {
