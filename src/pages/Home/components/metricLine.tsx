@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import { ProCard } from '@ant-design/pro-components';
 import { Line } from '@ant-design/plots';
 
 const generateLineData = () => {
@@ -53,7 +54,9 @@ const config = {
 };
 const MetricLine: React.FC = () => {
   return (
-    <Line {...config}></Line>
+    <ProCard>
+      <Line {...config}></Line>
+    </ProCard>
   );
 }
 
