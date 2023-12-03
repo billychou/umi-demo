@@ -24,7 +24,23 @@
         console.log(Star.prototype.constructor === Star);
         console.log(ldh.__proto__);
         console.log(ldh.__proto__ === Star.prototype);
+        // Part2 面向对象程序设计
+        // 2.1  对象字面量
+        let person = {
+            name: 'Nicholas',
+            age: 30,
+            job: 'Software Engineer',
+            sayName: function() {
+                console.log(this.name);
+            }
+        };
+
         
+        Object.defineProperty(person, 'name', {
+            value: "Zhou Songchuan"
+        });
+        console.log(person);
+
     </script>
 </body>
 </html>
