@@ -19,6 +19,13 @@ export default [
         component: './Home/components/metricLine',
         icon: 'LineChartOutlined',
     },
+    {
+        name: "G2Demo",
+        path: '/g2',
+        component: './Demo/g2_demo',
+        icon: "ZoomInOutlined"
+
+    }
     // {
     //     name: "ref",
     //     path: '/demo/ref',

@@ -18,12 +18,24 @@ const generateLineData = () => {
 
 const lineData = generateLineData();
 const config = {
+  /**
+   * G2中的数据只要用于指定需要可视化的数据和进行数据转换, 也就是数据的预处理
+   */
   data: {
     type: 'inline',
-    value: lineData
+    value: lineData,
+    transform: [
+      {
+        type: 'filter',
+        callback: (d) => {
+          return d;
+        }
+      }
+    ]
   },
   encode: {
-    x: i => dayjs(i.key).format('HH:mm'),
+   // x: i => dayjs(i.key).format('HH:mm'),
+    x: 'key',
     y: 'value'
   },
   interaction: {
@@ -33,6 +45,7 @@ const config = {
   },
   axis: {
     x: {
+      type: "timeCat",
       title: "时间",
       tick: true,
       label: true,
@@ -46,6 +59,9 @@ const config = {
   scale: {
     x: {
       padding: 10,
+    },
+    y: {
+
     }
   },
   style: {
