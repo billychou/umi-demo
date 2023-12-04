@@ -13,6 +13,8 @@ import { Space, Flex } from 'antd';
  * HomePage Component 
  */
 const HomePage: React.FC = () => {
+  console.log("环境变量", process.env, process.env.UMI_DEV);
+  console.log(window.__venus__)
   return (
     <PageContainer className={styles.container} header={{title: "", breadcrumb: ""}}>
       <Space size="small" direction="vertical">

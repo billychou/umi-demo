@@ -1,6 +1,9 @@
 import { defineConfig } from '@umijs/max';
 import routes from './routes';
 
+const path = require('path');
+
+
 export default defineConfig({
   antd: {},
   access: {},
@@ -17,4 +20,7 @@ export default defineConfig({
     'root-entry-name': 'variable',
     primaryColor: '#25b864',
   },
+  alias: {
+    '@public': path.resolve("./public"),
+  }
 });

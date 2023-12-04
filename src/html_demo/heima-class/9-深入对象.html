@@ -47,7 +47,16 @@
             edition: 1
         };
 
-        
+        Object.defineProperty(book, 'year', {
+            get: function() {
+                return this._year;
+            },
+            set: function(value) {
+                if (value > 2004) {
+                    this._year = value;
+                }
+            }
+        });
 
 
 
