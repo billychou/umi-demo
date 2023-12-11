@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 
 
 export default function G2Demo() {
-    const  container = useRef(null);
+    const container = useRef(null);
     const chart = useRef(null);
 
     useEffect(() => {
@@ -53,7 +53,7 @@ export default function G2Demo() {
         // 获得 Interval Mark
         const interval = chart.getNodesByType("interval")[0];
         // 模拟并且更新 Interval 的数据
-        const newData = interval.data().map((d) => ({
+        const newData = interval.data().map(d => ({
           ...d,
           sold: Math.random() * 400 + 100
         }));

@@ -1,6 +1,7 @@
+import { useEffect, useRef } from 'react';
 import dayjs from 'dayjs';
 import { ProCard } from '@ant-design/pro-components';
-import { Line } from '@ant-design/plots';
+import { Chart } from '@antv/g2';
 
 const generateLineData = () => {
   const result = [];
@@ -17,24 +18,14 @@ const generateLineData = () => {
 }
 
 const lineData = generateLineData();
+
 const config = {
-  /**
-   * G2中的数据只要用于指定需要可视化的数据和进行数据转换, 也就是数据的预处理
-   */
+  type: "line",
   data: {
     type: 'inline',
     value: lineData,
-    transform: [
-      {
-        type: 'filter',
-        callback: (d) => {
-          return d;
-        }
-      }
-    ]
   },
   encode: {
-   // x: i => dayjs(i.key).format('HH:mm'),
     x: 'key',
     y: 'value'
   },
@@ -68,10 +59,43 @@ const config = {
     lineWidth: 2,
   },
 };
+
+
 const MetricLine: React.FC = () => {
+  const container = useRef(null);
+  const chart = useRef(null);
+
+  /**
+   * useEffect 
+   */
+  useEffect(() => {
+    if (!chart.current) {
+      chart.current = initChart(container.current);
+    }
+  }, []);
+
+  /**
+   * 初始化图表 
+   * @param container 
+   */
+  const initChart = (container) => {
+    console.log("initChart");
+      const chart = new Chart({
+        container,
+        autoFit: true
+      });
+      chart.options(config);
+      chart.render();
+      return chart;
+  };
+
+  const updateChart = () => {
+
+  };
+
   return (
     <ProCard>
-      <Line {...config}></Line>
+      <div ref={container}></div>
     </ProCard>
   );
 }
