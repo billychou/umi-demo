@@ -1,13 +1,15 @@
-import { useMemo } from 'react';
+import { useMemo, useContext } from 'react';
 import dayjs, { type Dayjs } from 'dayjs';
 import { getHomeData } from '@/services/home';
 import { Card, Row, Col, List } from 'antd';
 import { useRequest, useModel } from '@umijs/max';
+import { MyContext } from '../MyContext';
 
 
 const HomeRow: React.FC = () => {
     const { initialState } = useModel('@@initialState');
     const { currentUser } = initialState;
+    const { color } = useContext(MyContext);
 
     /**
      * 获取当月日期
@@ -54,7 +56,7 @@ const HomeRow: React.FC = () => {
                 <Col span={12}>
                     <Card>
                         <div>
-                            <h1>欢迎您, {currentUser.nickname}</h1>
+                            <h1>欢迎您, {currentUser.nickname}, context, {color}</h1>
                             <p>{latestDate.join(",")}</p>
                         </div>
                     </Card>
