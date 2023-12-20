@@ -1,4 +1,9 @@
 import { createContext } from "react";
-const initialValue = {color: 1}
+
+interface MyContextType  {
+    color: number;
+}
+
+const initialValue: MyContextType = {color: 1}
 
 export const MyContext = createContext(initialValue);

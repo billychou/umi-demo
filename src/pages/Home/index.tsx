@@ -17,18 +17,18 @@ import { MyContext } from './MyContext';
 const HomePage: React.FC = () => {
   const [color, setColor] = useState(10);
   return (
-    <PageContainer className={styles.container} header={{title: "", breadcrumb: ""}}>
-      <Space size="small" direction="vertical">
-        <MyContext.Provider value={{color}}>
+    <PageContainer className={styles.container} header={{ title: "", breadcrumb: "" }}>
+      <MyContext.Provider value={{ color }}>
+        <Space size="small" direction="vertical">
           <BusinessCard />
           <FilterBox />
           <MetricLine />
           <CalendarDemo />
           <HomeRow />
-        </MyContext.Provider>
-        {/* <GDemo /> */}
-      </Space>
-    </PageContainer>
+          {/* <GDemo /> */}
+        </Space>
+      </MyContext.Provider >
+    </PageContainer >
   );
 };
 

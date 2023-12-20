@@ -56,7 +56,8 @@ const HomeRow: React.FC = () => {
                 <Col span={12}>
                     <Card>
                         <div>
-                            <h1>欢迎您, {currentUser.nickname}, context, {color}</h1>
+                            <h1>欢迎您, {currentUser.nickname}</h1>
+                            <p>{color}</p>
                             <p>{latestDate.join(",")}</p>
                         </div>
                     </Card>
