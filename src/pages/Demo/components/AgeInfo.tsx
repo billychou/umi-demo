@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import styles from './index.less';
-import { MyContext } from '@/pages/Demo/ContextDemo';
+import { useDemoContext } from '../MyContextProvider';
 type AgeInfoProps = {
   age: number;
   addAge: (age: number) => void;
@@ -8,7 +8,7 @@ type AgeInfoProps = {
 
 
 export const AgeInfo: React.FC = () => {
-    const {age, addAge} = useContext(MyContext); 
+    const {age, addAge} = useDemoContext();
     return (<div className={styles.ageInfo}>
       <h3>age: {age}</h3>
       <button onClick={addAge}>Happy birthday!</button>
