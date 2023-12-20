@@ -20,12 +20,28 @@ export default [
         icon: 'LineChartOutlined',
     },
     {
-        name: "G2Demo",
-        path: '/g2',
-        component: './Demo/g2_demo',
-        icon: "ZoomInOutlined"
-
-    }
+        name: "Demo",
+        path: "/demo",
+        icon: "ZoomInOutlined",
+        routes: [
+            {
+                name: "G2Demo",
+                path: '/demo/g2',
+                component: './Demo/g2_demo',
+            },
+            {
+                name: "Context",
+                path: '/demo/context',
+                component: './Demo/ContextDemo'
+            }
+        ]
+    },
+    // {
+        // name: "G2Demo",
+        // path: '/g2',
+        // component: './Demo/g2_demo',
+        // icon: "ZoomInOutlined"
+    // },
     // {
     //     name: "ref",
     //     path: '/demo/ref',

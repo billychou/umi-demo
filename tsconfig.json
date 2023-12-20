@@ -15,7 +15,7 @@
     "strict": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    // "forceConsistentCasingInFileNames": false,
+    "forceConsistentCasingInFileNames": false,
     "paths": {
       "@/*": ["src/*"],
       "@@/*": ["src/.umi/*"],

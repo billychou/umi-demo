@@ -22,6 +22,7 @@ export default defineMock({
             }
         ]
     },
+
     'GET /api/calendar': {
         success: true,
         message: null,
