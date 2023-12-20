@@ -1,7 +1,9 @@
 // 运行时配置
 import settings from "@config/settings";
+import {message} from "antd";
 import { RequestConfig, RequestOptions, RunTimeLayoutConfig } from "@umijs/max";
 import { getCurrentUser } from "./services/demo/UserController";
+import type { RuntimeConfig } from "@umijs/max";
 
 interface menuData {
   name?: string;
@@ -44,6 +46,18 @@ const authRequestHeaderInterceptor = (url: string , options: RequestOptions) => 
   }
 }
 
+const resInterceptor = (response: any) => {
+  if (response.status === 200) {
+    let result = response.data;
+    if (result.code > 0 && result.code < 10000) {
+      message.error(result.msg);
+    } else if (result.code >= 10000) {
+      message.warning(result.msg);
+    }
+  }
+  return response;
+}
+
 /**
  * global request config
  */
@@ -56,7 +70,7 @@ export const request: RequestConfig = {
     }
   },
   requestInterceptors: [authRequestHeaderInterceptor],
-  responseInterceptors: []
+  responseInterceptors: [resInterceptor]
 }
 
 

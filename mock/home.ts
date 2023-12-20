@@ -26,6 +26,7 @@ export default defineMock({
         success: true,
         message: null,
         data: {
+            "code": 100000,
             "2023-11-28": [{ type: 'warning', content: 'This is warning event.' }],
             "2023-11-27": [{ type: 'success', content: 'This is usual event.' }],
             "2023-11-26": [{ type: 'error', content: 'This is error event.' }],
