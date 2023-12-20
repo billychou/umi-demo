@@ -1,4 +1,5 @@
 // 运行时配置
+import settings from "@config/settings";
 import { RequestConfig, RequestOptions, RunTimeLayoutConfig } from "@umijs/max";
 import { getCurrentUser } from "./services/demo/UserController";
 
@@ -33,12 +34,14 @@ export async function getInitialState(): Promise<InitialState> {
 
 const authRequestHeaderInterceptor = (url: string , options: RequestOptions) => {
   let _url = url.concat("?token=123456");
+  console.log(settings.appCode);
   return {
     url: _url, 
     options: {
       ...options,
-      headers: {token: "123456", ...options?.headers}
-    }}
+      headers: {token: "token", ...options?.headers}
+    }
+  }
 }
 
 /**

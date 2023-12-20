@@ -3,7 +3,6 @@ import routes from './routes';
 
 const path = require('path');
 
-
 export default defineConfig({
   antd: {},
   access: {},
@@ -21,6 +20,7 @@ export default defineConfig({
     primaryColor: '#25b864',
   },
   alias: {
+    '@config': path.resolve("./config"),
     '@public': path.resolve("./public"),
   }
 });
