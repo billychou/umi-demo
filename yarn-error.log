@@ -1,0 +1,62 @@
+Arguments: 
+  /Users/admin/.nvm/versions/node/v20.0.0/bin/node /Users/admin/.nvm/versions/node/v20.0.0/bin/yarn
+
+PATH: 
+  /Users/admin/.nvm/versions/node/v20.0.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Users/admin/Library/Application Support/JetBrains/Toolbox/scripts:/Users/admin/dev/flutter/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  20.0.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error [ERR_SOCKET_CONNECTION_TIMEOUT]: Socket connection timeout
+      at new NodeError (node:internal/errors:399:5)
+      at internalConnectMultiple (node:net:1098:20)
+      at Timeout.internalConnectMultipleTimeout (node:net:1637:3)
+      at listOnTimeout (node:internal/timers:575:11)
+      at process.processTimers (node:internal/timers:514:7)
+
+npm manifest: 
+  {
+    "private": true,
+    "author": "",
+    "scripts": {
+      "dev": "max dev",
+      "build": "max build",
+      "format": "prettier --cache --write .",
+      "prepare": "husky install",
+      "postinstall": "max setup",
+      "setup": "max setup",
+      "start": "npm run dev"
+    },
+    "dependencies": {
+      "@ant-design/charts": "^1.4.2",
+      "@ant-design/icons": "^5.1.0",
+      "@ant-design/pro-components": "^2.4.16",
+      "@antv/g2plot": "^2.4.31",
+      "@umijs/max": "^4.0.69",
+      "antd": "^5.5.1",
+      "qiankun": "^2.10.11"
+    },
+    "devDependencies": {
+      "@types/react": "^18.2.6",
+      "@types/react-dom": "^18.2.4",
+      "husky": "^8.0.3",
+      "lint-staged": "^13.2.2",
+      "prettier": "^2.8.8",
+      "prettier-plugin-organize-imports": "^3.2.2",
+      "prettier-plugin-packagejson": "^2.4.3",
+      "typescript": "^5.0.4"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

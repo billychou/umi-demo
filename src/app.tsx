@@ -1,6 +1,9 @@
 // 运行时配置
-import { RequestConfig, RunTimeLayoutConfig } from "@umijs/max";
+import settings from "@config/settings";
+import {message} from "antd";
+import { RequestConfig, RequestOptions, RunTimeLayoutConfig } from "@umijs/max";
 import { getCurrentUser } from "./services/demo/UserController";
+import type { RuntimeConfig } from "@umijs/max";
 
 interface menuData {
   name?: string;
@@ -31,6 +34,30 @@ export async function getInitialState(): Promise<InitialState> {
   };
 }
 
+const authRequestHeaderInterceptor = (url: string , options: RequestOptions) => {
+  let _url = url.concat("?token=123456");
+  console.log(settings.appCode);
+  return {
+    url: _url, 
+    options: {
+      ...options,
+      headers: {token: "token", ...options?.headers}
+    }
+  }
+}
+
+const resInterceptor = (response: any) => {
+  if (response.status === 200) {
+    let result = response.data;
+    if (result.code > 0 && result.code < 10000) {
+      message.error(result.msg);
+    } else if (result.code >= 10000) {
+      message.warning(result.msg);
+    }
+  }
+  return response;
+}
+
 /**
  * global request config
  */
@@ -42,9 +69,10 @@ export const request: RequestConfig = {
     errorThrower() {
     }
   },
-  requestInterceptors: [],
-  responseInterceptors: []
+  requestInterceptors: [authRequestHeaderInterceptor],
+  responseInterceptors: [resInterceptor]
 }
+
 
 /**
  * runtime layout config 
