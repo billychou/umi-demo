@@ -19,8 +19,8 @@
 </head>
 
 <body>
-    <button id="open" onclick="modalOpen()">打开</button>
-    <button id="close" onclick="modalClose()">关闭</button>
+    <button id="open">打开</button>
+    <button id="close">关闭</button>
     <script>
         function Modal(title = "", message = "") {
             console.log("modal");
@@ -33,15 +33,20 @@
             document.body.appendChild(this.modalBox);
         };
 
-        function modalOpen() {
-            const modalBox = new Modal("打开", "打开不易，且行切珍惜");
-            console.log(modalBox);
+        Modal.prototype.open = () => {
+            document.body.appendChild(this.modalBox);
         }
 
-        function modalClose() {
+        document.querySelector("#open").addEventListener("click", () => {
+            const modalBox = new Modal("打开", "打开不易，且行切珍惜");
+            modalBox.open();
+        });
+        document.querySelector("#close").addEventListener("click", () => {
             const modalBox = new Modal("关闭", "关闭不易，且行切珍惜");
-            console.log(modalBox);
-        }
+            modalBox.open();
+        });
+
+
     </script>
 </body>
 
