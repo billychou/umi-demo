@@ -3,10 +3,8 @@ import { Canvas, CanvasEvent, Circle } from '@antv/g';
 import { Text } from '@antv/g';
 import { Renderer } from '@antv/g-canvas';
 
-
 const GDemo:React.FC = () => {
     useEffect(() => {
-        
         const node1 = new Circle({
             style: {
                 r: 50,

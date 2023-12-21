@@ -1,4 +1,4 @@
-import { useMemo, useContext } from 'react';
+import React, { useMemo, useContext } from 'react';
 import dayjs, { type Dayjs } from 'dayjs';
 import { getHomeData } from '@/services/home';
 import { Card, Row, Col, List } from 'antd';
@@ -8,6 +8,7 @@ import { MyContext } from '../MyContext';
 
 const HomeRow: React.FC = () => {
     const { initialState } = useModel('@@initialState');
+    const { user: {username} } = useModel('userModel');
     const { currentUser } = initialState;
     const { color } = useContext(MyContext);
 
@@ -59,6 +60,7 @@ const HomeRow: React.FC = () => {
                             <h1>欢迎您, {currentUser.nickname}</h1>
                             <p>{color}</p>
                             <p>{latestDate.join(",")}</p>
+                            <p>userModel, {username} </p>
                         </div>
                     </Card>
                 </Col>
