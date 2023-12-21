@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .modal {
+            position: relative;
+            width: 250px;
+            max-width: 80%;
+            background: gold;
+            border-radius: 8px;
+            padding: 1em 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="open" onclick="modalOpen()">打开</button>
+    <button id="close" onclick="modalClose()">关闭</button>
+    <script>
+        function Modal(title = "", message = "") {
+            console.log("modal");
+            this.modalBox = document.createElement("div");
+            this.modalBox.className = "modal";
+            this.modalBox.innerHTML = `
+                <h3>${title}</h3>
+                <p>${message}</p>`;
+            console.log(this.modalBox);
+            document.body.appendChild(this.modalBox);
+        };
+
+        function modalOpen() {
+            const modalBox = new Modal("打开", "打开不易，且行切珍惜");
+            console.log(modalBox);
+        }
+
+        function modalClose() {
+            const modalBox = new Modal("关闭", "关闭不易，且行切珍惜");
+            console.log(modalBox);
+        }
+    </script>
+</body>
+
+</html>
