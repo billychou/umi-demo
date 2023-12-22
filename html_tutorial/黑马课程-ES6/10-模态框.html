@@ -23,18 +23,24 @@
     <button id="close">关闭</button>
     <script>
         function Modal(title = "", message = "") {
-            console.log("modal");
+            const modalbox = document.querySelector(".modal");
+            modalbox && modalbox.remove();
             this.modalBox = document.createElement("div");
             this.modalBox.className = "modal";
             this.modalBox.innerHTML = `
                 <h3>${title}</h3>
                 <p>${message}</p>`;
-            console.log(this.modalBox);
-            document.body.appendChild(this.modalBox);
+            // document.body.appendChild(this.modalBox);
+            // document.body.append(this.modalBox);
         };
 
-        Modal.prototype.open = () => {
-            document.body.appendChild(this.modalBox);
+        // Modal.prototype.open = () => {
+        //     console.log(this.modalBox);
+        //     document.body.appendChild(this.modalBox);
+        // }
+
+        Modal.prototype.open = function () {
+            document.body.append(this.modalBox);
         }
 
         document.querySelector("#open").addEventListener("click", () => {
@@ -45,7 +51,6 @@
             const modalBox = new Modal("关闭", "关闭不易，且行切珍惜");
             modalBox.open();
         });
-
 
     </script>
 </body>

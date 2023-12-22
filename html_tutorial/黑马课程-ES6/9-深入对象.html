@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Star(name="") {
+            this.name = name;
+        };
+
+        Star.prototype.sing = function() {
+            // console.log('唱歌');
+        };
+
+        Star.prototype.dance = function() {
+            // console.log('跳舞');
+        };
+        Star.prototype.getName = function () {
+            console.log(this);
+        }
+
+        Star.prototype.echoName = () => {
+            console.log(this);
+        }
+        let star = new Star("小明");
+        star.getName();
+        star.echoName();
+
+        // const ldh = new Star();
+        // console.log(Star.prototype.constructor === Star);
+        // console.log(ldh.__proto__);
+        // console.log(ldh.__proto__ === Star.prototype);
+        // // Part2 面向对象程序设计
+        // // 2.1  对象字面量
+        // let person = {
+        //     name: 'Nicholas',
+        //     age: 30,
+        //     job: 'Software Engineer',
+        //     sayName: function() {
+        //         console.log(this.name);
+        //     }
+        // };
+
+        
+        // Object.defineProperty(person, 'name', {
+        //     value: "Zhou Songchuan"
+        // });
+        // console.log(person);
+
+        // // 访问器属性
+        // var book = {
+        //     _year: 2004,
+        //     edition: 1
+        // };
+
+        // Object.defineProperty(book, 'year', {
+        //     get: function() {
+        //         return this._year;
+        //     },
+        //     set: function(value) {
+        //         if (value > 2004) {
+        //             this._year = value;
+        //         }
+        //     }
+        // });
+        // let descriptor = Object.getOwnPropertyDescriptor(person, 'name'); 
+        // console.log(descriptor);
+
+
+
+    </script>
+</body>
+</html>

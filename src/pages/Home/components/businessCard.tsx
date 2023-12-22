@@ -1,11 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ProCard, StatisticCard } from '@ant-design/pro-components';
 import { Space, Divider, Flex } from 'antd';
 import CountSvg from '@/assets/icons/count.svg';
 import SuccessRateSvg from '@/assets/icons/success_rate.svg';
 import ResponseRateSvg from '@/assets/icons/response_rate.svg';
 import RtSvg from '@/assets/icons/rt.svg';
-
 
 
 const BusinessCard: React.FC = () => {
