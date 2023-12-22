@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Canvas, CanvasEvent, Circle } from '@antv/g';
 import { Text } from '@antv/g';
 import { Renderer } from '@antv/g-canvas';
+import React from 'react';
 
 const GDemo:React.FC = () => {
     useEffect(() => {
