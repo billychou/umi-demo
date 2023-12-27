@@ -7,11 +7,42 @@
 </head>
 <body>
     <script>
+        // 浅拷贝
         const originalObj = { name: 'John', age: 30, address: { city: 'New York' } };
         const shallowCopy = Object.assign({}, originalObj);
         shallowCopy.address.city = 'Los Angeles';
         console.log(originalObj.address.city);
         console.log(shallowCopy);
+        // 深拷贝
+        const deepCopy = JSON.parse(JSON.stringify(originalObj));
+        deepCopy.address.city = 'Los Angeles';
+        console.log(originalObj.address.city);
+        console.log(deepCopy);
+
+        // 递归函数，自己调用自己, 容易栈溢出
+        let i = 1;
+        function fn() {
+            console.log(`第${i}次`);
+            if (i >= 10) {
+                return;
+            }
+            i++;
+            fn();
+        }
+        fn();
+
+        // recursion example
+        function recursion(n) {
+            if (n <= 0) {
+                return;
+            }
+            console.log(n);
+            recursion(n - 1);
+        }
+
+        // deep copy example
+        const now = new Date();
+        
     </script>
 </body>
 </html>
