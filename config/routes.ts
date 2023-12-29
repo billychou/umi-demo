@@ -1,5 +1,3 @@
-import { patchAtBootstrapping } from "qiankun/es/sandbox/patchers";
-
 export default [
     {
         path: '/',
@@ -25,101 +23,20 @@ export default [
         icon: "ZoomInOutlined",
         routes: [
             {
-                name: "G2Demo",
-                path: '/demo/g2',
-                component: './Demo/g2_demo',
+                name: "G2",
+                path: "/demo/g2",
+                component: "./Demo/g2_demo",
             },
             {
                 name: "Context",
-                path: '/demo/context',
-                component: './Demo/ContextDemo'
+                path: "/demo/context",
+                component: "./Demo/ContextDemo",
+            },
+            {
+                name: "State",
+                path: "/demo/state",
+                component: "./Demo/StateDemo"
             }
         ]
     },
-    // {
-        // name: "G2Demo",
-        // path: '/g2',
-        // component: './Demo/g2_demo',
-        // icon: "ZoomInOutlined"
-    // },
-    // {
-    //     name: "ref",
-    //     path: '/demo/ref',
-    //     component: './Demo/ref_demo'
-    // },
-    // {
-    //     name: "tree",
-    //     path: '/demo/tree',
-    //     component: './Demo/state_tree'
-    // },
-    // {
-    //     name: "feedback",
-    //     path: '/demo/feedback',
-    //     component: './Demo/state_feedback_form' 
-    // },
-    // {
-    //     name: "canvas",
-    //     path: '/demo/canvas',
-    //     component: './Demo/canvas'
-    // },
-    // {
-    //     name: "antv",
-    //     path: "/demo/antv",
-    //     component: "./Demo/antv"
-    // }
-    //{
-    //    path: '/demo',
-    //    routes: [
-    //        {
-    //            path: "/demo/ref",
-    //            component: './Demo/ref_demo'
-    //        },
-    //        {
-    //            path: "/demo/state",
-    //            component: './Demo/state_demo'
-    //        },
-    //        {
-    //            path: "/demo/tree",
-    //            component: './Demo/state_tree'
-    //        },
-    //        {
-    //            path: "/demo/feedback",
-    //            component: './Demo/state_feedback_form'
-    //        },
-    //        {
-    //            path: "/demo/canvas",
-    //            component: "./Demo/canvas"
-    //        },
-    //        {
-    //            path: "/demo/demo",
-    //            component: "./Demo/effect_demo",
-    //        }
-    //   ]
-    //},
-    //{
-    //    path: '/about',
-    //    routes: [
-    //        {
-    //            path: "/about/server",
-    //            component: './Home'
-    //        }, 
-    //        {
-    //            path: "/about/qualinity",
-    //            component: './Home'
-    //        },
-    //        {
-    //            path: "/about/schedule",
-    //            component: './Home'
-    //        } 
-    //    ]
-    //},
-    //{
-    //    path: '/settings',
-    //    routes: [
-    //        {
-    //            path: '/settings/user',
-    //            component: './Alert/Users',
-    //        }
-    //    ]
-    //},
 ];
