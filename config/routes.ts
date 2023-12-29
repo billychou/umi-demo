@@ -36,6 +36,11 @@ export default [
                 name: "State",
                 path: "/demo/state",
                 component: "./Demo/StateDemo"
+            },
+            {
+                name: "search",
+                path: "/demo/search",
+                component: "./Demo/UseSearchParamsDemo"
             }
         ]
     },
