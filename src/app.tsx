@@ -36,7 +36,6 @@ export async function getInitialState(): Promise<InitialState> {
 
 const authRequestHeaderInterceptor = (url: string , options: RequestOptions) => {
   let _url = url.concat("?token=123456");
-  console.log(settings.appCode);
   return {
     url: _url, 
     options: {
@@ -84,14 +83,6 @@ export const layout: RunTimeLayoutConfig = ({initialState, setInitialState}) => 
     title: '有趣的灵魂',
     logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
     siderWidth: 150,
-    //menu: {
-    //  locale: false,
-    //  params: {},
-    //  request: async () => {
-    //    // const menuData = initialState?.currentUser?.menu;
-    //    // return  menuData;
-    //  }
-    //},
     childrenRender: (children) => {
       return (<>{children}</>)
     }

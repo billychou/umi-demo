@@ -126,10 +126,6 @@ export default function GDemo() {
                 edge.style.y1 = y1;
             },
         });
-
-
-
-
     }, []);
     return (
         <div id="container"></div>
