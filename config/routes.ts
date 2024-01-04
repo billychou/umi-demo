@@ -41,7 +41,18 @@ export default [
                 name: "search",
                 path: "/demo/search",
                 component: "./Demo/UseSearchParamsDemo"
+            },
+            {
+                name: "FunctionComponet",
+                path: "/demo/function",
+                component: "./Example/FunctionComponent"
             }
         ]
     },
+    {
+        name:  "登录",
+        layout: false,
+        path: '/login',
+        component: './Login'
+    }
 ];
