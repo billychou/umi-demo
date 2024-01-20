@@ -6,6 +6,11 @@ export default [
         icon: 'HomeOutlined',
     },
     {
+        layout: false,
+        path: '/tuliu',
+        component: './Tuliu'
+    },
+    {
         name: "日历",
         path: '/calendar',
         component: './Home/components/calendarDemo',

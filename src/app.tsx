@@ -1,6 +1,7 @@
 // 运行时配置
+import React from 'react';
 import settings from "@config/settings";
-import {message} from "antd";
+import {ConfigProvider, message} from "antd";
 import { RequestConfig, RequestOptions, RunTimeLayoutConfig } from "@umijs/max";
 import { getCurrentUser } from "./services/demo/UserController";
 import type { RuntimeConfig } from "@umijs/max";
@@ -21,6 +22,18 @@ export interface InitialState {
   name?: string;
   currentUser?: CurrentUser;
 }
+
+
+// ConfigProvider.config({
+//   prefixCls: settings.antPrefix,
+//   theme: {
+//     primaryColor: "#197dff",
+//     errorColor: "#F5222D",
+//     warningColor: "#FAAD14",
+//     successColor: "#52C41A",
+//     infoColor: "#197dff",
+//   },
+// });
 
 // export const layoutActionRef = createRef<{reload: ()=>void}>();
 // 全局初始化数据配置，用于 Layout 用户信息和权限初始化
@@ -75,7 +88,7 @@ export const request: RequestConfig = {
 
 /**
  * runtime layout config 
- * @param param0 
+ * @param initialState
  * @returns 
  */
 export const layout: RunTimeLayoutConfig = ({initialState, setInitialState}) => {
