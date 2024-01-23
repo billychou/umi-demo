@@ -23,6 +23,11 @@ export default [
         icon: 'LineChartOutlined',
     },
     {
+        layout: false,
+        path: '/backend',
+        component: "./Demo/styled_component_demo"
+    },
+    {
         name: "Demo",
         path: "/demo",
         icon: "ZoomInOutlined",
@@ -51,11 +56,16 @@ export default [
                 name: "FunctionComponet",
                 path: "/demo/function",
                 component: "./Example/FunctionComponent"
+            },
+            {
+                name: "style-components",
+                path: "/demo/style",
+                component: "./Demo/styled_component_demo"
             }
         ]
     },
     {
-        name:  "登录",
+        name: "登录",
         layout: false,
         path: '/login',
         component: './Login'
