@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 
@@ -14,4 +15,15 @@ const Container = styled.div`
   background-repeat: no-repeat;
 `;
 
-export default Container;
+enum Color {
+  RED,
+  GREEN,
+  YELLOW
+};
+
+const MyContainer = () => {
+  console.log(Color.RED);
+  return (<Container></Container>)
+}
+
+export default MyContainer;
