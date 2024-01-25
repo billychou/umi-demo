@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext } from "react";
 
 const initialValues = {
     age: 10,
@@ -16,7 +16,8 @@ type DemoContextProviderProps = {
     children: React.ReactNode
 }
 
-export const DemoContextProvider = (props: DemoContextProviderProps) => {
+
+export const DemoContextProvider: React.FC<DemoContextProviderProps> = (props) => {
     const [age, setAge] = useState(10);
     const addAge = () => {
         setAge(age => age + 1);

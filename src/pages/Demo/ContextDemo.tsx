@@ -1,8 +1,14 @@
-import { createContext, useState } from 'react';
+import React, { createContext, useState } from 'react';
 import { AgeInfo } from './components/AgeInfo';
 import { DemoContextProvider } from './MyContextProvider';
 
-const ContextDemo: React.FC = () => {
+
+interface ContextDemoProps {
+    
+}
+
+
+const ContextDemo: React.FC<ContextDemoProps> = () => { 
     return (
         <DemoContextProvider>
            <AgeInfo /> 

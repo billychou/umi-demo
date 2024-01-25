@@ -1,6 +1,7 @@
 // 运行时配置
+import React from 'react';
 import settings from "@config/settings";
-import {message} from "antd";
+import {ConfigProvider, message} from "antd";
 import { RequestConfig, RequestOptions, RunTimeLayoutConfig } from "@umijs/max";
 import { getCurrentUser } from "./services/demo/UserController";
 import type { RuntimeConfig } from "@umijs/max";
@@ -22,6 +23,18 @@ export interface InitialState {
   currentUser?: CurrentUser;
 }
 
+
+// ConfigProvider.config({
+//   prefixCls: settings.antPrefix,
+//   theme: {
+//     primaryColor: "#197dff",
+//     errorColor: "#F5222D",
+//     warningColor: "#FAAD14",
+//     successColor: "#52C41A",
+//     infoColor: "#197dff",
+//   },
+// });
+
 // export const layoutActionRef = createRef<{reload: ()=>void}>();
 // 全局初始化数据配置，用于 Layout 用户信息和权限初始化
 // 更多信息见文档：https://umijs.org/docs/api/runtime-config#getinitialstate
@@ -36,7 +49,6 @@ export async function getInitialState(): Promise<InitialState> {
 
 const authRequestHeaderInterceptor = (url: string , options: RequestOptions) => {
   let _url = url.concat("?token=123456");
-  console.log(settings.appCode);
   return {
     url: _url, 
     options: {
@@ -76,7 +88,7 @@ export const request: RequestConfig = {
 
 /**
  * runtime layout config 
- * @param param0 
+ * @param initialState
  * @returns 
  */
 export const layout: RunTimeLayoutConfig = ({initialState, setInitialState}) => {
@@ -84,14 +96,6 @@ export const layout: RunTimeLayoutConfig = ({initialState, setInitialState}) => 
     title: '有趣的灵魂',
     logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
     siderWidth: 150,
-    //menu: {
-    //  locale: false,
-    //  params: {},
-    //  request: async () => {
-    //    // const menuData = initialState?.currentUser?.menu;
-    //    // return  menuData;
-    //  }
-    //},
     childrenRender: (children) => {
       return (<>{children}</>)
     }

@@ -29,6 +29,7 @@
             this.modalBox.className = "modal";
             this.modalBox.innerHTML = `
                 <h3>${title}</h3>
+                <i>x</i>
                 <p>${message}</p>`;
             // document.body.appendChild(this.modalBox);
             // document.body.append(this.modalBox);
@@ -43,10 +44,13 @@
             document.body.append(this.modalBox);
         }
 
+
+
         document.querySelector("#open").addEventListener("click", () => {
             const modalBox = new Modal("打开", "打开不易，且行切珍惜");
             modalBox.open();
         });
+        
         document.querySelector("#close").addEventListener("click", () => {
             const modalBox = new Modal("关闭", "关闭不易，且行切珍惜");
             modalBox.open();

@@ -11,6 +11,7 @@ export default defineConfig({
   request: {},
   layout: {
     title: '有趣的灵魂',
+    locale: false,
   },
   routes: routes, 
   npmClient: 'pnpm',
