@@ -1,6 +1,7 @@
 {
-  "private": true,
-  "author": "",
+  "name": "umi-demo",
+  "private": false,
+  "author": "zhousongchuan",
   "scripts": {
     "dev": "max dev",
     "build": "max build",
@@ -22,7 +23,9 @@
     "@antv/g2plot": "^2.4.31",
     "@umijs/max": "^4.0.69",
     "antd": "^5.5.1",
-    "interactjs": "^1.10.21"
+    "init": "^0.1.2",
+    "interactjs": "^1.10.21",
+    "storybook": "^7.6.9"
   },
   "devDependencies": {
     "@types/react": "^18.2.6",
