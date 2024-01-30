@@ -28,6 +28,11 @@ export default [
         component: "./Demo/styled_component_demo"
     },
     {
+        name: "告警列表",
+        path: "/alert/list",
+        component: './Alert/Users',
+    },
+    {
         name: "Demo",
         path: "/demo",
         icon: "ZoomInOutlined",
