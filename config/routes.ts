@@ -33,6 +33,11 @@ export default [
         component: "./Table"
     },
     {
+        name: "告警列表",
+        path: "/alert/list",
+        component: './Alert/Users',
+    },
+    {
         name: "Demo",
         path: "/demo",
         icon: "ZoomInOutlined",
