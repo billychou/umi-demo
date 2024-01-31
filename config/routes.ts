@@ -28,6 +28,11 @@ export default [
         component: "./Demo/styled_component_demo"
     },
     {
+        name: "表格",
+        path: "/table",
+        component: "./Table"
+    },
+    {
         name: "Demo",
         path: "/demo",
         icon: "ZoomInOutlined",

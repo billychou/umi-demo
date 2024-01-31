@@ -12,8 +12,7 @@ import React, { useRef, useState } from 'react';
 import CreateForm from './components/CreateForm';
 import UpdateForm, { FormValueType } from './components/UpdateForm';
 
-const { addUser, queryUserList, deleteUser, modifyUser } =
-  services.UserController;
+const { addUser, queryUserList, deleteUser, modifyUser } = services.UserController;
 
 /**
  * 添加节点
@@ -113,6 +112,9 @@ const TableList: React.FC<unknown> = () => {
       title: '性别',
       dataIndex: 'gender',
       hideInForm: true,
+      filters: true,
+      onFilter: true,
+      // ellipsis: true,
       valueEnum: {
         0: { text: '男', status: 'MALE' },
         1: { text: '女', status: 'FEMALE' },
@@ -164,13 +166,11 @@ const TableList: React.FC<unknown> = () => {
         request={async (params, sorter, filter) => {
           const { data, success } = await queryUserList({
             ...params,
-            // FIXME: remove @ts-ignore
-            // @ts-ignore
             sorter,
             filter,
           });
           return {
-            data: data?.list || [],
+            data: data || [],
             success,
           };
         }}
