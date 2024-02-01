@@ -7,8 +7,8 @@ import styles from './index.less';
 import { Card, message } from 'antd';
 
 import { SearchOutlined } from '@ant-design/icons';
-import type { GetRef, TableColumnsType, TableColumnType } from 'antd';
-import { Button, Input, Space, Table } from 'antd';
+import type { GetRef, TableColumnType } from 'antd';
+import { Button, Input, Space } from 'antd';
 import type { FilterDropdownProps } from 'antd/es/table/interface';
 import Highlighter from 'react-highlight-words';
 

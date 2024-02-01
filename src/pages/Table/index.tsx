@@ -14,6 +14,12 @@ import UpdateForm, { FormValueType } from './components/UpdateForm';
 
 const { addUser, queryUserList, deleteUser, modifyUser } = services.UserController;
 
+type DataSourceItem = {
+  name: string;
+  nickName: string;
+  gender: string;
+};
+
 /**
  * 添加节点
  * @param fields
@@ -89,6 +95,8 @@ const TableList: React.FC<unknown> = () => {
   const actionRef = useRef<ActionType>();
   const [row, setRow] = useState<API.UserInfo>();
   const [selectedRowsState, setSelectedRows] = useState<API.UserInfo[]>([]);
+  const [dataSource, setDataSource] = useState([]);
+
   const columns: ProDescriptionsItemProps<API.UserInfo>[] = [
     {
       title: '名称',
@@ -169,6 +177,7 @@ const TableList: React.FC<unknown> = () => {
             sorter,
             filter,
           });
+          setDataSource(data);
           return {
             data: data || [],
             success,
@@ -218,6 +227,9 @@ const TableList: React.FC<unknown> = () => {
           rowKey="id"
           type="form"
           columns={columns}
+          onLoad={(data) => {
+            setDataSource(data);
+          }}
         />
       </CreateForm>
       {stepFormValues && Object.keys(stepFormValues).length ? (
