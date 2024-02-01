@@ -2,149 +2,28 @@ import { defineMock } from "@umijs/max";
 
 export default defineMock({
     'GET /api/venus/v1/local/user/queryAll': (req, res) => {
+        const userNameList = ["周林", "陈帅", "明光", "东东", "小红", "小丽丽"];
+        const nickNameList = ["提昂", "逍遥子", "风清扬", "一号位"];
+        const tablesListDataSource = [];
+        for (let i = 0; i < 40; i += 1) {
+            tablesListDataSource.push({
+                id: i,
+                userName: userNameList[Math.floor(Math.random() * userNameList.length)],
+                nickName: nickNameList[Math.floor(Math.random() * nickNameList.length)],
+                userGroupNameRefs: [],
+                userGroupIdRefs: [],
+                createTime: new Date().getTime(),
+                updateTime: new Date().getTime(),
+                createUser: "admin",
+                updateUser: "admin",
+                contact: null
+            });
+        };
+
         res.status(200).json({
             success: true,
             msg: "成功",
-            data: [
-                {
-                    id: 1,
-                    userName: "002306",
-                    userGroupNameRefs: [],
-                    userGroupIdRefs: [],
-                    nickName: "周恒超",
-                    createTime: 1685373527777,
-                    updateTime: null,
-                    createUser: "admin",
-                    updateUser: null
-                },
-                {
-                    id: 2,
-                    userName: "002436",
-                    userGroupNameRefs: [],
-                    userGroupIdRefs: [],
-                    nickName: "周松川",
-                    contact: null,
-                    createTime: 1685369120931,
-                    updateTime: 1685369120931,
-                    createUser: "[system]",
-                    updateUser: "[system]"
-                },
-                {
-                    id: 3,
-                    userName: "002306",
-                    userGroupNameRefs: [],
-                    userGroupIdRefs: [],
-                    nickName: "周恒超",
-                    createTime: 1685373527777,
-                    updateTime: null,
-                    createUser: "admin",
-                    updateUser: null
-                },
-                {
-                    id: 4,
-                    userName: "002436",
-                    userGroupNameRefs: [],
-                    userGroupIdRefs: [],
-                    nickName: "周松川",
-                    contact: null,
-                    createTime: 1685369120931,
-                    updateTime: 1685369120931,
-                    createUser: "[system]",
-                    updateUser: "[system]"
-                },
-                {
-                    id: 5,
-                    userName: "002306",
-                    userGroupNameRefs: [],
-                    userGroupIdRefs: [],
-                    nickName: "周恒超",
-                    createTime: 1685373527777,
-                    updateTime: null,
-                    createUser: "admin",
-                    updateUser: null
-                },
-                {
-                    id: 6,
-                    userName: "002436",
-                    userGroupNameRefs: [],
-                    userGroupIdRefs: [],
-                    nickName: "周松川",
-                    contact: null,
-                    createTime: 1685369120931,
-                    updateTime: 1685369120931,
-                    createUser: "[system]",
-                    updateUser: "[system]"
-                },
-                {
-                    id: 7,
-                    userName: "002306",
-                    userGroupNameRefs: [],
-                    userGroupIdRefs: [],
-                    nickName: "周恒超",
-                    createTime: 1685373527777,
-                    updateTime: null,
-                    createUser: "admin",
-                    updateUser: null
-                },
-                {
-                    id: 8,
-                    userName: "002436",
-                    userGroupNameRefs: [],
-                    userGroupIdRefs: [],
-                    nickName: "周松川",
-                    contact: null,
-                    createTime: 1685369120931,
-                    updateTime: 1685369120931,
-                    createUser: "[system]",
-                    updateUser: "[system]"
-                },
-                {
-                    id: 9,
-                    userName: "002306",
-                    userGroupNameRefs: [],
-                    userGroupIdRefs: [],
-                    nickName: "周恒超",
-                    createTime: 1685373527777,
-                    updateTime: null,
-                    createUser: "admin",
-                    updateUser: null
-                },
-                {
-                    id: 10,
-                    userName: "002436",
-                    userGroupNameRefs: [],
-                    userGroupIdRefs: [],
-                    nickName: "周松川",
-                    contact: null,
-                    createTime: 1685369120931,
-                    updateTime: 1685369120931,
-                    createUser: "[system]",
-                    updateUser: "[system]"
-                },
-                {
-                    id: 11,
-                    userName: "002306",
-                    userGroupNameRefs: [],
-                    userGroupIdRefs: [],
-                    nickName: "周恒超",
-                    createTime: 1685373527777,
-                    updateTime: null,
-                    createUser: "admin",
-                    updateUser: null
-                },
-                {
-                    id: 12,
-                    userName: "002436",
-                    userGroupNameRefs: [],
-                    userGroupIdRefs: [],
-                    nickName: "周松川",
-                    contact: null,
-                    createTime: 1685369120931,
-                    updateTime: 1685369120931,
-                    createUser: "[system]",
-                    updateUser: "[system]"
-                }
-            ],
+            data: tablesListDataSource,
         });
     }
 });

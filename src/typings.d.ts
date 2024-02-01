@@ -12,6 +12,7 @@ declare module "*.mp3";
 declare module "*.bmp";
 declare module "*.tiff";
 declare module "omit.js";
+declare module 'react-highlight-words';
 
 declare const REACT_APP_ENV: "test" | "dev" | "pre" | false;
 

@@ -1,26 +1,26 @@
 /* eslint-disable */
-// 该文件由 OneAPI 自动生成，请勿手动修改！
 
 declare namespace VENUS {
   interface VenusUser {
-      id?: number;
-      username?: string;
-      nickName?: string;
-      createTime?: number;
-      updateTime?: number;
-      createUser?: string;
-      updateUser?: string;
-      userGroupNameRefs?: Array<Record<string, any>>;
-      userGroupIdRefs?: Array<Record<string, any>>;
+    id?: number;
+    username?: string;
+    nickName?: string;
+    createTime?: number;
+    updateTime?: number;
+    createUser?: string;
+    updateUser?: string;
+    userGroupNameRefs?: Array<Record<string, any>>;
+    userGroupIdRefs?: Array<Record<string, any>>;
   };
 
-  interface  VenusLocalUserResponse {
+  interface VenusLocalUserResponse {
+    success?: boolean;
     code?: number;
     msg?: string;
     data?: Array<VenusUser>;
   }
 
-  interface  CatInfo {
+  interface CatInfo {
     age: number;
     breed: string;
   }
@@ -28,9 +28,9 @@ declare namespace VENUS {
   type CatName = "miffy" | "boris" | "mordred";
 
   const cats: Record<CatName, CatInfo> = {
-    miffy: {age: 10, breed: "Persian"},
-    boris: {age: 5, breed: "Maine Coon"},
-    mordred: {age: 16, breed: "British Shorthair"},
+    miffy: { age: 10, breed: "Persian" },
+    boris: { age: 5, breed: "Maine Coon" },
+    mordred: { age: 16, breed: "British Shorthair" },
   };
   cats.boris;
 

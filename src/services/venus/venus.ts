@@ -6,23 +6,19 @@ import { request } from '@umijs/max';
  * @param options 
  * @returns 
  */
-export async function getUserList(
+export async function getVenusLocalUserList(
+  params: {
+    keyword?: string;
+    current?: number;
+    pageSize?: number;
+  },
+  options?: { [key: string]: any },
+) {
+  return request<VENUS.VenusLocalUserResponse>('/api/venus/v1/local/user/queryAll', {
+    method: 'GET',
     params: {
-      // query
-      /** keyword */
-      keyword?: string;
-      /** current */
-      current?: number;
-      /** pageSize */
-      pageSize?: number;
+      ...params,
     },
-    options?: { [key: string]: any },
-  ) {
-    return request<VENUS.VenusLocalUserResponse>('/api/venus/v1/local/user/queryAll', {
-      method: 'GET',
-      params: {
-        ...params,
-      },
-      ...(options || {}),
-    });
-  }
+    ...(options || {}),
+  });
+}

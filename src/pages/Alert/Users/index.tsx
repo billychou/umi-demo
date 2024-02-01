@@ -12,7 +12,7 @@ import { Button, Input, Space } from 'antd';
 import type { FilterDropdownProps } from 'antd/es/table/interface';
 import Highlighter from 'react-highlight-words';
 
-import { getUserList } from '@/services/venus/venus';
+import { getVenusLocalUserList } from '@/services/venus/venus';
 
 interface DataType {
   key: string;
@@ -21,7 +21,7 @@ interface DataType {
   address: string;
 }
 
-type VenusUserItem = {
+export type VenusUserListItem = {
   id: number;
   userName: string;
   nickName: string;
@@ -32,7 +32,7 @@ type VenusUserItem = {
 };
 
 type InputRef = GetRef<typeof Input>;
-type DataIndex = keyof VenusUserItem;
+type DataIndex = keyof VenusUserListItem;
 
 /**
  * Generate the function comment for the given function body.
@@ -40,10 +40,8 @@ type DataIndex = keyof VenusUserItem;
  * @return {void} No return value.
  */
 const UserPage: React.FC = () => {
-  const { name } = useModel('global');
   // 获取初始化状态值
-  const { initialState } = useModel('@@initialState');
-  const [datasource, setDatasource] = useState([]);
+  const [dataSource, setDataSource] = useState([]);
 
   const [searchText, setSearchText] = useState('');
   const [searchedColumn, setSearchedColumn] = useState('');
@@ -142,7 +140,7 @@ const UserPage: React.FC = () => {
   });
 
   // columns
-  const columns: ProColumns<VenusUserItem>[] = [
+  const columns: ProColumns<VenusUserListItem>[] = [
     {
       title: "姓名",
       key: "userName",
@@ -161,11 +159,13 @@ const UserPage: React.FC = () => {
       <ProTable
         search={false}
         columns={columns}
-        request={async () => {
-          const { data } = await getUserList({});
-          setDatasource(data);
+        request={async (params, sorter, filter) => {
+          console.log(params, sorter, filter);
+          const res = await getVenusLocalUserList({});
+          setDataSource(res.data);
           return {
-            data
+            success: res.success,
+            data: res.data,
           }
         }}
       />
