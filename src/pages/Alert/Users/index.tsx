@@ -14,21 +14,14 @@ import Highlighter from 'react-highlight-words';
 
 import { getVenusLocalUserList } from '@/services/venus/venus';
 
-interface DataType {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-}
-
 export type VenusUserListItem = {
-  id: number;
+  id?: number;
   userName: string;
   nickName: string;
-  createTime: number;
-  updateTime: number;
-  createUser: string;
-  updateUser: string;
+  createTime?: number;
+  updateTime?: number;
+  createUser?: string;
+  updateUser?: string;
 };
 
 type InputRef = GetRef<typeof Input>;
@@ -42,7 +35,6 @@ type DataIndex = keyof VenusUserListItem;
 const UserPage: React.FC = () => {
   // 获取初始化状态值
   const [dataSource, setDataSource] = useState([]);
-
   const [searchText, setSearchText] = useState('');
   const [searchedColumn, setSearchedColumn] = useState('');
   const searchInput = useRef<InputRef>(null);
@@ -62,7 +54,7 @@ const UserPage: React.FC = () => {
     setSearchText('');
   };
 
-  const getColumnSearchProps = (dataIndex: DataIndex): TableColumnType<DataType> => ({
+  const getColumnSearchProps = (dataIndex: DataIndex): TableColumnType<VenusUserListItem> => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
       <div style={{ padding: 8 }} onKeyDown={(e) => e.stopPropagation()}>
         <Input
@@ -89,26 +81,6 @@ const UserPage: React.FC = () => {
             style={{ width: 90 }}
           >
             重置
-          </Button>
-          {/* <Button
-            type="link"
-            size="small"
-            onClick={() => {
-              confirm({ closeDropdown: false });
-              setSearchText((selectedKeys as string[])[0]);
-              setSearchedColumn(dataIndex);
-            }}
-          >
-            Filter
-          </Button> */}
-          <Button
-            type="link"
-            size="small"
-            onClick={() => {
-              close();
-            }}
-          >
-            关闭
           </Button>
         </Space>
       </div>
