@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table, type TableColumnsType } from 'antd';
-import Header from './components/Header';
+import { wrapInArray } from '@/utils/common';
 
 const columns: TableColumnsType = [
     {
@@ -10,9 +10,33 @@ const columns: TableColumnsType = [
     }
 ];
 
+/**
+ * 泛型为类型提供变量 
+ */
+type StringArray = Array<string>;
+type NumberArray = Array<number>;
+type ObjectWithNameArray = Array<{name: string}>;
+
+interface Backpack<T> {
+    add: (obj: T) => void;
+    get: () => T;
+}
+
+declare const backpack: Backpack<string>;
+const obj = backpack.get();
+// backpack.add(14);
+backpack.add("hello");
+
+
+let myString = "welcome";
+let wrapArrayList = wrapInArray(myString);
+console.log(wrapArrayList);
+
 const TuliuIndex = () => {
     return (
-        <Header></Header>
+        <div>
+            welcome tuliu
+        </div>
     )
 };
 

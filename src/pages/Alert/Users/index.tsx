@@ -2,11 +2,19 @@ import React, { useState, useRef } from 'react';
 import { PageContainer, ProColumns, ProTable } from '@ant-design/pro-components';
 import { Button, Input, Space} from 'antd';
 import Highlighter from 'react-highlight-words';
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined, DownloadOutlined } from '@ant-design/icons';
 import type { FilterDropdownProps } from 'antd/es/table/interface';
 import type { GetRef, TableColumnType } from 'antd';
 import { getVenusLocalUserList } from '@/services/venus/venus';
 import styles from './index.less';
+
+interface RecordType {
+  key: React.Key;
+  name: string;
+  age: number;
+  addresss: string;
+  children?: RecordType[];
+}
 
 type VenusUserListItem = {
   id: number;
@@ -102,7 +110,7 @@ const UserPage: React.FC = () => {
   });
 
   // columns
-  const columns: ProColumns<VenusUserListItem>[] = [
+  const columns: TableColumnType<VenusUserListItem>[] = [
     {
       title: "姓名",
       key: "userName",
