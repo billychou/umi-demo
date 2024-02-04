@@ -1,27 +1,21 @@
-import Guide from '@/components/Guide';
-import { trim } from '@/utils/format';
-import React, { useState, useEffect, useRef } from 'react';
-import { PageContainer, ProCard, ProColumns, ProList, ProTable } from '@ant-design/pro-components';
-import { useLocation, useMatch, useModel, useParams, useSearchParams } from '@umijs/max';
-import styles from './index.less';
-import { Card, message } from 'antd';
-
-import { SearchOutlined } from '@ant-design/icons';
-import type { GetRef, TableColumnType } from 'antd';
-import { Button, Input, Space } from 'antd';
-import type { FilterDropdownProps } from 'antd/es/table/interface';
+import React, { useState, useRef } from 'react';
+import { PageContainer, ProColumns, ProTable } from '@ant-design/pro-components';
+import { Button, Input, Space} from 'antd';
 import Highlighter from 'react-highlight-words';
-
+import { SearchOutlined } from '@ant-design/icons';
+import type { FilterDropdownProps } from 'antd/es/table/interface';
+import type { GetRef, TableColumnType } from 'antd';
 import { getVenusLocalUserList } from '@/services/venus/venus';
+import styles from './index.less';
 
-export type VenusUserListItem = {
-  id?: number;
+type VenusUserListItem = {
+  id: number;
   userName: string;
   nickName: string;
-  createTime?: number;
-  updateTime?: number;
-  createUser?: string;
-  updateUser?: string;
+  createTime: number;
+  updateTime: number
+  createUser: string;
+  updateUser: string;
 };
 
 type InputRef = GetRef<typeof Input>;
@@ -88,11 +82,7 @@ const UserPage: React.FC = () => {
     filterIcon: (filtered: boolean) => (
       <SearchOutlined style={{ color: filtered ? '#1677ff' : undefined }} />
     ),
-    onFilter: (value, record) =>
-      record[dataIndex]
-        .toString()
-        .toLowerCase()
-        .includes((value as string).toLowerCase()),
+    onFilter: (value, record) => (record[dataIndex].toString().toLowerCase().includes((value as string).toLowerCase())),
     onFilterDropdownOpenChange: (visible) => {
       if (visible) {
         setTimeout(() => searchInput.current?.select(), 100);
@@ -117,12 +107,14 @@ const UserPage: React.FC = () => {
       title: "姓名",
       key: "userName",
       dataIndex: "userName",
+      width: "10%",
       ...getColumnSearchProps("userName"),
     },
     {
       title: "昵称",
       key: "nickName",
       dataIndex: "nickName",
+      width: "80%",
       ...getColumnSearchProps("nickName"),
     }
   ];
@@ -131,14 +123,20 @@ const UserPage: React.FC = () => {
       <ProTable
         search={false}
         columns={columns}
+        params={{a:1}}
         request={async (params, sorter, filter) => {
-          console.log(params, sorter, filter);
-          const res = await getVenusLocalUserList({});
-          setDataSource(res.data);
+          console.log(params);
+          console.log(sorter);
+          console.log(filter);
+          const res = await getVenusLocalUserList({params});
+          const myData = res.data.map(i => {
+            i.key = i.id;
+            return i;
+          });
           return {
             success: res.success,
-            data: res.data,
-          }
+            data: myData,
+          };
         }}
       />
     </PageContainer>

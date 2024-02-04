@@ -1,26 +1,27 @@
 /* eslint-disable */
 
 declare namespace VENUS {
-  interface VenusUser {
-    id?: number;
-    username?: string;
-    nickName?: string;
-    createTime?: number;
-    updateTime?: number;
-    createUser?: string;
-    updateUser?: string;
-    userGroupNameRefs?: Array<Record<string, any>>;
-    userGroupIdRefs?: Array<Record<string, any>>;
+  type VenusUser = {
+    id: number;
+    key?: number;
+    username: string;
+    nickName: string;
+    createTime: number;
+    updateTime: number;
+    createUser: string;
+    updateUser: string;
+    userGroupNameRefs: Array<Record<string, any>>;
+    userGroupIdRefs: Array<Record<string, any>>;
   };
 
-  interface VenusLocalUserResponse {
+  type VenusLocalUserResponse = {
     success?: boolean;
     code?: number;
     msg?: string;
-    data?: Array<VenusUser>;
+    data: Array<VenusUser>;
   }
 
-  interface CatInfo {
+  type CatInfo = {
     age: number;
     breed: string;
   }
