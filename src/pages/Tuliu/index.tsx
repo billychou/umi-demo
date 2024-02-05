@@ -38,9 +38,39 @@ function move(animal: Fish|Bird): void {
     }
 }
 
+const demoFunc = () => {
+    console.log("demoFunc");
+}
+demoFunc.description = "this is a function demo";
+
+
 let myString = "welcome";
 let wrapArrayList = wrapInArray(myString);
 console.log(wrapArrayList);
+
+function firstElement<Type>(arr: Type[]): Type| undefined {
+    return arr[0];
+}
+
+function firstElementT<T>(arr: T[]): T | undefined {
+    return arr[0];
+}
+
+function myMap<Input, Output>(arr: Input[], func: (args: Input) => Output): Output[] {
+   return arr.map(func); 
+}
+
+
+function longest<T extends {length: number}>(a: T, b: T) {
+    if (a.length >= b.length) {
+        return a;
+    } else {
+        return b;
+    }
+}
+
+longest([1, 2], [1,2,3]);
+// longest(10, 100);
 
 const TuliuIndex = () => {
     return (
