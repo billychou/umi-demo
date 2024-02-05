@@ -12,3 +12,8 @@ export function welcomePeople(x: string[] | string) {
         console.log("hello, "  + x);
     }
 }
+
+export function padLeft(padding: number|string, input: string): string {
+    throw new Error("Not implementd yet!");
+}
+

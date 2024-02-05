@@ -27,6 +27,16 @@ const obj = backpack.get();
 // backpack.add(14);
 backpack.add("hello");
 
+type Fish = {swim: ()=>void};
+type Bird = {fly: ()=>void};
+
+function move(animal: Fish|Bird): void {
+    if ("swim" in animal) {
+        animal.swim();
+    } else {
+        animal.fly();
+    }
+}
 
 let myString = "welcome";
 let wrapArrayList = wrapInArray(myString);
