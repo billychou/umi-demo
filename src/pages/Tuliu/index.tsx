@@ -22,10 +22,10 @@ interface Backpack<T> {
     get: () => T;
 }
 
-declare const backpack: Backpack<string>;
-const obj = backpack.get();
-// backpack.add(14);
-backpack.add("hello");
+// declare const backpack: Backpack<string>;
+// const obj = backpack.get();
+// // backpack.add(14);
+// backpack.add("hello");
 
 type Fish = {swim: ()=>void};
 type Bird = {fly: ()=>void};
@@ -72,7 +72,30 @@ function longest<T extends {length: number}>(a: T, b: T) {
 longest([1, 2], [1,2,3]);
 // longest(10, 100);
 
-const TuliuIndex = () => {
+type AType = {
+    a?: string;
+    b?: string;
+}
+
+type BType = {
+    c?: string;
+    d?: string;
+}
+
+type CType = (
+    |AType
+    |BType
+)[];
+
+interface TuliuIndexProps {
+    name?: string;
+    age?: number;
+    getName?: (name:string) => string;
+}
+
+const TuliuIndex: React.FC<TuliuIndexProps> = ({name, age}) => {
+    console.log(name);
+    console.log(age);
     return (
         <div>
             welcome tuliu

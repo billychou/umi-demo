@@ -56,9 +56,25 @@ const UserPage: React.FC = () => {
     setSearchText('');
   };
 
+  /**
+   * export interface FilterDropdownProps {
+      prefixCls: string;
+      setSelectedKeys: (selectedKeys: React.Key[]) => void;
+      selectedKeys: React.Key[];
+      confirm: (param?: FilterConfirmProps) => void;
+      clearFilters?: () => void;
+      filters?: ColumnFilterItem[];
+      visible: boolean;
+    }
+  */
   const getColumnSearchProps = (dataIndex: DataIndex): TableColumnType<VenusUserListItem> => ({
-    filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
-      <div style={{ padding: 8 }} onKeyDown={(e) => e.stopPropagation()}>
+    filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => {
+      // console.log(setSelectedKeys, selectedKeys, confirm, clearFilters, close);
+      console.log(selectedKeys);
+      console.log(confirm);
+      console.log(clearFilters);
+      console.log(close);
+      return (<div style={{ padding: 8 }} onKeyDown={(e) => e.stopPropagation()}>
         <Input
           ref={searchInput}
           placeholder={`Search ${dataIndex}`}
@@ -86,7 +102,7 @@ const UserPage: React.FC = () => {
           </Button>
         </Space>
       </div>
-    ),
+    )},
     filterIcon: (filtered: boolean) => (
       <SearchOutlined style={{ color: filtered ? '#1677ff' : undefined }} />
     ),
