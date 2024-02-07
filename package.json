@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@ant-design/charts": "^2.0.0",
+    "@ant-design/colors": "^7.0.2",
     "@ant-design/icons": "^5.1.0",
     "@ant-design/pro-components": "^2.4.16",
     "@antv/g": "^5.18.21",
@@ -23,6 +24,7 @@
     "@antv/g2plot": "^2.4.31",
     "@umijs/max": "^4.0.69",
     "antd": "^5.5.1",
+    "antd-style": "^3.6.1",
     "init": "^0.1.2",
     "interactjs": "^1.10.21",
     "react-highlight-words": "^0.20.0",

@@ -6,14 +6,16 @@ import { SearchOutlined, DownloadOutlined } from '@ant-design/icons';
 import type { FilterDropdownProps } from 'antd/es/table/interface';
 import type { GetRef, TableColumnType } from 'antd';
 import { getVenusLocalUserList } from '@/services/venus/venus';
-import styles from './index.less';
+import { createStyles } from 'antd-style';
 
 interface RecordType {
   key: React.Key;
-  name: string;
-  age: number;
-  addresss: string;
-  children?: RecordType[];
+  userName: string;
+  nickName: string;
+  createTime: number;
+  updateTime: number;
+  createUser: string;
+  updateUser: string;
 }
 
 type VenusUserListItem = {
@@ -21,7 +23,7 @@ type VenusUserListItem = {
   userName: string;
   nickName: string;
   createTime: number;
-  updateTime: number
+  updateTime: number;
   createUser: string;
   updateUser: string;
 };
@@ -37,8 +39,11 @@ type DataIndex = keyof VenusUserListItem;
 const UserPage: React.FC = () => {
   // 获取初始化状态值
   const [dataSource, setDataSource] = useState([]);
+  // filter text
   const [searchText, setSearchText] = useState('');
+  // filter column
   const [searchedColumn, setSearchedColumn] = useState('');
+  // searchInput ref 
   const searchInput = useRef<InputRef>(null);
 
   const handleSearch = (

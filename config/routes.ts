@@ -25,12 +25,12 @@ export default [
     {
         layout: false,
         path: '/backend',
-        component: "./Demo/styled_component_demo"
+        component: "./Demo/styled_component_demo",
     },
     {
         name: "表格",
         path: "/table",
-        component: "./Table"
+        component: "./Table",
     },
     {
         name: "告警列表",
@@ -38,14 +38,29 @@ export default [
         component: './Alert/Users',
     },
     {
+        name: "基础类型",
+        path: "/basic",
+        component: './Basic'
+    },
+    {
+        name: "色彩",
+        path: "/color",
+        component: './Demo/Color',
+    },
+    {
+        name: "样式",
+        path: "/style",
+        component: './Demo/AntdStyleDemo',
+    },
+    {
         name: "组件",
         path: "/demo",
         icon: "ZoomInOutlined",
         routes: [
             {
-                name: "色彩",
-                path: "/demo/color",
-                component: "./Demo/Color"
+                name: "布局",
+                path: "/demo/layout",
+                component: "./Demo/LayoutDemo"
             },
             {
                 name: "G2",
