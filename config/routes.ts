@@ -38,10 +38,15 @@ export default [
         component: './Alert/Users',
     },
     {
-        name: "Demo",
+        name: "组件",
         path: "/demo",
         icon: "ZoomInOutlined",
         routes: [
+            {
+                name: "色彩",
+                path: "/demo/color",
+                component: "./Demo/Color"
+            },
             {
                 name: "G2",
                 path: "/demo/g2",
