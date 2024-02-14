@@ -1,6 +1,6 @@
 import { blue, green, red, yellow } from '@ant-design/colors';
 import type { ConfigProviderProps, SegmentedProps } from 'antd';
-import { Button, Card, Flex, Radio, Segmented, Slider } from 'antd';
+import { Button, Card, Flex, Radio, Segmented, Slider, Typography } from 'antd';
 import React, { useState } from 'react';
 
 type SizeType = ConfigProviderProps['componentSize'];
@@ -19,6 +19,15 @@ const boxStyle: React.CSSProperties = {
   height: 120,
   borderRadius: 6,
   border: '1px solid #4019ff',
+};
+
+const cardStyle: React.CSSProperties = {
+  width: 620,
+};
+
+const imgStyle: React.CSSProperties = {
+  display: 'block',
+  width: 273,
 };
 
 const justifyOptions = [
