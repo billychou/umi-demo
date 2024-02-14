@@ -1,6 +1,6 @@
 import { blue, green, red, yellow } from '@ant-design/colors';
 import type { ConfigProviderProps, SegmentedProps } from 'antd';
-import { Button, Card, Flex, Radio, Segmented, Slider, Typography } from 'antd';
+import { Button, Card, Flex, Radio, Segmented, Slider, Typography, Divider } from 'antd';
 import React, { useState } from 'react';
 
 type SizeType = ConfigProviderProps['componentSize'];
@@ -93,6 +93,7 @@ const LayoutDemo: React.FC<LayoutDemoProps> = () => {
           );
         })}
       </Flex>
+        <Divider />
       <Flex gap="middle" align="start" vertical>
         <p>Select justify: </p>
         <Segmented
@@ -110,6 +111,7 @@ const LayoutDemo: React.FC<LayoutDemoProps> = () => {
           <Button type="primary">primary</Button>
           <Button type="primary">primary</Button>
         </Flex>
+        <Divider />
       </Flex>
       <Radio.Group value={gapSize} onChange={(e) => setGapSize(e.target.value)}>
         {['small', 'middle', 'large', 'customize'].map((size) => (
@@ -128,6 +130,7 @@ const LayoutDemo: React.FC<LayoutDemoProps> = () => {
         <Button type="link">Link</Button>
       </Flex>
 
+        <Divider />
       <Flex wrap="wrap" gap="small">
         {Array.from({ length: 20 }, (_, index) => {
           return (
@@ -137,6 +140,8 @@ const LayoutDemo: React.FC<LayoutDemoProps> = () => {
           );
         })}
       </Flex>
+
+        <Divider />
       <Card
         hoverable
         style={cardStyle}

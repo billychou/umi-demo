@@ -5,7 +5,7 @@
   "scripts": {
     "build": "max build",
     "dev": "max dev",
-    "format": "prettier --cache --write ./**/*.{json,tsx,ts}",
+    "format": "prettier --cache --write ./**/**/*.{json,tsx,ts}",
     "postinstall": "max setup",
     "prepare": "husky install",
     "setup": "max setup",
