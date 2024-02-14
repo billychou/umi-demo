@@ -12,7 +12,8 @@ import React, { useRef, useState } from 'react';
 import CreateForm from './components/CreateForm';
 import UpdateForm, { FormValueType } from './components/UpdateForm';
 
-const { addUser, queryUserList, deleteUser, modifyUser } = services.UserController;
+const { addUser, queryUserList, deleteUser, modifyUser } =
+  services.UserController;
 
 type DataSourceItem = {
   name: string;

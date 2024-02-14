@@ -1,6 +1,6 @@
 export default () => {
-    const user = {
-        username: "umi"
-    };
-    return { user }
-}
+  const user = {
+    username: 'umi',
+  };
+  return { user };
+};

@@ -1,10 +1,8 @@
 // 运行时配置
+import { RequestConfig, RequestOptions, RunTimeLayoutConfig } from '@umijs/max';
+import { message } from 'antd';
 import React from 'react';
-import settings from "@config/settings";
-import {ConfigProvider, message} from "antd";
-import { RequestConfig, RequestOptions, RunTimeLayoutConfig } from "@umijs/max";
-import { getCurrentUser } from "./services/demo/UserController";
-import type { RuntimeConfig } from "@umijs/max";
+import { getCurrentUser } from './services/demo/UserController';
 
 interface menuData {
   name?: string;
@@ -23,7 +21,6 @@ export interface InitialState {
   currentUser?: CurrentUser;
 }
 
-
 // ConfigProvider.config({
 //   prefixCls: settings.antPrefix,
 //   theme: {
@@ -41,22 +38,22 @@ export interface InitialState {
 export async function getInitialState(): Promise<InitialState> {
   // 获取当前用户信息
   const currentUser = await getCurrentUser();
-  return { 
+  return {
     name: 'sanfendi',
     currentUser: currentUser,
   };
 }
 
-const authRequestHeaderInterceptor = (url: string , options: RequestOptions) => {
-  let _url = url.concat("?token=123456");
+const authRequestHeaderInterceptor = (url: string, options: RequestOptions) => {
+  let _url = url.concat('?token=123456');
   return {
-    url: _url, 
+    url: _url,
     options: {
       ...options,
-      headers: {token: "token", ...options?.headers}
-    }
-  }
-}
+      headers: { token: 'token', ...options?.headers },
+    },
+  };
+};
 
 const resInterceptor = (response: any) => {
   if (response.status === 200) {
@@ -68,7 +65,7 @@ const resInterceptor = (response: any) => {
     }
   }
   return response;
-}
+};
 
 /**
  * global request config
@@ -76,28 +73,28 @@ const resInterceptor = (response: any) => {
 export const request: RequestConfig = {
   timeout: 5000,
   errorConfig: {
-    errorHandler() {
-    },
-    errorThrower() {
-    }
+    errorHandler() {},
+    errorThrower() {},
   },
   requestInterceptors: [authRequestHeaderInterceptor],
-  responseInterceptors: [resInterceptor]
-}
-
+  responseInterceptors: [resInterceptor],
+};
 
 /**
- * runtime layout config 
+ * runtime layout config
  * @param initialState
- * @returns 
+ * @returns
  */
-export const layout: RunTimeLayoutConfig = ({initialState, setInitialState}) => {
+export const layout: RunTimeLayoutConfig = ({
+  initialState,
+  setInitialState,
+}) => {
   return {
     title: '有趣的灵魂',
     logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
     siderWidth: 150,
     childrenRender: (children) => {
-      return (<>{children}</>)
-    }
+      return <>{children}</>;
+    },
   };
 };

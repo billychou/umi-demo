@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        let arrayLike = {
-            '0': 'a',
-            '1': 'b',
-            '2': 'c',
-            length: 3
-        };
-        let arr2 = Array.from(arrayLike);
-        console.log(arr2);
-        let arr3 = Array.from([1,2, ,4, ,6], n=>n||0);
-        console.log(arr3);
-        let arr4 = Array.from(arr3, i => i*i);
-        console.log(arr4);
-        let arr5 = Array.from(arr4, i => i*2);
-        console.log(arr5);
-        let arr6 = arr5.map(i => i*3);
-        console.log(arr6);
-        let arr7 = arr6.forEach(i => i*3);
-        console.log(arr7);
-        
-        for (let i of arr6) {
-            console.log(i);
-        }
+      let arrayLike = {
+        0: 'a',
+        1: 'b',
+        2: 'c',
+        length: 3,
+      };
+      let arr2 = Array.from(arrayLike);
+      console.log(arr2);
+      let arr3 = Array.from([1, 2, , 4, , 6], (n) => n || 0);
+      console.log(arr3);
+      let arr4 = Array.from(arr3, (i) => i * i);
+      console.log(arr4);
+      let arr5 = Array.from(arr4, (i) => i * 2);
+      console.log(arr5);
+      let arr6 = arr5.map((i) => i * 3);
+      console.log(arr6);
+      let arr7 = arr6.forEach((i) => i * 3);
+      console.log(arr7);
 
-        function typeOf () {
-            return Array.from(arguments, value => typeof value);
-        }
+      for (let i of arr6) {
+        console.log(i);
+      }
 
+      function typeOf() {
+        return Array.from(arguments, (value) => typeof value);
+      }
     </script>
-</body>
+  </body>
 </html>

@@ -32,7 +32,10 @@ export async function queryUserList(
  * @param {Object} options - Additional options for the request.
  * @return {Promise<API.CurrentUser>} A promise that resolves to the current user.
  */
-export async function getCurrentUser(params?: {userid?: string},  options?: {[key:string]: any}) {
+export async function getCurrentUser(
+  params?: { userid?: string },
+  options?: { [key: string]: any },
+) {
   return request<API.CurrentUser>('/api/users/getCurrentUser', {
     method: 'GET',
     params: {

@@ -1,33 +1,25 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect } from 'react';
 
 let promise = new Promise((resolve, reject) => {
-    let i = Math.floor(Math.random() * 10);
-    if (i > 5) {
-        resolve(i);
-    } else {
-        reject(i);
-    }
+  let i = Math.floor(Math.random() * 10);
+  if (i > 5) {
+    resolve(i);
+  } else {
+    reject(i);
+  }
 });
 
-promise.then((res)=> {
+promise
+  .then((res) => {
     console.log(res);
-}).catch((err)=> {
+  })
+  .catch((err) => {
     console.log(err);
-});
-
-
+  });
 
 const PromiseDemo: React.FC = () => {
-    useEffect(() => {
-        
-    }, []);
-    return (
-        <div>
-            welcome
-        </div>
-    );
+  useEffect(() => {}, []);
+  return <div>welcome</div>;
 };
 
-
 export default PromiseDemo;
-

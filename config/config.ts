@@ -13,7 +13,7 @@ export default defineConfig({
     title: '有趣的灵魂',
     locale: false,
   },
-  routes: routes, 
+  routes: routes,
   npmClient: 'pnpm',
   theme: {
     // '@primary-color': '#1890ff',
@@ -21,7 +21,7 @@ export default defineConfig({
     primaryColor: '#25b864',
   },
   alias: {
-    '@config': path.resolve("./config"),
-    '@public': path.resolve("./public"),
-  }
+    '@config': path.resolve('./config'),
+    '@public': path.resolve('./public'),
+  },
 });

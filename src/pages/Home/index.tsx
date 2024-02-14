@@ -1,24 +1,24 @@
-import { useState } from 'react';
 import { PageContainer } from '@ant-design/pro-components';
-import styles from './index.less';
-import HomeRow from './components/homeRow';
+import { Space } from 'antd';
+import React, { useState } from 'react';
 import BusinessCard from './components/businessCard';
-import FilterBox from './components/formSelect';
-import MetricLine from './components/metricLine';
 import CalendarDemo from './components/calendarDemo';
-import GDemo from './components/gDemo';
-import { Space, Flex } from 'antd';
+import FilterBox from './components/formSelect';
+import HomeRow from './components/homeRow';
+import MetricLine from './components/metricLine';
+import styles from './index.less';
 import { MyContext } from './MyContext';
-import React from 'react';
-
 
 /**
- * HomePage Component 
+ * HomePage Component
  */
 const HomePage: React.FC = () => {
   const [color, setColor] = useState(10);
   return (
-    <PageContainer className={styles.container} header={{ title: "", breadcrumb: "" }}>
+    <PageContainer
+      className={styles.container}
+      header={{ title: '', breadcrumb: '' }}
+    >
       <MyContext.Provider value={{ color }}>
         <Space size="small" direction="vertical">
           <BusinessCard />
@@ -28,8 +28,8 @@ const HomePage: React.FC = () => {
           <HomeRow />
           {/* <GDemo /> */}
         </Space>
-      </MyContext.Provider >
-    </PageContainer >
+      </MyContext.Provider>
+    </PageContainer>
   );
 };
 

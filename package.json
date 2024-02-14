@@ -3,11 +3,11 @@
   "private": false,
   "author": "zhousongchuan",
   "scripts": {
-    "dev": "max dev",
     "build": "max build",
-    "format": "prettier --cache --write .",
-    "prepare": "husky install",
+    "dev": "max dev",
+    "format": "prettier --cache --write ./**/*.{json,tsx,ts}",
     "postinstall": "max setup",
+    "prepare": "husky install",
     "setup": "max setup",
     "start": "npm run dev"
   },

@@ -1,73 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style type="text/css">
-        .filter a:active,
-        .filter a:focus {
-            background: #05943c;
-            color: #fff;
-        }
+      .filter a:active,
+      .filter a:focus {
+        background: #05943c;
+        color: #fff;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="filter">
-        <a data-index="1" href="javascript:;">0~15岁</a>
-        <a data-index="2" href="javascript:;">15~18岁</a>
-        <a data-index="3" href="javascript:;">18岁以上</a>
-        <a href="javascript:;">全部</a> 
+      <a data-index="1" href="javascript:;">0~15岁</a>
+      <a data-index="2" href="javascript:;">15~18岁</a>
+      <a data-index="3" href="javascript:;">18岁以上</a>
+      <a href="javascript:;">全部</a>
     </div>
-    <div class="list">
-    </div>
+    <div class="list"></div>
     <div id="user" data-id="123456789" data-user="john">John Doe</div>
     <script>
-        const render = (products) => {
-            if (products.length > 0) {
-                let str = "";
-                products.forEach((item, index) => {
-                    const {name, age, address} = item;
-                    str += `<li>${name}--${age}--${address}</li>`;
-                });
-                const eleList = document.querySelector(".list");
-                eleList.innerHTML = str;
-            }
-       };
-       const products = [
-         {
-             name: "zsc",
-             age: 18,
-             address: "郑州",
-         },
-         {
-             name: "qpp",
-             age: 15,
-             address: "许昌"
-         },
-         {
-            name: "xxxx",
-            age: 21, 
-            address: "历史"
-         }
-       ];
-       render(products);
-       document.querySelector(".filter").addEventListener("click", function(e) {
-         if (e.target.tagName == "A") {
-                let arr = [];
-                if (e.target.dataset.index === "1") {
-                    arr = products.filter(item => item.age >= 0 && item.age <= 15);
-                    console.log("1");
-                    console.log(arr);
-                } else if (e.target.dataset.index === "2") {
-                    arr = products.filter(item => item.age >= 15 && item.age <= 18);
-                } else if (e.target.dataset.index == "3") {
-                }
-                render(arr);
+      const render = (products) => {
+        if (products.length > 0) {
+          let str = '';
+          products.forEach((item, index) => {
+            const { name, age, address } = item;
+            str += `<li>${name}--${age}--${address}</li>`;
+          });
+          const eleList = document.querySelector('.list');
+          eleList.innerHTML = str;
         }
-        });
-       const el = document.querySelector("#user");
-       console.log(el.dataset.id);
-    </script> 
-</body>
+      };
+      const products = [
+        {
+          name: 'zsc',
+          age: 18,
+          address: '郑州',
+        },
+        {
+          name: 'qpp',
+          age: 15,
+          address: '许昌',
+        },
+        {
+          name: 'xxxx',
+          age: 21,
+          address: '历史',
+        },
+      ];
+      render(products);
+      document.querySelector('.filter').addEventListener('click', function (e) {
+        if (e.target.tagName == 'A') {
+          let arr = [];
+          if (e.target.dataset.index === '1') {
+            arr = products.filter((item) => item.age >= 0 && item.age <= 15);
+            console.log('1');
+            console.log(arr);
+          } else if (e.target.dataset.index === '2') {
+            arr = products.filter((item) => item.age >= 15 && item.age <= 18);
+          } else if (e.target.dataset.index == '3') {
+          }
+          render(arr);
+        }
+      });
+      const el = document.querySelector('#user');
+      console.log(el.dataset.id);
+    </script>
+  </body>
 </html>

@@ -1,66 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="https://unpkg.com/@antv/g/dist/index.umd.min.js" type="application/javascript"></script>
+    <script
+      src="https://unpkg.com/@antv/g/dist/index.umd.min.js"
+      type="application/javascript"
+    ></script>
     <!-- G Renderers, such as Canvas2D, SVG and WebGL -->
-    <script src="https://unpkg.com/@antv/g-canvas/dist/index.umd.min.js" type="application/javascript"></script>
-</head>
+    <script
+      src="https://unpkg.com/@antv/g-canvas/dist/index.umd.min.js"
+      type="application/javascript"
+    ></script>
+  </head>
 
-<body>
+  <body>
     <div id="container"></div>
     <script>
-        const { Circle, Canvas, CanvasEvent, Group } = window.G;
-        // create a Canvas2D renderer
-        const canvasRenderer = new window.G.Canvas2D.Renderer();
-        const solarSystem = new Group({
-            name: 'solarSystem',
-        });
-        const earthOrbit = new Group({
-            name: 'earthOrbit',
-        });
-        const moonOrbit = new Group({
-            name: 'moonOrbit',
-        });
-        const sun = new Circle({
-            name: 'sun',
-            style: {
-                r: 100,
-            },
-        });
-        const earth = new Circle({
-            name: 'earth',
-            style: {
-                background: "red",
-                r: 50,
-            },
-        });
-        const moon = new Circle({
-            name: 'moon',
-            style: {
-                r: 25,
-            },
-        });
-        solarSystem.appendChild(sun);
-        solarSystem.appendChild(earthOrbit);
-        earthOrbit.appendChild(earth);
-        earthOrbit.appendChild(moonOrbit);
-        moonOrbit.appendChild(moon);
-        const canvas = new Canvas({
-            container: 'container',
-            width: 800,
-            height: 800,
-            background: 'gray',
-            renderer: canvasRenderer,
-        });
-        canvas.appendChild(solarSystem);
-        canvas.appendChild(earthOrbit);
-        canvas.appendChild(moonOrbit);
+      const { Circle, Canvas, CanvasEvent, Group } = window.G;
+      // create a Canvas2D renderer
+      const canvasRenderer = new window.G.Canvas2D.Renderer();
+      const solarSystem = new Group({
+        name: 'solarSystem',
+      });
+      const earthOrbit = new Group({
+        name: 'earthOrbit',
+      });
+      const moonOrbit = new Group({
+        name: 'moonOrbit',
+      });
+      const sun = new Circle({
+        name: 'sun',
+        style: {
+          r: 100,
+        },
+      });
+      const earth = new Circle({
+        name: 'earth',
+        style: {
+          background: 'red',
+          r: 50,
+        },
+      });
+      const moon = new Circle({
+        name: 'moon',
+        style: {
+          r: 25,
+        },
+      });
+      solarSystem.appendChild(sun);
+      solarSystem.appendChild(earthOrbit);
+      earthOrbit.appendChild(earth);
+      earthOrbit.appendChild(moonOrbit);
+      moonOrbit.appendChild(moon);
+      const canvas = new Canvas({
+        container: 'container',
+        width: 800,
+        height: 800,
+        background: 'gray',
+        renderer: canvasRenderer,
+      });
+      canvas.appendChild(solarSystem);
+      canvas.appendChild(earthOrbit);
+      canvas.appendChild(moonOrbit);
     </script>
-
-</body>
-
+  </body>
 </html>
