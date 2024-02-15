@@ -1,7 +1,20 @@
 import { blue, green, red, yellow } from '@ant-design/colors';
 import { UploadOutlined } from '@ant-design/icons';
-import { ConfigProviderProps, Popconfirm, SegmentedProps, Space, Upload } from 'antd';
-import { Button, Card, Flex, Radio, Segmented, Slider, Typography, Divider } from 'antd';
+import {
+  Button,
+  Card,
+  ConfigProviderProps,
+  Divider,
+  Flex,
+  Popconfirm,
+  Radio,
+  Segmented,
+  SegmentedProps,
+  Slider,
+  Space,
+  Typography,
+  Upload,
+} from 'antd';
 import React, { useState } from 'react';
 
 type SizeType = ConfigProviderProps['componentSize'];
@@ -55,6 +68,7 @@ const LayoutDemo: React.FC<LayoutDemoProps> = () => {
   );
   const [gapSize, setGapSize] = useState<SizeType | 'customize'>('small');
   const [customGapSize, setCustomGapSize] = useState<number>(0);
+  const [spaceSize, setSpaceSize] = useState<SizeType>('small');
   return (
     <Flex gap="middle" vertical>
       <Segmented
@@ -87,7 +101,7 @@ const LayoutDemo: React.FC<LayoutDemoProps> = () => {
           );
         })}
       </Flex>
-        <Divider />
+      <Divider />
       <Flex gap="middle" align="start" vertical>
         <p>Select justify: </p>
         <Segmented
@@ -124,7 +138,7 @@ const LayoutDemo: React.FC<LayoutDemoProps> = () => {
         <Button type="link">Link</Button>
       </Flex>
 
-        <Divider />
+      <Divider />
       <Flex wrap="wrap" gap="small">
         {Array.from({ length: 20 }, (_, index) => {
           return (
@@ -135,7 +149,7 @@ const LayoutDemo: React.FC<LayoutDemoProps> = () => {
         })}
       </Flex>
 
-        <Divider />
+      <Divider />
       <Card
         hoverable
         style={cardStyle}
@@ -163,18 +177,49 @@ const LayoutDemo: React.FC<LayoutDemoProps> = () => {
           </Flex>
         </Flex>
       </Card>
-      
-        <Space>
-    Space
-    <Button type="primary">Button</Button>
-    <Upload>
-      <Button icon={<UploadOutlined />}>Click to Upload</Button>
-    </Upload>
-    <Popconfirm title="Are you sure delete this task?" okText="Yes" cancelText="No">
-      <Button>Confirm</Button>
-    </Popconfirm>
-  </Space>
 
+      <Space>
+        Space
+        <Button type="primary">Button</Button>
+        <Upload>
+          <Button icon={<UploadOutlined />}>Click to Upload</Button>
+        </Upload>
+        <Popconfirm
+          title="Are you sure delete this task?"
+          okText="Yes"
+          cancelText="No"
+        >
+          <Button>Confirm</Button>
+        </Popconfirm>
+      </Space>
+
+      <Radio.Group
+        value={spaceSize}
+        onChange={(e) => setSpaceSize(e.target.value)}
+      >
+        {['small', 'middle', 'large', 'customize'].map((item) => (
+          <Radio key={item} value={item}>
+            {item}
+          </Radio>
+        ))}
+        <Radio key="custom" value="custom">
+          自定义
+        </Radio>
+      </Radio.Group>
+      <Space direction="vertical" size={spaceSize} style={{ display: 'flex' }}>
+        <Card title="card" size="small">
+          <p>Card Content</p>
+          <p>Card Content 2</p>
+        </Card>
+        <Card title="card" size="small">
+          <p>Card Content</p>
+          <p>Card Content 2</p>
+        </Card>
+        <Card title="card" size="small">
+          <p>Card Content</p>
+          <p>Card Content 2</p>
+        </Card>
+      </Space>
     </Flex>
   );
 };
