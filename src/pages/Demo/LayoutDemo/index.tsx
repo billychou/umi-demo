@@ -1,5 +1,6 @@
 import { blue, green, red, yellow } from '@ant-design/colors';
-import type { ConfigProviderProps, SegmentedProps } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
+import { ConfigProviderProps, Popconfirm, SegmentedProps, Space, Upload } from 'antd';
 import { Button, Card, Flex, Radio, Segmented, Slider, Typography, Divider } from 'antd';
 import React, { useState } from 'react';
 
@@ -56,13 +57,6 @@ const LayoutDemo: React.FC<LayoutDemoProps> = () => {
   const [customGapSize, setCustomGapSize] = useState<number>(0);
   return (
     <Flex gap="middle" vertical>
-      {/* <Radio.Group
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            >
-                <Radio.Button value="horizontal">水平</Radio.Button>
-                <Radio.Button value="vertical">垂直</Radio.Button>
-            </Radio.Group> */}
       <Segmented
         options={flexOptions}
         onChange={(value) => setValue(value)}
@@ -169,6 +163,18 @@ const LayoutDemo: React.FC<LayoutDemoProps> = () => {
           </Flex>
         </Flex>
       </Card>
+      
+        <Space>
+    Space
+    <Button type="primary">Button</Button>
+    <Upload>
+      <Button icon={<UploadOutlined />}>Click to Upload</Button>
+    </Upload>
+    <Popconfirm title="Are you sure delete this task?" okText="Yes" cancelText="No">
+      <Button>Confirm</Button>
+    </Popconfirm>
+  </Space>
+
     </Flex>
   );
 };
