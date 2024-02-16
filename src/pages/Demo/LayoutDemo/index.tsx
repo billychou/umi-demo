@@ -1,5 +1,18 @@
 import { blue, green, red, yellow } from '@ant-design/colors';
-import { CopyOutlined, UploadOutlined } from '@ant-design/icons';
+import {
+  CommentOutlined,
+  CopyOutlined,
+  DownloadOutlined,
+  EllipsisOutlined,
+  HeartOutlined,
+  LikeOutlined,
+  MailOutlined,
+  MobileOutlined,
+  ShareAltOutlined,
+  StarOutlined,
+  UploadOutlined,
+  WarningOutlined,
+} from '@ant-design/icons';
 import {
   AutoComplete,
   Button,
@@ -8,9 +21,11 @@ import {
   ConfigProviderProps,
   DatePicker,
   Divider,
+  Dropdown,
   Flex,
   Input,
   InputNumber,
+  Menu,
   Popconfirm,
   Radio,
   Segmented,
@@ -89,7 +104,6 @@ const LayoutDemo: React.FC<LayoutDemoProps> = () => {
         onChange={(value) => setValue(value)}
         block
       />
-
       <Flex vertical={value === 'vertical'}>
         {Array.from({ length: 20 }).map((_, i) => (
           <div
@@ -150,7 +164,6 @@ const LayoutDemo: React.FC<LayoutDemoProps> = () => {
         <Button type="dashed">Dashed</Button>
         <Button type="link">Link</Button>
       </Flex>
-
       <Divider />
       <Flex wrap="wrap" gap="small">
         {Array.from({ length: 20 }, (_, index) => {
@@ -161,7 +174,6 @@ const LayoutDemo: React.FC<LayoutDemoProps> = () => {
           );
         })}
       </Flex>
-
       <Divider />
       <Card
         hoverable
@@ -190,7 +202,6 @@ const LayoutDemo: React.FC<LayoutDemoProps> = () => {
           </Flex>
         </Flex>
       </Card>
-
       <Space>
         Space
         <Button type="primary">Button</Button>
@@ -205,7 +216,6 @@ const LayoutDemo: React.FC<LayoutDemoProps> = () => {
           <Button>Confirm</Button>
         </Popconfirm>
       </Space>
-
       <Radio.Group
         value={spaceSize}
         onChange={(e) => setSpaceSize(e.target.value)}
@@ -445,6 +455,53 @@ const LayoutDemo: React.FC<LayoutDemoProps> = () => {
           <InputNumber placeholder="another input" addonAfter="$" />
         </Space.Compact>
       </Space>
+      <Space.Compact block>
+        <Tooltip title="Like">
+          <Button icon={<LikeOutlined />} />
+        </Tooltip>
+        <Tooltip title="Comment">
+          <Button icon={<CommentOutlined />} />
+        </Tooltip>
+        <Tooltip title="Star">
+          <Button icon={<StarOutlined />} />
+        </Tooltip>
+        <Tooltip title="Heart">
+          <Button icon={<HeartOutlined />} />
+        </Tooltip>
+        <Tooltip title="Share">
+          <Button icon={<ShareAltOutlined />} />
+        </Tooltip>
+        <Tooltip title="Download">
+          <Button icon={<DownloadOutlined />} />
+        </Tooltip>
+        <Dropdown
+          placement="bottomRight"
+          overlay={
+            <Menu
+              items={[
+                {
+                  key: '1',
+                  label: 'Report',
+                  icon: <WarningOutlined />,
+                },
+                {
+                  key: '2',
+                  label: 'Mail',
+                  icon: <MailOutlined />,
+                },
+                {
+                  key: '3',
+                  label: 'Mobile',
+                  icon: <MobileOutlined />,
+                },
+              ]}
+            />
+          }
+          trigger={['click']}
+        >
+          <Button icon={<EllipsisOutlined />} />
+        </Dropdown>
+      </Space.Compact>
     </Flex>
   );
 };
