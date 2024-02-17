@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
-import dayjs from 'dayjs';
 import { ProCard } from '@ant-design/pro-components';
 import { Chart } from '@antv/g2';
+import dayjs from 'dayjs';
+import { useEffect, useRef } from 'react';
 
 const generateLineData = () => {
   const result = [];
@@ -15,19 +15,19 @@ const generateLineData = () => {
     });
   }
   return result;
-}
+};
 
 const lineData = generateLineData();
 
 const config = {
-  type: "line",
+  type: 'line',
   data: {
     type: 'inline',
     value: lineData,
   },
   encode: {
     x: 'key',
-    y: 'value'
+    y: 'value',
   },
   interaction: {
     tooltip: {
@@ -36,37 +36,34 @@ const config = {
   },
   axis: {
     x: {
-      type: "timeCat",
-      title: "时间",
+      type: 'timeCat',
+      title: '时间',
       tick: true,
       label: true,
       line: true,
       tickCount: 5,
     },
     y: {
-      title: "交易量"
-    }
+      title: '交易量',
+    },
   },
   scale: {
     x: {
       padding: 10,
     },
-    y: {
-
-    }
+    y: {},
   },
   style: {
     lineWidth: 2,
   },
 };
 
-
 const MetricLine: React.FC = () => {
   const container = useRef(null);
   const chart = useRef(null);
 
   /**
-   * useEffect 
+   * useEffect
    */
   useEffect(() => {
     if (!chart.current) {
@@ -75,29 +72,27 @@ const MetricLine: React.FC = () => {
   }, []);
 
   /**
-   * 初始化图表 
-   * @param container 
+   * 初始化图表
+   * @param container
    */
   const initChart = (container) => {
-    console.log("initChart");
-      const chart = new Chart({
-        container,
-        autoFit: true
-      });
-      chart.options(config);
-      chart.render();
-      return chart;
+    console.log('initChart');
+    const chart = new Chart({
+      container,
+      autoFit: true,
+    });
+    chart.options(config);
+    chart.render();
+    return chart;
   };
 
-  const updateChart = () => {
-
-  };
+  const updateChart = () => {};
 
   return (
     <ProCard>
       <div ref={container}></div>
     </ProCard>
   );
-}
+};
 
 export default MetricLine;

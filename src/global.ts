@@ -1,1 +1,1 @@
-import "@public/config.js"
+import '@public/config.js';

@@ -1,3 +1,3 @@
 window.__venus__ = {
-    venus_test: "hello"
-}
+  venus_test: 'hello',
+};

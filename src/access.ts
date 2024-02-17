@@ -10,6 +10,6 @@ export default (initialState: API.UserInfo) => {
     canUpdateFoo: true,
     canDeleteFoo: (foo: any) => {
       return foo.name === 'foo';
-    }
+    },
   };
 };

@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        div {
-            background-color: turquoise;
-        }
+      div {
+        background-color: turquoise;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div></div>
     <script>
-        const gist = '50g的茶叶,清洗球';
-        const arr = gist.split(',');
-        const domArr = arr.map(item => {
-            return  `<span>【赠品】: ${item}</span>` 
-        }).join('<br />');
-        console.log(domArr);
-        document.querySelector('div').innerHTML = domArr;
-        const price = 12.345;
-        console.log(price.toFixed(2));
+      const gist = '50g的茶叶,清洗球';
+      const arr = gist.split(',');
+      const domArr = arr
+        .map((item) => {
+          return `<span>【赠品】: ${item}</span>`;
+        })
+        .join('<br />');
+      console.log(domArr);
+      document.querySelector('div').innerHTML = domArr;
+      const price = 12.345;
+      console.log(price.toFixed(2));
     </script>
-</body>
+  </body>
 </html>

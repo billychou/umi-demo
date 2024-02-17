@@ -2,9 +2,9 @@ import { request } from '@umijs/max';
 
 /**
  * 获取用户列表
- * @param params 
- * @param options 
- * @returns 
+ * @param params
+ * @param options
+ * @returns
  */
 export async function getVenusLocalUserList(
   params: {
@@ -14,11 +14,14 @@ export async function getVenusLocalUserList(
   },
   options?: { [key: string]: any },
 ) {
-  return request<VENUS.VenusLocalUserResponse>('/api/venus/v1/local/user/queryAll', {
-    method: 'GET',
-    params: {
-      ...params,
+  return request<VENUS.VenusLocalUserResponse>(
+    '/api/venus/v1/local/user/queryAll',
+    {
+      method: 'GET',
+      params: {
+        ...params,
+      },
+      ...(options || {}),
     },
-    ...(options || {}),
-  });
+  );
 }

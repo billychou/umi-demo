@@ -1,62 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
     <style>
-        .modal {
-            position: relative;
-            width: 250px;
-            max-width: 80%;
-            background: gold;
-            border-radius: 8px;
-            padding: 1em 2em;
-        }
+      .modal {
+        position: relative;
+        width: 250px;
+        max-width: 80%;
+        background: gold;
+        border-radius: 8px;
+        padding: 1em 2em;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <button id="open">打开</button>
     <button id="close">关闭</button>
     <script>
-        function Modal(title = "", message = "") {
-            const modalbox = document.querySelector(".modal");
-            modalbox && modalbox.remove();
-            this.modalBox = document.createElement("div");
-            this.modalBox.className = "modal";
-            this.modalBox.innerHTML = `
+      function Modal(title = '', message = '') {
+        const modalbox = document.querySelector('.modal');
+        modalbox && modalbox.remove();
+        this.modalBox = document.createElement('div');
+        this.modalBox.className = 'modal';
+        this.modalBox.innerHTML = `
                 <h3>${title}</h3>
                 <i>x</i>
                 <p>${message}</p>`;
-            // document.body.appendChild(this.modalBox);
-            // document.body.append(this.modalBox);
-        };
+        // document.body.appendChild(this.modalBox);
+        // document.body.append(this.modalBox);
+      }
 
-        // Modal.prototype.open = () => {
-        //     console.log(this.modalBox);
-        //     document.body.appendChild(this.modalBox);
-        // }
+      // Modal.prototype.open = () => {
+      //     console.log(this.modalBox);
+      //     document.body.appendChild(this.modalBox);
+      // }
 
-        Modal.prototype.open = function () {
-            document.body.append(this.modalBox);
-        }
+      Modal.prototype.open = function () {
+        document.body.append(this.modalBox);
+      };
 
+      document.querySelector('#open').addEventListener('click', () => {
+        const modalBox = new Modal('打开', '打开不易，且行切珍惜');
+        modalBox.open();
+      });
 
-
-        document.querySelector("#open").addEventListener("click", () => {
-            const modalBox = new Modal("打开", "打开不易，且行切珍惜");
-            modalBox.open();
-        });
-        
-        document.querySelector("#close").addEventListener("click", () => {
-            const modalBox = new Modal("关闭", "关闭不易，且行切珍惜");
-            modalBox.open();
-        });
-
+      document.querySelector('#close').addEventListener('click', () => {
+        const modalBox = new Modal('关闭', '关闭不易，且行切珍惜');
+        modalBox.open();
+      });
     </script>
-</body>
-
+  </body>
 </html>

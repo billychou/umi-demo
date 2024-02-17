@@ -1,4 +1,4 @@
-import { defineMock } from "@umijs/max";
+import { defineMock } from '@umijs/max';
 
 const users = [
   { id: 0, name: 'Umi', nickName: 'U', gender: 'MALE' },
@@ -138,7 +138,7 @@ export default defineMock({
           nickName: 'B',
           gender: 'FEMALE',
         },
-      ]
+      ],
     });
-  }
+  },
 });

@@ -1,15 +1,10 @@
-import * as React from "react";
-import { createRoot } from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
-} from "react-router-dom";
+import * as React from 'react';
+import { createRoot } from 'react-dom/client';
+import { createBrowserRouter, Link, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: (
       <div>
         <h1>Hello World</h1>
@@ -18,15 +13,15 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "about",
+    path: 'about',
     element: <div>About</div>,
   },
   {
-    path: "demo",
+    path: 'demo',
     element: <div>Demo</div>,
-  }
+  },
 ]);
 
-createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+createRoot(document.getElementById('root')).render(
+  <RouterProvider router={router} />,
 );
