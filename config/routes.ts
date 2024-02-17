@@ -38,7 +38,7 @@ export default [
         component: './Alert/Users',
     },
     {
-        name: "Demo",
+        name: "组件",
         path: "/demo",
         icon: "ZoomInOutlined",
         routes: [
