@@ -8,6 +8,7 @@ import { request } from '@umijs/max';
  */
 export async function getVenusLocalUserList(
   params: {
+    a?: number;
     keyword?: string;
     current?: number;
     pageSize?: number;

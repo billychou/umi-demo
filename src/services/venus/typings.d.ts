@@ -3,8 +3,8 @@
 declare namespace VENUS {
   type VenusUser = {
     id: number;
-    key?: number;
-    username: string;
+    key: number;
+    userName: string;
     nickName: string;
     createTime: number;
     updateTime: number;

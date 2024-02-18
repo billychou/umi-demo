@@ -1,21 +1,12 @@
 import { getVenusLocalUserList } from '@/services/venus/venus';
 import { SearchOutlined } from '@ant-design/icons';
+import type { ProColumns } from '@ant-design/pro-components';
 import { PageContainer, ProTable } from '@ant-design/pro-components';
-import type { GetRef, TableColumnType } from 'antd';
+import type { GetRef } from 'antd';
 import { Button, Input, Space } from 'antd';
 import type { FilterDropdownProps } from 'antd/es/table/interface';
 import React, { useRef, useState } from 'react';
 import Highlighter from 'react-highlight-words';
-
-interface RecordType {
-  key: React.Key;
-  userName: string;
-  nickName: string;
-  createTime: number;
-  updateTime: number;
-  createUser: string;
-  updateUser: string;
-}
 
 type VenusUserListItem = {
   id: number;
@@ -36,8 +27,6 @@ type DataIndex = keyof VenusUserListItem;
  * @return {void} No return value.
  */
 const UserPage: React.FC = () => {
-  // 获取初始化状态值
-  const [dataSource, setDataSource] = useState([]);
   // filter text
   const [searchText, setSearchText] = useState('');
   // filter column
@@ -60,20 +49,9 @@ const UserPage: React.FC = () => {
     setSearchText('');
   };
 
-  /**
-   * export interface FilterDropdownProps {
-      prefixCls: string;
-      setSelectedKeys: (selectedKeys: React.Key[]) => void;
-      selectedKeys: React.Key[];
-      confirm: (param?: FilterConfirmProps) => void;
-      clearFilters?: () => void;
-      filters?: ColumnFilterItem[];
-      visible: boolean;
-    }
-  */
   const getColumnSearchProps = (
     dataIndex: DataIndex,
-  ): TableColumnType<VenusUserListItem> => ({
+  ): ProColumns<VenusUserListItem> => ({
     filterDropdown: ({
       setSelectedKeys,
       selectedKeys,
@@ -81,11 +59,6 @@ const UserPage: React.FC = () => {
       clearFilters,
       close,
     }) => {
-      // console.log(setSelectedKeys, selectedKeys, confirm, clearFilters, close);
-      console.log(selectedKeys);
-      console.log(confirm);
-      console.log(clearFilters);
-      console.log(close);
       return (
         <div style={{ padding: 8 }} onKeyDown={(e) => e.stopPropagation()}>
           <Input
@@ -132,6 +105,8 @@ const UserPage: React.FC = () => {
         .toLowerCase()
         .includes((value as string).toLowerCase()),
     onFilterDropdownOpenChange: (visible) => {
+      console.log(`onFilterDropdownOpenChange:visible=${visible}`);
+      console.log(searchInput.current);
       if (visible) {
         setTimeout(() => searchInput.current?.select(), 100);
       }
@@ -150,7 +125,7 @@ const UserPage: React.FC = () => {
   });
 
   // columns
-  const columns: TableColumnType<VenusUserListItem>[] = [
+  const columns: ProColumns<VenusUserListItem>[] = [
     {
       title: '姓名',
       key: 'userName',
@@ -172,11 +147,8 @@ const UserPage: React.FC = () => {
         search={false}
         columns={columns}
         params={{ a: 1 }}
-        request={async (params, sorter, filter) => {
-          console.log(params);
-          console.log(sorter);
-          console.log(filter);
-          const res = await getVenusLocalUserList({ params });
+        request={async (params) => {
+          const res = await getVenusLocalUserList(params);
           const myData = res.data.map((i) => {
             i.key = i.id;
             return i;
