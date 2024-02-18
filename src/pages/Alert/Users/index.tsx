@@ -10,6 +10,7 @@ import Highlighter from 'react-highlight-words';
 
 type VenusUserListItem = {
   id: number;
+  key: React.Key;
   userName: string;
   nickName: string;
   createTime: number;
