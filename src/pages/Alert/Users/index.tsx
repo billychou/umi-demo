@@ -59,6 +59,12 @@ const UserPage: React.FC = () => {
       clearFilters,
       close,
     }) => {
+      console.log(setSelectedKeys);
+      console.log(selectedKeys);
+      console.log(confirm);
+      console.log(clearFilters);
+      console.log(close);
+
       return (
         <div style={{ padding: 8 }} onKeyDown={(e) => e.stopPropagation()}>
           <Input
@@ -108,7 +114,7 @@ const UserPage: React.FC = () => {
       console.log(`onFilterDropdownOpenChange:visible=${visible}`);
       console.log(searchInput.current);
       if (visible) {
-        setTimeout(() => searchInput.current?.select(), 100);
+        setTimeout(() => searchInput.current?.select(), 1000);
       }
     },
     render: (text) =>
