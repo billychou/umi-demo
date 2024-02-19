@@ -20,6 +20,7 @@ type VenusUserListItem = {
 };
 
 type InputRef = GetRef<typeof Input>;
+console.log(typeof Input);
 type DataIndex = keyof VenusUserListItem;
 
 /**
@@ -60,12 +61,6 @@ const UserPage: React.FC = () => {
       clearFilters,
       close,
     }) => {
-      console.log(setSelectedKeys);
-      console.log(selectedKeys);
-      console.log(confirm);
-      console.log(clearFilters);
-      console.log(close);
-
       return (
         <div style={{ padding: 8 }} onKeyDown={(e) => e.stopPropagation()}>
           <Input
@@ -112,10 +107,13 @@ const UserPage: React.FC = () => {
         .toLowerCase()
         .includes((value as string).toLowerCase()),
     onFilterDropdownOpenChange: (visible) => {
-      console.log(`onFilterDropdownOpenChange:visible=${visible}`);
-      console.log(searchInput.current);
+      // console.log(`onFilterDropdownOpenChange:visible=${visible}`);
+      // console.log(searchInput.current);
       if (visible) {
-        setTimeout(() => searchInput.current?.select(), 1000);
+        setTimeout(
+          () => searchInput.current && searchInput.current.select(),
+          100,
+        );
       }
     },
     render: (text) =>
