@@ -3,14 +3,13 @@ import { ProCard } from '@ant-design/pro-components';
 import type { BadgeProps, CalendarProps } from 'antd';
 import { Badge, Calendar } from 'antd';
 import type { Dayjs } from 'dayjs';
+import React, { useEffect } from 'react';
 
 const { data } = await getCalendarData();
-console.log(data);
 
 const getListData = (value: Dayjs) => {
   // listData = await getCalendarData({cur_date: value.format("%Y-%m-%d")});
   const curDate = value.format('YYYY-MM-DD');
-  console.log(curDate);
   let listData = data[curDate];
   return listData;
 };
@@ -54,6 +53,12 @@ const CalendarDemo: React.FC = () => {
     return info.originNode;
   };
 
+  useEffect(() => {
+    setInterval(() => {
+      console.log('hello');
+      location.reload();
+    }, 1000 * 60);
+  }, []);
   return (
     <ProCard>
       <Calendar cellRender={cellRender} />
