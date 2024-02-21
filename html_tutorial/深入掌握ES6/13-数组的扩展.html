@@ -38,6 +38,50 @@
     }
     console.log(Array.isArray([]));
     console.log(Array(9).fill(null)); 
+
+    // 数组转换方法
+    let colors = ["red", "blue", "green"];
+    console.log(colors.toString());
+    console.log(colors.valueOf());
+    console.log(typeof  colors.valueOf());
+    console.log(colors.toLocaleString());
+
+    // valueOf方法已经返回自身
+    // join方法
+    console.log(colors.join("*"));
+    
+    // 栈方法 push 和 pop LIFO
+    colors.push("orange", "black");
+    console.log(colors);
+    let  last = colors.pop();
+    console.log(last);
+    console.log(colors);
+
+    // 队列方法
+    colors.push("yellow");
+    console.log(colors);
+    console.log(colors.shift());
+    // slice切片
+    console.log(colors);
+    console.log(colors.slice(0, 2));
+    console.log(colors.slice(0, 1));
+
+    // 重排序
+    let values = [1, 2, 3, 4, 5];
+    console.log(values.reverse());
+    console.log(values);
+    let otherValues = [0, 5, 3, 1, 10, 15];
+    console.log(otherValues.sort());
+    function compare(value1, value2) {
+      if (value1 < value2) {
+        return -1;
+      } else if (value1 > value2) {
+        return 1;
+      }  else {
+        return 0;
+      }
+    }
+    console.log(otherValues.sort((value1, value2)=>value1 >= value2));
   </script>
 </body>
 

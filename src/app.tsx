@@ -21,17 +21,6 @@ export interface InitialState {
   currentUser?: CurrentUser;
 }
 
-// ConfigProvider.config({
-//   prefixCls: settings.antPrefix,
-//   theme: {
-//     primaryColor: "#197dff",
-//     errorColor: "#F5222D",
-//     warningColor: "#FAAD14",
-//     successColor: "#52C41A",
-//     infoColor: "#197dff",
-//   },
-// });
-
 // export const layoutActionRef = createRef<{reload: ()=>void}>();
 // 全局初始化数据配置，用于 Layout 用户信息和权限初始化
 // 更多信息见文档：https://umijs.org/docs/api/runtime-config#getinitialstate

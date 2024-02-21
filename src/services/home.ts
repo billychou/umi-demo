@@ -25,6 +25,12 @@ export async function getHomeData(
   });
 }
 
+/**
+ * get calendar data 
+ * @param params 
+ * @param options 
+ * @returns 
+ */
 export async function getCalendarData(
   params?: any,
   options?: { [key: string]: any },
