@@ -7,9 +7,7 @@ type BasicDemoProps = {
 };
 
 type BasicDemoPropsIndex = keyof BasicDemoProps;
-// console.log(keyof BasicDemoProps);
 let index: BasicDemoPropsIndex = ['name', 'age'];
-console.log(typeof index);
 
 const useStyles = createStyles(({ token, css }) => ({
   container: {
@@ -48,14 +46,6 @@ const BasicDemo: React.FC = () => {
   const secondName: symbol = Symbol('Feyimen');
   const vowelLength: number = getVowels(hello);
   let aBigint: bigint = 100n;
-  // console.log(aBigint);
-  // console.log(typeof null);
-  // console.log(typeof undefined);
-  // console.log(null === undefined);
-  // // console.log(null == undefined);
-  // console.log(Number.isNaN(null));
-  // console.log(Number.isNaN(undefined));
-  // console.log(Number.isNaN(1 + undefined));
 
   return (
     <div className={cx('container', styles.container)}>
