@@ -29,12 +29,12 @@ export default defineMock({
     message: null,
     data: {
       code: 100000,
-      '2023-11-28': [{ type: 'warning', content: 'This is warning event.' }],
-      '2023-11-27': [{ type: 'success', content: 'This is usual event.' }],
-      '2023-11-26': [{ type: 'error', content: 'This is error event.' }],
-      '2023-11-25': [{ type: 'error', content: 'This is error event.' }],
-      '2023-11-24': [{ type: 'error', content: 'This is error event.' }],
-      '2023-11-23': [{ type: 'error', content: 'This is error event.' }],
+      '2024-02-21': [{ type: 'warning', content: 'This is warning event.' }],
+      '2024-02-22': [{ type: 'success', content: 'This is usual event.' }],
+      '2024-02-23': [{ type: 'error', content: 'This is error event.' }],
+      '2024-02-24': [{ type: 'error', content: 'This is error event.' }],
+      '2024-02-25': [{ type: 'error', content: 'This is error event.' }],
+      '2024-02-26': [{ type: 'error', content: 'This is error event.' }],
     },
   },
 });

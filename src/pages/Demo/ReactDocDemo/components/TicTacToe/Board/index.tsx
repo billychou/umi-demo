@@ -10,7 +10,7 @@ type BoardProps = {
   /**
    * 玩家的棋子
    */
-  squares: any[];
+  squares: string[];
   /**
    * 点击棋子
    * @returns
@@ -70,8 +70,18 @@ function calculateWinner(squares) {
   return null;
 }
 
+/**
+ * 棋盘
+ *
+ * @param param0
+ * @returns
+ */
 const Board: React.FC<BoardProps> = ({ xIsNext, squares, onPlay }) => {
-  function handleClick(i) {
+  /**
+   * 点击棋子
+   * @param i
+   */
+  function handleClick(i: number) {
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
@@ -83,7 +93,6 @@ const Board: React.FC<BoardProps> = ({ xIsNext, squares, onPlay }) => {
     }
     onPlay(nextSquares);
   }
-
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
