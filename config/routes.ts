@@ -11,12 +11,6 @@ export default [
     component: './Tuliu',
   },
   {
-    name: '日历',
-    path: '/calendar',
-    component: './Home/components/calendarDemo',
-    icon: 'CalendarOutlined',
-  },
-  {
     name: '监控趋势图',
     path: '/trade',
     component: './Home/components/metricLine',
@@ -27,11 +21,7 @@ export default [
     path: '/backend',
     component: './Demo/styled_component_demo',
   },
-  {
-    name: '表格',
-    path: '/table',
-    component: './Table',
-  },
+
   {
     name: '告警列表',
     path: '/alert/list',
@@ -72,6 +62,17 @@ export default [
         name: '布局',
         path: '/demo/layout',
         component: './Demo/LayoutDemo',
+      },
+      {
+        name: '日历',
+        path: '/demo/calendar',
+        component: './Home/components/calendarDemo',
+        icon: 'CalendarOutlined',
+      },
+      {
+        name: '表格',
+        path: '/demo/table',
+        component: './Table',
       },
       {
         name: 'ProComponents样式',
