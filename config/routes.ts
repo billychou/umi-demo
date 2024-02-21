@@ -2,8 +2,7 @@ export default [
   {
     path: '/',
     name: '首页',
-    component: './Home',
-    icon: 'HomeOutlined',
+    component: './Landing',
   },
   {
     layout: false,
