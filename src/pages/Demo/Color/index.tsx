@@ -1,4 +1,5 @@
 import { blue } from '@ant-design/colors';
+import { Flex } from 'antd';
 import React from 'react';
 
 const ColorFC: React.FC = () => {
@@ -6,7 +7,7 @@ const ColorFC: React.FC = () => {
   console.log(blue.primary);
   console.log();
   return (
-    <div>
+    <Flex>
       <ul>
         <li style={{ color: blue[0] }}>blue1</li>
         <li style={{ color: blue[1] }}>blue2</li>
@@ -19,7 +20,19 @@ const ColorFC: React.FC = () => {
         <li style={{ color: blue[8] }}>blue9</li>
         <li style={{ color: blue[9] }}>blue10</li>
       </ul>
-    </div>
+      <ul>
+        <li style={{ color: yellow[0] }}>blue1</li>
+        <li style={{ color: blue[] }}>blue2</li>
+        <li style={{ color: blue[2] }}>blue3</li>
+        <li style={{ color: blue[3] }}>blue4</li>
+        <li style={{ color: blue[4] }}>blue5</li>
+        <li style={{ color: blue[5] }}>blue6</li>
+        <li style={{ color: blue[6] }}>blue7</li>
+        <li style={{ color: blue[7] }}>blue8</li>
+        <li style={{ color: blue[8] }}>blue9</li>
+        <li style={{ color: blue[9] }}>blue10</li>
+      </ul>
+    </Flex>
   );
 };
 
