@@ -82,6 +82,62 @@
       }
     }
     console.log(otherValues.sort((value1, value2)=>value1 >= value2));
+    // 操作方法
+    // concat 方法用于合并两个或者多个数组
+    let  nColors = ["red", "blue", "green"];
+    let newColors = nColors.concat("yellow", ["black", "brown"]);
+    console.log(newColors);
+    // slice 方法
+    console.log(newColors.slice(0, 3));
+    // splice方法
+
+    console.log(newColors.splice(0, 2)); // 从0开始删除2个元素，函数返回这两个元素
+    console.log(newColors);
+    console.log(colors);
+    colors = ["red", "green", "blue"];
+    console.log(colors);
+    let  removed = colors.splice(0, 1);
+    console.log(removed);
+    console.log(colors);
+    // 位置方法
+    let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1];
+    console.log(numbers.indexOf(1));
+    console.log(numbers.lastIndexOf(1));
+    // 迭代方法
+    // every 
+    // some :  some方法检测数组中至少有一个元素通过了由提供的函数实现的测试
+
+    let everyResult = numbers.every(i => i>3);
+    console.log(everyResult);
+    
+    let filterResult = numbers.filter(i => i>3);
+    console.log(filterResult);
+
+    let forEachResult = numbers.forEach(i => i>3);
+    console.log(forEachResult);
+
+    numbers.forEach(i => {
+      console.log(i);
+    });
+    let mapResult = numbers.map(i => {
+      return (i*i);
+    });
+    console.log(mapResult);
+    let someResult = numbers.some(i => i>3);
+    console.log(someResult);
+
+    let basicResult = numbers.forEach((item, index, array) => {
+      console.log(item, index, array);
+    });
+    //归并方法
+
+    let aValues = [1, 2, 3, 4,5 ]
+    let sum = aValues.reduce((prev, cur, index, array) => {
+      console.log(index);
+      console.log(array);
+      return prev + cur
+    });
+    console.log(sum);
   </script>
 </body>
 
