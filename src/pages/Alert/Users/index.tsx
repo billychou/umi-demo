@@ -11,6 +11,7 @@ import Highlighter from 'react-highlight-words';
 type VenusUserListItem = {
   id: number;
   key: React.Key;
+  age: number;
   userName: string;
   nickName: string;
   createTime: number;
@@ -135,15 +136,19 @@ const UserPage: React.FC = () => {
       title: '姓名',
       key: 'userName',
       dataIndex: 'userName',
-      width: '10%',
       ...getColumnSearchProps('userName'),
     },
     {
       title: '昵称',
       key: 'nickName',
       dataIndex: 'nickName',
-      width: '80%',
       ...getColumnSearchProps('nickName'),
+    },
+    {
+      title: '年龄',
+      key: 'age',
+      dataIndex: 'age',
+      sorter: (a, b) => a.age - b.age,
     },
   ];
   return (

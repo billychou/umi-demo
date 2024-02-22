@@ -6,6 +6,7 @@ declare namespace VENUS {
     key: number;
     userName: string;
     nickName: string;
+    age: number;
     createTime: number;
     updateTime: number;
     createUser: string;
