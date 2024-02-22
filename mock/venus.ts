@@ -4,6 +4,7 @@ export default defineMock({
   'GET /api/venus/v1/local/user/queryAll': (req, res) => {
     const userNameList = ['周林', '陈帅', '明光', '东东', '小红', '小丽丽'];
     const nickNameList = ['提昂', '逍遥子', '风清扬', '一号位'];
+    const genderList = [0, 1];
     const tablesListDataSource = [];
     for (let i = 0; i < 40; i += 1) {
       tablesListDataSource.push({
@@ -11,7 +12,7 @@ export default defineMock({
         userName: userNameList[Math.floor(Math.random() * userNameList.length)],
         nickName: nickNameList[Math.floor(Math.random() * nickNameList.length)],
         age: Math.floor(Math.random() * 100),
-        gender: Math.floor(Math.random() * 2),
+        gender: genderList[Math.floor(Math.random() * genderList.length)],
         email: `123456789@qq.com`,
         phone: `1${Math.random() * 10000000}`,
         address: '上海市',

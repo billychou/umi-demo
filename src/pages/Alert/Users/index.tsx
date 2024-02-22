@@ -150,6 +150,32 @@ const UserPage: React.FC = () => {
       dataIndex: 'age',
       sorter: (a, b) => a.age - b.age,
     },
+    {
+      title: '性别',
+      key: 'gender',
+      dataIndex: 'gender',
+      valueEnum: {
+        0: {
+          text: '男',
+          status: 'Success',
+        },
+        1: {
+          text: '女',
+          status: 'Error',
+        },
+      },
+    },
+    {
+      title: '创建时间',
+      key: 'createTime',
+      dataIndex: 'createTime',
+      sorter: (a, b) => a.createTime - b.createTime,
+    },
+    {
+      title: '更新时间',
+      key: 'updateTime',
+      dataIndex: 'updateTime',
+    },
   ];
   return (
     <PageContainer ghost>
