@@ -49,14 +49,18 @@
         line-height: 50px;
       }
       a:link {
-        color: yellow;
-      }
-      a:hover {
-        color: blue;
-        background-color: aqua;
+        color: #333;
       }
       a:visited {
-        color: red;
+        color: blue;
+      }
+      a:hover {
+        color: yellow;
+        background-color: aqua;
+        text-decoration: underline;
+      }
+      a:active {
+        color: green;
       }
     </style>
   </head>
@@ -72,6 +76,18 @@
       </ul>
     </div>
     <div id="container3">container3</div>
+
+    <nav>
+      <p>
+        <a href="/">Main</a> ▸ <a href="/products/">Products</a> ▸
+        <a href="/products/dishwashers/">Dishwashers</a> ▸
+        <a>Second hand</a>
+      </p>
+      <p>
+        <a href="/">Main</a> ▸ <a href="/second-hand/">Second hand</a> ▸
+        <a>Dishwashers</a>
+      </p>
+    </nav>
     <div class="nav">
       <a href="http://www.baidu.com" target="_blank">全球</a>
       <a href="http://www.google.com" target="_blank">中国大陆</a>
