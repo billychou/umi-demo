@@ -1,33 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style type="text/css">
-        html {
-            background-color: #00539f;
-        }
+      .container1 {
+        color: rgb(195, 50, 50);
+        background-color: #b6c5d3;
+        border: 1px solid black;
+        margin: 6px;
+        height: 80px;
+        line-height: 80px;
+      }
 
-        body {
-            width: 1200px;
-            margin: 0 auto;
-            background-color: #ff9500;
-            padding: 0 20px 20px 20px;
-            border: 5px solid black;
-        }
+      .container2 {
+        background-color: #faad14;
+        border: 1px solid;
+        margin: 6px;
+      }
 
-        p {
-            color: red;
-            /* width: 500px; */
-            border: 1px solid black;
-        }
+      #container3 {
+        background-color: #faad12;
+        margin: 6px;
+      }
+      /*
+      后代选择器
+      */
+      div ul {
+        color: green;
+      }
+      /**
+      * 子选择器
+      */
+      ul > li {
+        color: red;
+      }
+      .nav {
+        width: 250px;
+        height: 500px;
+        background-color: rgb(207, 219, 223);
+      }
+      .nav a {
+        display: block;
+        width: 200px;
+        text-decoration: none;
+        height: 50px;
+        line-height: 50px;
+      }
+      a:link {
+        color: #333;
+      }
+      a:visited {
+        color: blue;
+      }
+      a:hover {
+        color: yellow;
+        background-color: aqua;
+        text-decoration: underline;
+      }
+      a:active {
+        color: green;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <p>hello</p>
-</body>
+  <body>
+    <div class="container1">
+      <p>hello</p>
+    </div>
+    <div class="container2">
+      <ul>
+        <li>tomato</li>
+        <li>tudou</li>
+      </ul>
+    </div>
+    <div id="container3">container3</div>
 
+    <nav>
+      <p>
+        <a href="/">Main</a> ▸ <a href="/products/">Products</a> ▸
+        <a href="/products/dishwashers/">Dishwashers</a> ▸
+        <a>Second hand</a>
+      </p>
+      <p>
+        <a href="/">Main</a> ▸ <a href="/second-hand/">Second hand</a> ▸
+        <a>Dishwashers</a>
+      </p>
+    </nav>
+    <div class="nav">
+      <a href="http://www.baidu.com" target="_blank">全球</a>
+      <a href="http://www.google.com" target="_blank">中国大陆</a>
+      <a href="http://www.taobao.com" target="_blank">中国香港</a>
+      <a href="http://www.toutiao.com" target="_blank">中国澳门</a>
+      <a href="http://www.qq.com" target="_blank">中国台湾</a>
+      <a href="http://www.didi.com" target="_blank">日本</a>
+    </div>
+  </body>
 </html>
