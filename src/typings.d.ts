@@ -13,6 +13,7 @@ declare module '*.bmp';
 declare module '*.tiff';
 declare module 'omit.js';
 declare module 'react-highlight-words';
+declare module 'numeral';
 
 declare const REACT_APP_ENV: 'test' | 'dev' | 'pre' | false;
 

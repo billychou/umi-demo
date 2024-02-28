@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* .first {
+        background-color: pink;
+        font-weight: bold;
+      } */
+      /* 
+      article p:first-child {
+        font-size: 120%;
+        font-weight: bold;
+      } */
+      /* article p:last-child {
+        font-size: 120%;
+        background-color: pink;
+      } */
+
+      /* article p:nth-child(2) {
+        background-color: pink;
+      } */
+
+      /* article p:nth-last-child(2) {
+        background-color: pink;
+      } */
+      a:link,
+      a:visited {
+        color: rebeccapurple;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: red;
+        background-color: lightyellow;
+        text-decoration: underline;
+      }
+
+      article p:first-child::first-line {
+        font-size: 120%;
+        font-weight: bold;
+        color: green;
+      }
+      /* .box::before {
+        content: 'This should show before the other content. ';
+      } */
+
+      /* .box::after {
+        content: 'this should show after the other content';
+      } */
+      .box::before {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 100px;
+        background-color: rebeccapurple;
+        border: 1px solid black;
+      }
+      .box::after {
+        content: ' ➥';
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <p>
+        Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh
+        onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.
+      </p>
+
+      <p>
+        Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot
+        courgette tatsoi pea sprouts fava bean collard greens dandelion okra
+        wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.
+      </p>
+      <p>
+        Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot
+        courgette tatsoi pea sprouts fava bean collard greens dandelion okra
+        wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.
+      </p>
+      <p>
+        Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot
+        courgette tatsoi pea sprouts fava bean collard greens dandelion okra
+        wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.
+      </p>
+
+      <p><a href="">Hover over me</a></p>
+      <p class="box">Content in the box in my HTML page.</p>
+    </article>
+  </body>
+</html>
