@@ -5,18 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .image {
+        /* .image {
             width: 300px;
             height: 300px;
             background-color: lightyellow !important;
             background-image: url("img/a.jpg");
             background-repeat: no-repeat;
             /* background-position: center center; */
-            background-position: center top;
+            /* background-position: center top; */
+        /* } */ */
+
+        h3 {
+            width: 118px;
+            height: 41px;
+            font-size: 14px;
+            background-color: pink;
+            font-weight: 400;
+            line-height: 40px;
+            /* background: url("https://game.gtimg.cn/images/js/title/title_sprite.png"); */
+            /* background-repeat: no-repeat; */
+            /* background-position: -32px center; */
+            text-indent: 2em;
         }
+
+        h3:after {
+            content: '';
+            background: url("https://game.gtimg.cn/images/js/title/title_sprite.png");
+            background-position: -30px center;
+            width: 30px;
+            height: 30px;
+            left: 5px;
+            position: absolute;
+        }
+
+        a::after {
+            content: ' ('attr(href) ')';
+        }
+
+        .dead-link {
+            text-decoration: line-through;
+        }
+
+        /* .dead-link::after {
+            c
+        } */
+        
     </style>
 </head>
 <body>
-    <div class="image"></div>
+    <!-- <div class="image"></div> -->
+    <h3>成长守护平台</h3>
+    <p>
+        The sailfish is named for its sail-like dorsal fin and is widely considered the fastest fish in the ocean.
+        <a href="https://en.wikipedia.org/wiki/Sailfish">You can read more about it here</a>.
+    </p>
+    
+    <p>
+        The red lionfish is a predatory scorpionfish that lives on coral reefs of the Indo-Pacific Ocean and more recently
+        in
+        the western Atlantic. <a href="" class="dead-link">You can read more about it here</a>.
+    </p>
 </body>
 </html>
