@@ -5,7 +5,6 @@ import { Col, Dropdown, Row } from 'antd';
 import type { RangePickerProps } from 'antd/es/date-picker/generatePicker';
 import type { RadioChangeEvent } from 'antd/es/radio';
 import type dayjs from 'dayjs';
-import type { FC } from 'react';
 import React, { Suspense, useState } from 'react';
 import IntroduceRow from './components/IntroduceRow';
 import OfflineData from './components/OfflineData';
@@ -24,7 +23,8 @@ type AnalysisProps = {
   loading: boolean;
 };
 type SalesType = 'all' | 'online' | 'stores';
-const Analysis: FC<AnalysisProps> = () => {
+
+const Analysis: React.FC<AnalysisProps> = () => {
   const { styles } = useStyles();
   const [salesType, setSalesType] = useState<SalesType>('all');
   const [currentTabKey, setCurrentTabKey] = useState<string>('');

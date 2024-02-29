@@ -136,7 +136,7 @@ export const layout: RunTimeLayoutConfig = ({
     // },
     // layout: 'side',
     // layout: 'top',
-    layout: 'mix',
+    layout: 'top',
     appList: [
       {
         icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
