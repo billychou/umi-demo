@@ -5,6 +5,16 @@ export default [
     component: './Landing',
   },
   {
+    path: '/app',
+    name: '应用中心',
+    component: './App',
+  },
+  {
+    path: '/resource',
+    name: '资源中心',
+    component: './Resource',
+  },
+  {
     layout: false,
     path: '/tuliu',
     component: './Tuliu',
