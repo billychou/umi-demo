@@ -94,6 +94,11 @@ export default [
         component: './Demo/ReactDocDemo',
       },
       {
+        name: '栅格布局',
+        path: '/demo/grid',
+        component: './Demo/GridDemo',
+      },
+      {
         name: 'G2',
         path: '/demo/g2',
         component: './Demo/g2_demo',

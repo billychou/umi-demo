@@ -8,6 +8,18 @@ import useStyles from '../style.style';
 import Yuan from '../utils/Yuan';
 import { ChartCard, Field } from './Charts';
 import Trend from './Trend';
+
+// Row
+// gutter	栅格间隔，可以写成像素值或支持响应式的对象写法来设置水平间隔 { xs: 8, sm: 16, md: 24}。或者使用数组形式同时设置 [水平间距, 垂直间距]
+
+// Col
+// xs	屏幕 < 576px 响应式栅格，可为栅格数或一个包含其他属性的对象	number | object	-
+// sm	屏幕 ≥ 576px 响应式栅格，可为栅格数或一个包含其他属性的对象	number | object	-
+// md	屏幕 ≥ 768px 响应式栅格，可为栅格数或一个包含其他属性的对象	number | object	-
+// lg	屏幕 ≥ 992px 响应式栅格，可为栅格数或一个包含其他属性的对象	number | object	-
+// xl	屏幕 ≥ 1200px 响应式栅格，可为栅格数或一个包含其他属性的对象	number | object	-
+// xxl	屏幕 ≥ 1600px 响应式栅格，可为栅格数或一个包含其他属性的对象	number | object -
+
 const topColResponsiveProps = {
   xs: 24,
   sm: 12,
