@@ -5,11 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      .header {
-        background-color: #fff;
+      * {
         margin: 0;
         padding: 0;
-        display: block;
+        /* border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent; */
+      }
+
+      html {
+        font-size: 10px;
+        font-family: sans-serif;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      .header {
+        background-color: #fff;
+        margin: 0px;
+        padding: 0px;
+        height: 215px;
+        font-size: 14px;
       }
       /* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
       @font-face {
@@ -24,10 +41,13 @@
 
       .iconfont {
         font-family: 'iconfont' !important;
-        font-size: 16px;
         font-style: normal;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+      }
+
+      .font16 {
+        font-size: 16px;
       }
 
       .icon-phone:before {
@@ -38,39 +58,41 @@
         content: '\e621';
       }
 
-      .iconfont {
-        font-family: 'iconfont' !important;
-        font-size: 16px;
-        font-style: normal;
-        -webkit-font-smoothing: antialiased;
-        -webkit-text-stroke-width: 0.2px;
-        -moz-osx-font-smoothing: grayscale;
-      }
-
       .fheader {
         background-color: #fff;
+        margin: 0;
+        height: 150px;
       }
-      .fheader .fheader-top {
+      .fheader-top {
         height: 44px;
-        background-color: #f8f8f8;
+        background-color: lightyellow;
         margin-top: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
         margin-bottom: 18px;
       }
-      /* .icon-font.icon-dianhua::before {
-        content: '';
-        background-color: lightblue;
-        background-image: url('./svg/icon-dianhua.svg');
-      } */
+      .fheader-top-list {
+        height: 44px;
+        line-height: 44px;
+      }
+      div ul li {
+        list-style: none;
+      }
+      div ul li a {
+        text-decoration: none;
+      }
     </style>
   </head>
   <body>
     <header class="header">
       <div class="fheader">
         <div class="fheader-top">
-          <div class="container">
+          <div class="fheader-top-list">
             <ul>
               <li>
-                <a><i class="iconfont icon-phone"></i>400-6666-737</a>
+                <a href="javascript:void(0)"
+                  ><i class="iconfont icon-phone font16"></i>400-6666-737</a
+                >
               </li>
             </ul>
           </div>
