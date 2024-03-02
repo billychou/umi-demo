@@ -1,5 +1,6 @@
 import { Line, Tiny } from '@ant-design/plots';
 import { Card, Col, Row, Tabs } from 'antd';
+import React from 'react';
 import type { DataItem, OfflineDataType } from '../data.d';
 import useStyles from '../style.style';
 import NumberInfo from './NumberInfo';
