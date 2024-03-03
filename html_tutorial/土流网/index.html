@@ -64,6 +64,8 @@
         height: 150px;
       }
       .fheader-top {
+        display: flex;
+        flex-direction: row;
         height: 44px;
         background-color: lightyellow;
         margin-top: 0px;
@@ -71,13 +73,46 @@
         margin-right: 0px;
         margin-bottom: 18px;
       }
-      .fheader-top-list {
+      .fheader-top-list li {
+        /* float: left; */
+        display: list-item;
+        float: left;
+        position: relative;
+        list-style-type: none;
+        list-style: none;
         height: 44px;
         line-height: 44px;
       }
-      div ul li {
-        list-style: none;
+
+      .fheader-top-list li::before {
+        content: " "
       }
+
+      .fheader-top-list li::after {
+        content: "";
+        margin-left: 10px;
+      }
+
+      .fheader-top .user_vip {
+        display: block;
+        float: right;
+        margin-right: 15px;
+        padding: 10px 0;
+      }
+
+      .fheader-top .user_login {
+        float: right;
+        height: 44px;
+        margin-right: 15px;
+        padding: 10px 0;
+      }
+
+      .fheader-top .user_register {
+        float: right;
+        margin-right: 15px;
+        padding: 10px 0;
+      }
+
       div ul li a {
         text-decoration: none;
       }
@@ -94,8 +129,39 @@
                   ><i class="iconfont icon-phone font16"></i>400-6666-737</a
                 >
               </li>
+              <li>
+                <a href="javascript:void(0)">
+                <i class="iconfont icon-dianhua font16"></i>
+                  官方微信
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">
+                <i class="iconfont icon-dianhua font16"></i>
+                  广告合作
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">
+                <i class="iconfont icon-dianhua font16"></i>
+                下载 APP
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">
+                帮助中心
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">
+                关于我们
+                </a>
+              </li>
             </ul>
           </div>
+          <div class="user_vip">开通 vip</div>
+          <div class="user_login">请登录</div>
+          <div class="user_register">免费注册</div>
         </div>
         <div class="fheader-logorow"></div>
         <div class="fheader-rownav"></div>
