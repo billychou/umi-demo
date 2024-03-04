@@ -4,15 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
     <style>
       * {
         margin: 0;
         padding: 0;
-        /* border: 0;
-        outline: 0;
-        font-size: 100%;
-        vertical-align: baseline;
-        background: transparent; */
       }
 
       html {
@@ -21,13 +17,13 @@
         -webkit-text-size-adjust: 100%;
       }
 
-      .header {
+      header {
         background-color: #fff;
         margin: 0px;
         padding: 0px;
-        height: 215px;
         font-size: 14px;
       }
+
       /* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
       @font-face {
         font-family: 'iconfont'; /* Project id 4451295 */
@@ -59,38 +55,49 @@
       }
 
       .fheader {
+        display: block;
         background-color: #fff;
         margin: 0;
-        height: 150px;
+        height: 88px;
       }
-      .fheader-top {
-        display: flex;
-        flex-direction: row;
+
+      .fheader .fheader-top {
         height: 44px;
         background-color: lightyellow;
-        margin-top: 0px;
+        /* margin-top: 0px;
         margin-left: 0px;
         margin-right: 0px;
-        margin-bottom: 18px;
+        margin-bottom: 18px; */
       }
-      .fheader-top-list li {
-        /* float: left; */
-        display: list-item;
+
+      .fheader .fheader-nav {
+        height: 44px;
+      }
+
+      .fheader-top-list {
+        clear: both;
+      }
+
+      .fheader-top-list ul li {
         float: left;
-        position: relative;
         list-style-type: none;
         list-style: none;
-        height: 44px;
-        line-height: 44px;
+        margin: 10px 0;
       }
 
-      .fheader-top-list li::before {
-        content: " "
+      .fheader-top-list ul li::after {
+        content: '\00a0\00a0';
       }
 
-      .fheader-top-list li::after {
-        content: "";
-        margin-left: 10px;
+      /* .fheader-nav ul li {
+        float: left;
+        list-style: none;
+        list-style-type: none;
+        margin: 10px 0;
+      } */
+
+      .fheader-nav ul li::after {
+        content: '\00a0\00a0';
       }
 
       .fheader-top .user_vip {
@@ -113,8 +120,31 @@
         padding: 10px 0;
       }
 
+      .global-head-nav {
+        list-style: none;
+        display: flex;
+        padding: 0;
+      }
+
+      .global-head-nav__link {
+        line-height: 44px;
+        height: 44px;
+        list-style: none;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        color: #262626;
+        background-color: #fff;
+        padding: 0 12px;
+      }
+
+      .global-head-nav__link:hover {
+        background-color: orange;
+      }
+
       div ul li a {
         text-decoration: none;
+        color: #262626;
       }
     </style>
   </head>
@@ -122,50 +152,71 @@
     <header class="header">
       <div class="fheader">
         <div class="fheader-top">
-          <div class="fheader-top-list">
-            <ul>
-              <li>
-                <a href="javascript:void(0)"
-                  ><i class="iconfont icon-phone font16"></i>400-6666-737</a
-                >
+          <div class="container">
+            <div class="fheader-top-list">
+              <ul>
+                <li>
+                  <a href="javascript:void(0)"
+                    ><i class="iconfont icon-phone font16"></i>400-6666-737</a
+                  >
+                </li>
+                <li>
+                  <a href="javascript:void(0)">
+                    <i class="iconfont icon-dianhua font16"></i>
+                    官方微信
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">
+                    <i class="iconfont icon-dianhua font16"></i>
+                    广告合作
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">
+                    <i class="iconfont icon-dianhua font16"></i>
+                    下载 APP
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)"> 帮助中心 </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)"> 关于我们 </a>
+                </li>
+              </ul>
+              <div class="user_vip">开通VIP</div>
+              <div class="user_login">请登录</div>
+              <div class="user_register">免费注册</div>
+            </div>
+          </div>
+        </div>
+        <div class="fheader-nav">
+          <div class="container">
+            <ul class="global-head-nav">
+              <li class="global-head-nav__link">
+                <a href="javascript:void(0)">首页</a>
               </li>
-              <li>
-                <a href="javascript:void(0)">
-                <i class="iconfont icon-dianhua font16"></i>
-                  官方微信
-                </a>
+              <li class="global-head-nav__link">
+                <a href="javascript:void(0)">农用地</a>
               </li>
-              <li>
-                <a href="javascript:void(0)">
-                <i class="iconfont icon-dianhua font16"></i>
-                  广告合作
-                </a>
+              <li class="global-head-nav__link">
+                <a href="javascript:void(0)"> 建设用地 </a>
               </li>
-              <li>
-                <a href="javascript:void(0)">
-                <i class="iconfont icon-dianhua font16"></i>
-                下载 APP
-                </a>
+              <li class="global-head-nav__link">
+                <a href="javascript:void(0)"> 农房 </a>
               </li>
-              <li>
-                <a href="javascript:void(0)">
-                帮助中心
-                </a>
+              <li class="global-head-nav__link">
+                <a href="javascript:void(0)"> 土流金服 </a>
               </li>
-              <li>
-                <a href="javascript:void(0)">
-                关于我们
-                </a>
+              <li class="global-head-nav__link">
+                <a href="javascript:void(0)"> 服务中心 </a>
               </li>
             </ul>
           </div>
-          <div class="user_vip">开通 vip</div>
-          <div class="user_login">请登录</div>
-          <div class="user_register">免费注册</div>
         </div>
-        <div class="fheader-logorow"></div>
-        <div class="fheader-rownav"></div>
       </div>
     </header>
+    <article></article>
   </body>
 </html>
