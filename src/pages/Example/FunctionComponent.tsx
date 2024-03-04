@@ -11,7 +11,6 @@ const ExampleComponent: React.FC = () => {
   const [count, setCount] = useState(0);
   const ref = useRef(count);
   ref.current = count;
-  console.log(count);
   const handleClick = () => {
     setTimeout(() => {
       console.log(count);

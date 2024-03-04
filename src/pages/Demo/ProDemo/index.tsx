@@ -38,8 +38,6 @@ const ProDemo: React.FC = () => {
         },
       ],
       onFilter: (value, record) => {
-        console.log('************');
-        console.log(value);
         return record.status === 'error';
       },
     },
