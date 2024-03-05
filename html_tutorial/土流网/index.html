@@ -89,6 +89,10 @@
         content: '\00a0\00a0';
       }
 
+      .fheader-top-list ul li::before {
+        content: '\00a0\00a0';
+      }
+
       /* .fheader-nav ul li {
         float: left;
         list-style: none;
@@ -121,9 +125,9 @@
       }
 
       .global-head-nav {
-        list-style: none;
         display: flex;
         padding: 0;
+        list-style-type: none;
       }
 
       .global-head-nav__link {
@@ -133,12 +137,37 @@
         font-size: 16px;
         font-weight: 700;
         text-decoration: none;
+        text-align: center;
         color: #262626;
         background-color: #fff;
         padding: 0 12px;
       }
 
+      .global-head-nav__item {
+        text-align: center;
+        box-sizing: border-box;
+        flex-grow: 1;
+        display: list-item;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        padding: 0 12px;
+        height: 44px;
+        line-height: 44px;
+      }
+
+      .global-head-nav__children {
+        position: absolute;
+        display: none;
+        top: 44px;
+        width: 100%;
+      }
+
       .global-head-nav__link:hover {
+        background-color: orange;
+      }
+
+      .global-head-nav__item:hover {
         background-color: orange;
       }
 
@@ -197,19 +226,24 @@
               <li class="global-head-nav__link">
                 <a href="javascript:void(0)">首页</a>
               </li>
-              <li class="global-head-nav__link">
+              <li class="global-head-nav__item">
                 <a href="javascript:void(0)">农用地</a>
               </li>
-              <li class="global-head-nav__link">
+              <li class="global-head-nav__item">
                 <a href="javascript:void(0)"> 建设用地 </a>
               </li>
-              <li class="global-head-nav__link">
+              <li class="global-head-nav__item">
                 <a href="javascript:void(0)"> 农房 </a>
+                <div class="global-head-nav__children">农房 1</div>
+                <div class="global-head-nav__children">农房 2</div>
               </li>
-              <li class="global-head-nav__link">
-                <a href="javascript:void(0)"> 土流金服 </a>
+              <li class="global-head-nav__item">
+                <a href="javascript:void(0)" class="global-head-nav__link">
+                  土流金服
+                </a>
+                <div class="global-head-nav__children"></div>
               </li>
-              <li class="global-head-nav__link">
+              <li class="global-head-nav__item">
                 <a href="javascript:void(0)"> 服务中心 </a>
               </li>
             </ul>
@@ -217,6 +251,5 @@
         </div>
       </div>
     </header>
-    <article></article>
   </body>
 </html>
