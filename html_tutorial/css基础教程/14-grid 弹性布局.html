@@ -7,12 +7,19 @@
     <style>
       .wrapper {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 100px 100px;
-        grid-gap: 10px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 200px 200px;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        /* grid-gap: 10px; */
       }
-      div div {
+      .box1,
+      .box2,
+      .box3,
+      .box4,
+      .box5 {
         background-color: lightblue;
+        text-align: center;
       }
     </style>
   </head>
@@ -23,7 +30,6 @@
       <div class="box3">Three</div>
       <div class="box4">Four</div>
       <div class="box5">Five</div>
-      <div class="box6">Six</div>
     </div>
   </body>
 </html>
