@@ -148,7 +148,11 @@ const UserPage: React.FC = () => {
       title: '年龄',
       key: 'age',
       dataIndex: 'age',
+      // sortDirections: ['ascend', 'descend'],
       sorter: (a, b) => a.age - b.age,
+      // valueType: (item) => ({
+      //   type: 'float',
+      // })
     },
     {
       title: '性别',

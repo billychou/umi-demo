@@ -6,7 +6,7 @@ export default defineMock({
     const nickNameList = ['提昂', '逍遥子', '风清扬', '一号位'];
     const genderList = [0, 1];
     const tablesListDataSource = [];
-    for (let i = 0; i < 40; i += 1) {
+    for (let i = 0; i < 1000; i += 1) {
       tablesListDataSource.push({
         id: i,
         userName: userNameList[Math.floor(Math.random() * userNameList.length)],
@@ -28,6 +28,42 @@ export default defineMock({
         contact: null,
       });
     }
+
+    tablesListDataSource.push({
+      id: 400,
+      userName: '周林',
+      nickName: '提昂',
+      age: 'test',
+      gender: 0,
+      email: `123456789@qq.com`,
+      phone: `1${Math.random() * 10000000}`,
+      address: '上海市',
+      remark: '备注',
+    });
+
+    tablesListDataSource.push({
+      id: 410,
+      userName: '周林',
+      nickName: '提昂',
+      age: 'hello',
+      gender: 0,
+      email: `123456789@qq.com`,
+      phone: `1${Math.random() * 10000000}`,
+      address: '上海市',
+      remark: '备注',
+    });
+
+    tablesListDataSource.push({
+      id: 420,
+      userName: '周林',
+      nickName: '提昂',
+      age: 108,
+      gender: 0,
+      email: `123456789@qq.com`,
+      phone: `1${Math.random() * 10000000}`,
+      address: '上海市',
+      remark: '备注',
+    });
 
     res.status(200).json({
       success: true,

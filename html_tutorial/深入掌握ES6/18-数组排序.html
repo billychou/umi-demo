@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let a = [10, 6, 1, 5, 'NA', 'NA', 4, 'NA', 3, 'NA', 2, 'NA', 1, 'NA', 0];
+      a.sort((a, b) => {
+        if (typeof a === 'string') {
+          return 1;
+        } else if (typeof b === 'string') {
+          return -1;
+        } else {
+          return a - b;
+        }
+      });
+      console.log(a);
+    </script>
+  </head>
+  <body></body>
+</html>
