@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .demo > * {
+        width: 250px;
+        height: 200px;
+      }
+
+      .demo > * + * {
+        margin-top: -150px;
+        opacity: 0.8;
+        box-shadow: 0 -1px 10px rgba(0 0 0 / 60%);
+      }
+
+      .demo > :first-child {
+        background: aliceblue;
+        border: 2px solid lightblue;
+      }
+
+      .demo > :nth-child(2) {
+        background: pink;
+        border: 2px solid hotpink;
+      }
+
+      .demo > :last-child {
+        background: wheat;
+        border: 2px solid gold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="stacked-items">
+      <div class="item-1">Item 1</div>
+      <div class="item-2">Item 2</div>
+    </div> -->
+
+    <main>
+      <div class="wrapper">
+        <article class="flow">
+          <h1>Default <code>z-index</code> behaviour</h1>
+          <figure class="callout">
+            <p>
+              If no value for <code>z-index</code> is set, the browser will use
+              the document source order to dictate <code>z-index</code> instead.
+            </p>
+            <p>
+              This demo has 3 empty <code>&lt;div&gt;</code> elements, with
+              negative margin, making them overlap. The later elements sit on
+              top of the earlier elements.
+            </p>
+          </figure>
+          <div class="demo">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+          </div>
+        </article>
+      </div>
+    </main>
+  </body>
+</html>
