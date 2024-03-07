@@ -150,18 +150,22 @@ const UserPage: React.FC = () => {
       dataIndex: 'age',
       sorter: (a, b, sortOrder) => {
         if (sortOrder === 'ascend') {
-          console.log(`sortOrder=${sortOrder},a.age=${a.age},b.age=${b.age}`);
           if (typeof a.age === 'string') {
             return 1;
           } else if (typeof b.age === 'string') {
             return -1;
           } else {
-            return a.age - b.age;
+            if (a.age > b.age) {
+              return 1;
+            } else if (a.age < b.age) {
+              return -1;
+            } else {
+              return 0;
+            }
           }
         }
 
         if (sortOrder === 'descend') {
-          console.log(`sortOrder=${sortOrder},a.age=${a.age},b.age=${b.age}`);
           if (typeof a.age === 'string') {
             return -1;
           } else if (typeof b.age === 'string') {
