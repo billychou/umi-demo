@@ -8,21 +8,33 @@
   <body>
     <script>
       // entries
-      const myArr = [1, 2, 4, 5, 6];
-      for ([k, v] of myArr.entries()) {
-        console.log(k, v);
-      }
+      // const myArr = [1, 2, 4, 5, 6];
+      // for ([k, v] of myArr.entries()) {
+      //   console.log(k, v);
+      // }
 
-      //every
-      // every()是对数组中的每一项运行给定函数，如果该函数对每一项返回True,则返回True
-      const res = myArr.every((item) => item > 0);
-      console.log(res);
-      // every
+      // //every
+      // // every()是对数组中的每一项运行给定函数，如果该函数对每一项返回True,则返回True
+      // const res = myArr.every((item) => item > 0);
+      // console.log(res);
+      // // every
 
-      const total = myArr.reduce((prev, current) => {
-        return prev + current;
+      // const total = myArr.reduce((prev, current) => {
+      //   return prev + current;
+      // });
+      // console.log(total);
+
+      const myArray = [
+        { name: 'a', age: 18 },
+        { name: 'b', age: 20 },
+      ];
+      console.log(myArray);
+      myArray.forEach((value, index, array) => {
+        // console.log(`name=${value.name},age=${value.age},index=${index}`);
+        value.key = index;
+        // console.log(array);
       });
-      console.log(total);
+      console.log(myArray);
     </script>
   </body>
 </html>
