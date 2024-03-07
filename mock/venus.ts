@@ -6,7 +6,7 @@ export default defineMock({
     const nickNameList = ['提昂', '逍遥子', '风清扬', '一号位'];
     const genderList = [0, 1];
     const tablesListDataSource = [];
-    for (let i = 0; i < 1000; i += 1) {
+    for (let i = 0; i < 40; i += 1) {
       tablesListDataSource.push({
         id: i,
         userName: userNameList[Math.floor(Math.random() * userNameList.length)],

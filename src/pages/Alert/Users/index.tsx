@@ -148,11 +148,64 @@ const UserPage: React.FC = () => {
       title: '年龄',
       key: 'age',
       dataIndex: 'age',
+      sorter: (a, b, sortOrder) => {
+        if (sortOrder === 'ascend') {
+          console.log(`sortOrder=${sortOrder},a.age=${a.age},b.age=${b.age}`);
+          if (typeof a.age === 'string') {
+            return 1;
+          } else if (typeof b.age === 'string') {
+            return -1;
+          } else {
+            return a.age - b.age;
+          }
+        }
+
+        if (sortOrder === 'descend') {
+          console.log(`sortOrder=${sortOrder},a.age=${a.age},b.age=${b.age}`);
+          if (typeof a.age === 'string') {
+            return -1;
+          } else if (typeof b.age === 'string') {
+            return 1;
+          } else {
+            return a.age - b.age;
+          }
+        }
+      },
+      // sorter: (a, b) => {
+      //   // if (typeof a.age === 'string') {
+      //   //   return 1;
+      //   // }
+
+      //   // if (typeof b.age === 'string') {
+      //   //   return -1;
+      //   // }
+      //   return a.age - b.age;
+      // },
       // sortDirections: ['ascend', 'descend'],
-      sorter: (a, b) => a.age - b.age,
+      // sorter: (a, b) => a - b,
+      // sorter: (a, b) => {
+      //   if (typeof a === 'string') {
+      //     return 1;
+      //   } else if (typeof b === 'string') {
+      //     return -1;
+      //   } else {
+      //     return a - b;
+      //   }
+      //
       // valueType: (item) => ({
       //   type: 'float',
       // })
+      // valueType: (item) => ({
+      //   type: "percent",
+      // })
+      // render: (text, record, index) => {
+      //   if (typeof text === 'number') {
+      //     return <>{text}</>;
+      //   }
+      //   if (typeof text === 'string') {
+      //     return <>hello</>;
+      //   }
+      // },
     },
     {
       title: '性别',
