@@ -171,41 +171,6 @@ const UserPage: React.FC = () => {
           }
         }
       },
-      // sorter: (a, b) => {
-      //   // if (typeof a.age === 'string') {
-      //   //   return 1;
-      //   // }
-
-      //   // if (typeof b.age === 'string') {
-      //   //   return -1;
-      //   // }
-      //   return a.age - b.age;
-      // },
-      // sortDirections: ['ascend', 'descend'],
-      // sorter: (a, b) => a - b,
-      // sorter: (a, b) => {
-      //   if (typeof a === 'string') {
-      //     return 1;
-      //   } else if (typeof b === 'string') {
-      //     return -1;
-      //   } else {
-      //     return a - b;
-      //   }
-      //
-      // valueType: (item) => ({
-      //   type: 'float',
-      // })
-      // valueType: (item) => ({
-      //   type: "percent",
-      // })
-      // render: (text, record, index) => {
-      //   if (typeof text === 'number') {
-      //     return <>{text}</>;
-      //   }
-      //   if (typeof text === 'string') {
-      //     return <>hello</>;
-      //   }
-      // },
     },
     {
       title: '性别',
@@ -220,6 +185,19 @@ const UserPage: React.FC = () => {
           text: '女',
           status: 'Error',
         },
+      },
+    },
+    {
+      title: 'userGroup',
+      key: 'userGroup',
+      dataIndex: 'userGroup',
+      render: (text, record, index) => {
+        console.log(record);
+        // if (text === null) {
+        //   return '-';
+        // }
+        // return text;
+        return text;
       },
     },
     {

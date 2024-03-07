@@ -1,96 +1,144 @@
+import { Line } from '@ant-design/plots';
 import { ProCard } from '@ant-design/pro-components';
-import { Chart } from '@antv/g2';
-import dayjs from 'dayjs';
-import { useEffect, useRef } from 'react';
+import React from 'react';
 
-const generateLineData = () => {
-  const result = [];
-  const now = dayjs().valueOf();
-  const start = dayjs().subtract(1, 'day').valueOf();
-  for (let i = start; i < now; i += 60 * 1000) {
-    let value = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
-    result.push({
-      key: i,
-      value,
-    });
-  }
-  return result;
-};
+// const generateLineData = () => {
+//   const result = [];
+//   const now = dayjs().valueOf();
+//   const start = dayjs().subtract(1, 'day').valueOf();
+//   for (let i = start; i < now; i += 60 * 1000) {
+//     let value = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
+//     result.push({
+//       key: i,
+//       value,
+//     });
+//   }
+//   return result;
+// };
 
-const lineData = generateLineData();
+// const lineData = generateLineData();
 
 const config = {
-  type: 'line',
   data: {
-    type: 'inline',
-    value: lineData,
+    type: 'fetch',
+    value:
+      'https://gw.alipayobjects.com/os/antvdemo/assets/data/blockchain.json',
+    transform: [
+      {
+        type: 'fold',
+        fields: ['blockchain', 'nlp'],
+        key: 'type',
+        value: 'value',
+      },
+    ],
   },
-  encode: {
-    x: 'key',
-    y: 'value',
-  },
-  interaction: {
-    tooltip: {
-      marker: false,
-    },
-  },
+  xField: (d) => new Date(d.date),
+  yField: 'value',
+  colorField: 'type',
   axis: {
-    x: {
-      type: 'timeCat',
-      title: '时间',
-      tick: true,
-      label: true,
-      line: true,
-      tickCount: 5,
-    },
-    y: {
-      title: '交易量',
-    },
+    x: { labelAutoHide: 'greedy' },
   },
-  scale: {
-    x: {
-      padding: 10,
+  annotations: [
+    {
+      type: 'text',
+      data: [new Date('2017-12-17'), 100],
+      style: {
+        text: '2014-03, 受比特币影响，blockchain 1834',
+        wordWrap: true,
+        wordWrapWidth: 164,
+        dx: -174,
+        dy: 30,
+        fill: '#2C3542',
+        fillOpacity: 0.65,
+        fontSize: 10,
+        background: true,
+        backgroundRadius: 2,
+        connector: true,
+        startMarker: true,
+        startMarkerFill: '#2C3542',
+        startMarkerFillOpacity: 0.65,
+      },
+      tooltip: false,
     },
-    y: {},
-  },
-  style: {
-    lineWidth: 2,
-  },
+  ],
 };
 
+//const config = {
+//  type: 'line',
+//  data: {
+//    type: 'inline',
+//    value: lineData,
+//  },
+//  encode: {
+//    x: 'key',
+//    y: 'value',
+//  },
+//  interaction: {
+//    tooltip: {
+//      marker: false,
+//    },
+//  },
+//  axis: {
+//    x: {
+//      type: 'timeCat',
+//      title: '时间',
+//      tick: true,
+//      label: true,
+//      line: true,
+//      tickCount: 5,
+//    },
+//    y: {
+//      title: '交易量',
+//    },
+//  },
+//  scale: {
+//    x: {
+//      padding: 10,
+//    },
+//    y: {},
+//  },
+//  style: {
+//    lineWidth: 2,
+//  },
+//};
+
 const MetricLine: React.FC = () => {
-  const container = useRef(null);
-  const chart = useRef(null);
+  // const container = useRef(null);
+  // const chart = useRef(null);
 
-  /**
-   * useEffect
-   */
-  useEffect(() => {
-    if (!chart.current) {
-      chart.current = initChart(container.current);
-    }
-  }, []);
+  // /**
+  //  * useEffect
+  //  */
+  // useEffect(() => {
+  //   if (!chart.current) {
+  //     chart.current = initChart(container.current);
+  //   }
+  // }, []);
 
-  /**
-   * 初始化图表
-   * @param container
-   */
-  const initChart = (container) => {
-    console.log('initChart');
-    const chart = new Chart({
-      container,
-      autoFit: true,
-    });
-    chart.options(config);
-    chart.render();
-    return chart;
-  };
+  // /**
+  //  * 初始化图表
+  //  * @param container
+  //  */
+  // const initChart = (container) => {
+  //   const chart = new Chart({
+  //     container,
+  //     autoFit: true,
+  //   });
+  //   chart.options(config);
+  //   chart.render();
+  //   return chart;
+  // };
 
-  const updateChart = () => {};
+  // const updateChart = () => {};
 
+  // return (
+  //   <ProCard>
+  //     <div ref={container}></div>
+  //   </ProCard>
+  // );
   return (
     <ProCard>
-      <div ref={container}></div>
+      <Line {...config} />
     </ProCard>
   );
 };

@@ -28,13 +28,21 @@
         { name: 'a', age: 18 },
         { name: 'b', age: 20 },
       ];
+      // console.log('first');
+      // console.log(myArray);
+      // console.log('first-end');
+      // myArray.forEach((value, index, array) => {
+      //   // console.log(`name=${value.name},age=${value.age},index=${index}`);
+      //   value.key = index;
+      //   // console.log(array);
+      // });
+      // console.log('second');
+      // console.log(myArray);
+      // console.log('second-end');
       console.log(myArray);
-      myArray.forEach((value, index, array) => {
-        // console.log(`name=${value.name},age=${value.age},index=${index}`);
+      for (const [index, value] of myArray.entries()) {
         value.key = index;
-        // console.log(array);
-      });
-      console.log(myArray);
+      }
     </script>
   </body>
 </html>
