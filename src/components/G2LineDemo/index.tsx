@@ -11,3 +11,5 @@ const G2LineDemo: React.FC<G2LineDemoProps> = ({ data }) => {
   }, []);
   return <>welcome</>;
 };
+
+export default G2LineDemo;

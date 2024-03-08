@@ -1,4 +1,3 @@
-import { ProCard } from '@ant-design/pro-components';
 import { Chart } from '@antv/g2';
 import React, { useEffect, useRef } from 'react';
 
@@ -55,10 +54,10 @@ const G2BarDemo: React.FC = () => {
   }
 
   return (
-    <ProCard>
+    <>
       <div ref={container}></div>
       <button onClick={() => updateBarChart(chart.current)}>更新数据</button>
-    </ProCard>
+    </>
   );
 };
 
