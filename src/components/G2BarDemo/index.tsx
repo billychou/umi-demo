@@ -1,8 +1,8 @@
 import { ProCard } from '@ant-design/pro-components';
 import { Chart } from '@antv/g2';
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
-export default function G2Demo() {
+const G2BarDemo: React.FC = () => {
   const container = useRef(null);
   const chart = useRef(null);
 
@@ -34,10 +34,6 @@ export default function G2Demo() {
       encode: {
         x: 'genre',
         y: 'sold',
-        key: 'genre',
-      },
-      animate: {
-        updateDuration: 300,
       },
     });
     chart.render();
@@ -49,13 +45,10 @@ export default function G2Demo() {
    * @param chart
    */
   function updateBarChart(chart) {
-    // 获得 Interval Mark
     const interval = chart.getNodesByType('interval')[0];
-    // 模拟并且更新 Interval 的数据
-    const newData = interval.data().map((d) => ({
-      ...d,
-      sold: Math.random() * 400 + 100,
-    }));
+    const newData = interval
+      .data()
+      .map((d) => ({ ...d, sold: Math.random() * 400 + 100 }));
     interval.data(newData);
     // 重新渲染
     chart.render();
@@ -67,4 +60,6 @@ export default function G2Demo() {
       <button onClick={() => updateBarChart(chart.current)}>更新数据</button>
     </ProCard>
   );
-}
+};
+
+export default G2BarDemo;

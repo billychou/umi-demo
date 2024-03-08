@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.10/dayjs.min.js"></script>
+    <title>Document</title>
+    <script>
+      let now = dayjs();
+      console.log(now.format('YYYY-MM-DDTHH:mm'));
+      console.log(now.subtract(1, 'minutes').format('YYYY-MM-DDTHH:mm'));
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -84,6 +84,11 @@ export default [
         component: './Table',
       },
       {
+        name: 'dayjs',
+        path: '/demo/day',
+        component: './Demo/DayjsDemo',
+      },
+      {
         name: 'ProComponents样式',
         path: '/demo/procomponents',
         component: './Demo/ProDemo',

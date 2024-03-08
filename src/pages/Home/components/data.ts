@@ -1,3 +1,9 @@
+import dayjs from 'dayjs';
+
+let now = dayjs();
+let last_min = now.subtract(1, 'minute');
+console.log(last_min);
+
 let data = [
   {
     Date: '2017-11-17T00:00:00.000Z',
