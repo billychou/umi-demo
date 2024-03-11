@@ -5,7 +5,7 @@ import React from 'react';
 
 export default function G2DemoPage() {
   return (
-    <Flex vertical gap={10}>
+    <Flex gap={10}>
       <G2BarDemo />
       <G2LineDemo />
     </Flex>

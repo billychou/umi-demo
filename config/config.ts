@@ -1,4 +1,5 @@
 import { defineConfig } from '@umijs/max';
+import proxy from './proxy';
 import routes from './routes';
 
 const path = require('path');
@@ -13,6 +14,7 @@ export default defineConfig({
     title: '有趣的灵魂',
     locale: false,
   },
+  proxy,
   routes: routes,
   npmClient: 'pnpm',
   theme: {

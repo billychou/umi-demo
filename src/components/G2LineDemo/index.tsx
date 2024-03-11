@@ -1,50 +1,54 @@
+import { getMetrics } from '@/services/metrics';
 import { ProCard } from '@ant-design/pro-components';
 import { Chart } from '@antv/g2';
+import { useRequest } from '@umijs/max';
 import { Space } from 'antd';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+
+const data = await getMetrics();
 
 const G2LineDemo: React.FC = () => {
+  const [datasource, setDatasource] = useState<any>([]);
   const container = useRef(null);
   const chart = useRef(null);
+  const { data, loading, error } = useRequest(
+    async () => {
+      return getMetrics({});
+    },
+    {
+      timeout: 20000,
+      onSuccess: (result, params) => {
+        console.log('onSuccess');
+      },
+      formatResult: (res) => {
+        chart.current.changeData(res);
+      },
+      onError: (error) => {
+        console.log(error.message);
+      },
+    },
+  );
 
   useEffect(() => {
     if (!chart.current) {
-      chart.current = renderLineChart(container.current);
+      // chart.current = renderLineChart(container.current);
+      let myChart = new Chart({
+        container: container.current,
+      });
+      myChart.options({
+        type: 'view',
+        data: [],
+        encode: {
+          x: 'time',
+          y: 'value',
+          color: 'field',
+        },
+        children: [{ type: 'line', encode: { shape: 'smooth' } }],
+      });
+      myChart.render();
+      chart.current = myChart;
     }
-  }, []);
-
-  function renderLineChart(container) {
-    const chart = new Chart({
-      container,
-      theme: 'classic',
-    });
-    const data = [
-      { genre: 'Sports', sold: 275 },
-      { genre: 'Strategy', sold: 115 },
-      { genre: 'Action', sold: 120 },
-      { genre: 'Shooter', sold: 350 },
-      { genre: 'Other', sold: 150 },
-    ];
-    chart.options({
-      type: 'interval',
-      data: data,
-      encode: {
-        x: 'genre',
-        y: 'sold',
-      },
-    });
-    chart.render();
-    return chart;
-  }
-
-  function updateLineChart(chart) {
-    const interval = chart.getNodesByType('interval')[0];
-    const newData = interval
-      .data()
-      .map((d) => ({ ...d, sold: Math.random() * 400 + 100 }));
-    interval.data(newData);
-    chart.render();
-  }
+  });
 
   const extraFilter = <div>welcome</div>;
   const toolbarTip = <div>toolbar</div>;
@@ -58,11 +62,11 @@ const G2LineDemo: React.FC = () => {
   };
 
   return (
-    <ProCard title="lineChart" extra={extraGen()}>
+    <ProCard title="lineChart">
       <div ref={container}></div>
-      <button onClick={() => updateLineChart(chart.current)} type="button">
-        更新数据
-      </button>
+      {/* <button onClick={() => updateLineChart(chart.current)} type="button"> */}
+      {/* 更新数据
+      </button> */}
     </ProCard>
   );
 };
