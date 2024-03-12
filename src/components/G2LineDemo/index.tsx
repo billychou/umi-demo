@@ -96,12 +96,7 @@ const G2LineDemo: React.FC = () => {
   );
   const toolbarTip = <div>toolbar</div>;
   const extraGen = () => {
-    return (
-      <Space.Compact>
-        {extraFilter}
-        {/* {toolbarTip} */}
-      </Space.Compact>
-    );
+    return <Space.Compact>{extraFilter}</Space.Compact>;
   };
 
   return (
