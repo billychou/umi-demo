@@ -104,14 +104,19 @@ export default [
         component: './Demo/GridDemo',
       },
       {
-        name: 'G2Bar',
-        path: '/demo/g2bar',
-        component: '@/components/G2BarDemo',
-      },
-      {
-        name: 'G2Line',
-        path: '/demo/g2line',
-        component: '@/components/G2LineDemo',
+        name: 'g2',
+        routes: [
+          {
+            name: 'G2Bar',
+            path: '/demo/g2bar',
+            component: '@/components/G2BarDemo',
+          },
+          {
+            name: 'G2Line',
+            path: '/demo/g2line',
+            component: '@/components/G2LineDemo',
+          },
+        ],
       },
       {
         name: 'Context',

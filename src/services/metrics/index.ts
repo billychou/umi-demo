@@ -11,8 +11,18 @@ type MetricsRecord = {
 
 type MetricRes = MetricsRecord[];
 
-export async function getMetrics(options?: { [key: string]: any }) {
+type RequestParams = {
+  start?: string;
+  end?: string;
+  interval?: number;
+};
+
+export async function getMetrics(
+  params: RequestParams,
+  options?: { [key: string]: any },
+) {
   return request<MetricRes>('/api/metrics', {
+    params: { ...params },
     method: 'get',
     ...(options || {}),
   });

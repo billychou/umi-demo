@@ -2,18 +2,17 @@ import { getMetrics } from '@/services/metrics';
 import { ProCard } from '@ant-design/pro-components';
 import { Chart } from '@antv/g2';
 import { useRequest } from '@umijs/max';
-import { Space } from 'antd';
+import { Button, Space } from 'antd';
 import dayjs from 'dayjs';
 import React, { useEffect, useRef, useState } from 'react';
-
-// const data = await getMetrics();
 
 const G2LineDemo: React.FC = () => {
   const [datasource, setDatasource] = useState<any>([]);
   const container = useRef(null);
   const chart = useRef(null);
-  const { data, loading, error } = useRequest(getMetrics, {
+  const { data, loading, error, run } = useRequest(getMetrics, {
     timeout: 20000,
+    defaultParams: [{ interval: 1 }],
     onSuccess: (result, params) => {
       console.log('onSuccess');
     },
@@ -73,24 +72,41 @@ const G2LineDemo: React.FC = () => {
       chart.current = myChart;
     }
   });
-
-  const extraFilter = <div>welcome</div>;
+  const dayOnClick = (hour: number) => {
+    run({ interval: hour });
+  };
+  const extraFilter = (
+    <>
+      <Button onClick={() => dayOnClick(1)} size="small">
+        1h
+      </Button>
+      <Button onClick={() => dayOnClick(6)} size="small">
+        6h
+      </Button>
+      <Button onClick={() => dayOnClick(24)} size="small">
+        1d
+      </Button>
+      <Button onClick={() => dayOnClick(24 * 3)} size="small">
+        3d
+      </Button>
+      <Button onClick={() => dayOnClick(24 * 7)} size="small">
+        7d
+      </Button>
+    </>
+  );
   const toolbarTip = <div>toolbar</div>;
   const extraGen = () => {
     return (
       <Space.Compact>
         {extraFilter}
-        {toolbarTip}
+        {/* {toolbarTip} */}
       </Space.Compact>
     );
   };
 
   return (
-    <ProCard title="lineChart">
+    <ProCard title="lineChart" extra={extraGen()} bordered>
       <div ref={container}></div>
-      {/* <button onClick={() => updateLineChart(chart.current)} type="button"> */}
-      {/* 更新数据
-      </button> */}
     </ProCard>
   );
 };
