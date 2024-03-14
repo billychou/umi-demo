@@ -15,18 +15,32 @@ import {
   DatePicker,
   DatePickerProps,
   Segmented,
+  Select,
   Space,
   Tooltip,
 } from 'antd';
+import { createStyles } from 'antd-style';
 import dayjs, { Dayjs } from 'dayjs';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
+
+const useStyles = createStyles(({ token, css }) => ({
+  filterBox: {
+    // textDecoration: 'underline',
+    borderBottom: '1px solid #dbdbdb',
+  },
+  filterBoxText: {
+    fontSize: 13,
+    padding: 0,
+    color: token.optionSelectedColor,
+  },
+}));
 
 const { RangePicker } = DatePicker;
 
 const G2LineDemo: React.FC = () => {
-  const [datasource, setDatasource] = useState<any>([]);
   const container = useRef(null);
   const chart = useRef(null);
+  const { styles } = useStyles();
   const { data, loading, error, run } = useRequest(getMetrics, {
     timeout: 20000,
     defaultParams: [{ interval: 1 }],
@@ -91,18 +105,30 @@ const G2LineDemo: React.FC = () => {
         const [minY, maxY] = domainY;
         const start = dayjs(minX).format('YYYY-MM-DDTHH:mm:ssZ');
         const end = dayjs(maxX).format('YYYY-MM-DDTHH:mm:ssZ');
-        console.log(start);
-        console.log(end);
         run({ start, end });
       });
     }
   });
 
   const dailyOnChange = (value) => {
-    console.log(value);
     run({ interval: value });
   };
 
+  const selectColorRender = (
+    <Space.Compact className={styles.filterBox}>
+      <div className={styles.filterBoxText}>颗粒度</div>
+      <Select
+        size="small"
+        variant="borderless"
+        style={{ flex: 1 }}
+        options={[
+          { value: '1', label: '1分钟' },
+          { value: '5', label: '5分钟' },
+          { value: '10', label: '10分钟' },
+        ]}
+      />
+    </Space.Compact>
+  );
   const dailyFilter = (
     <Segmented
       size="small"
@@ -118,7 +144,7 @@ const G2LineDemo: React.FC = () => {
     />
   );
 
-  const toolbarChart = (
+  const toolbarRender = (
     <Space.Compact>
       <Tooltip title="Like">
         <Button icon={<LikeOutlined />} size="small" type="text" />
@@ -151,12 +177,23 @@ const G2LineDemo: React.FC = () => {
     run({ start, end });
   };
 
+  // const rangePickerRender = (
+
+  // )
+
   const extraFilter = (
     <>
+      {selectColorRender}
       {dailyFilter}
       {/* <Divider type="vertical" /> */}
-      <RangePicker size="small" onChange={rangeOnChange} />
-      {toolbarChart}
+      <RangePicker
+        size="small"
+        onChange={rangeOnChange}
+        variant="borderless"
+        className={styles.filterBox}
+        separator="~"
+      />
+      {toolbarRender}
     </>
   );
   const extraGen = () => {
