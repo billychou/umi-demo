@@ -21,7 +21,7 @@ export async function getMetrics(
   params: RequestParams,
   options?: { [key: string]: any },
 ) {
-  return request<MetricRes>('/api/metrics', {
+  return request<MetricRes>('/api/v1/metrics', {
     params: { ...params },
     method: 'get',
     ...(options || {}),
