@@ -1,10 +1,27 @@
 import { getMetrics } from '@/services/metrics';
+import {
+  CommentOutlined,
+  DownloadOutlined,
+  HeartOutlined,
+  LikeOutlined,
+  ShareAltOutlined,
+  StarOutlined,
+} from '@ant-design/icons';
 import { ProCard } from '@ant-design/pro-components';
 import { Chart } from '@antv/g2';
 import { useRequest } from '@umijs/max';
-import { Button, Space } from 'antd';
-import dayjs from 'dayjs';
+import {
+  Button,
+  DatePicker,
+  DatePickerProps,
+  Segmented,
+  Space,
+  Tooltip,
+} from 'antd';
+import dayjs, { Dayjs } from 'dayjs';
 import React, { useEffect, useRef, useState } from 'react';
+
+const { RangePicker } = DatePicker;
 
 const G2LineDemo: React.FC = () => {
   const [datasource, setDatasource] = useState<any>([]);
@@ -50,14 +67,9 @@ const G2LineDemo: React.FC = () => {
             value: 'field',
           },
         },
-        // scale: {
-        //   x: {
-        //     alias: '时间',
-        //   },
-        //   y: {
-        //     alias: '值',
-        //   },
-        // },
+        scale: {
+          y: { nice: true },
+        },
         axis: {
           x: {
             title: '时间',
@@ -67,40 +79,92 @@ const G2LineDemo: React.FC = () => {
             },
           },
         },
+        interaction: { brushFilter: true },
       });
       myChart.render();
       chart.current = myChart;
+
+      myChart.on('brush:filter', (event) => {
+        const { selection } = event.data;
+        const [domainX, domainY] = selection;
+        const [minX, maxX] = domainX;
+        const [minY, maxY] = domainY;
+        const start = dayjs(minX).format('YYYY-MM-DDTHH:mm:ssZ');
+        const end = dayjs(maxX).format('YYYY-MM-DDTHH:mm:ssZ');
+        console.log(start);
+        console.log(end);
+        run({ start, end });
+      });
     }
   });
-  const dayOnClick = (hour: number) => {
-    run({ interval: hour });
+
+  const dailyOnChange = (value) => {
+    console.log(value);
+    run({ interval: value });
   };
+
+  const dailyFilter = (
+    <Segmented
+      size="small"
+      onChange={dailyOnChange}
+      options={[
+        { label: '1h', value: 1 },
+        { label: '3h', value: 3 },
+        { label: '6h', value: 6 },
+        { label: '1d', value: 24 },
+        { label: '3d', value: 24 * 3 },
+        { label: '7d', value: 24 * 7 },
+      ]}
+    />
+  );
+
+  const toolbarChart = (
+    <Space.Compact>
+      <Tooltip title="Like">
+        <Button icon={<LikeOutlined />} size="small" type="text" />
+      </Tooltip>
+      <Tooltip title="Comment">
+        <Button icon={<CommentOutlined />} size="small" type="text" />
+      </Tooltip>
+      <Tooltip title="Star">
+        <Button icon={<StarOutlined />} size="small" type="text" />
+      </Tooltip>
+      <Tooltip title="Heart">
+        <Button icon={<HeartOutlined />} size="small" type="text" />
+      </Tooltip>
+      <Tooltip title="Share">
+        <Button icon={<ShareAltOutlined />} size="small" type="text" />
+      </Tooltip>
+      <Tooltip title="Download">
+        <Button icon={<DownloadOutlined />} size="small" type="text" />
+      </Tooltip>
+    </Space.Compact>
+  );
+
+  const rangeOnChange: DatePickerProps<Dayjs[]>['onChange'] = (
+    date,
+    dateString,
+  ) => {
+    console.log(date, dateString);
+    const start = date[0];
+    const end = date[1];
+    run({ start, end });
+  };
+
   const extraFilter = (
     <>
-      <Button onClick={() => dayOnClick(1)} size="small">
-        1h
-      </Button>
-      <Button onClick={() => dayOnClick(6)} size="small">
-        6h
-      </Button>
-      <Button onClick={() => dayOnClick(24)} size="small">
-        1d
-      </Button>
-      <Button onClick={() => dayOnClick(24 * 3)} size="small">
-        3d
-      </Button>
-      <Button onClick={() => dayOnClick(24 * 7)} size="small">
-        7d
-      </Button>
+      {dailyFilter}
+      {/* <Divider type="vertical" /> */}
+      <RangePicker size="small" onChange={rangeOnChange} />
+      {toolbarChart}
     </>
   );
-  const toolbarTip = <div>toolbar</div>;
   const extraGen = () => {
-    return <Space.Compact>{extraFilter}</Space.Compact>;
+    return <Space size="small">{extraFilter}</Space>;
   };
 
   return (
-    <ProCard title="lineChart" extra={extraGen()} bordered>
+    <ProCard title="QPS" extra={extraGen()} bordered>
       <div ref={container}></div>
     </ProCard>
   );
