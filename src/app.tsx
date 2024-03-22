@@ -2,7 +2,8 @@
 import { RequestConfig, RequestOptions, RunTimeLayoutConfig } from '@umijs/max';
 import { Input, message } from 'antd';
 import React from 'react';
-import { getCurrentUser } from './services/demo/UserController';
+
+import { tokenName } from './global';
 
 const { Search } = Input;
 
@@ -39,10 +40,34 @@ const MyInputSearch = () => {
 // 更多信息见文档：https://umijs.org/docs/api/runtime-config#getinitialstate
 export async function getInitialState(): Promise<InitialState> {
   // 获取当前用户信息
-  const currentUser = await getCurrentUser();
+  // const currentUser = await getCurrentUser();
+  // get user info
+  // 获取 路由信息
+  console.log('initial state');
+  console.log(`search=${window.location.search}`);
+  console.log(`location=${window.location}`);
+  // url信息
+  const url = new URL(window.location);
+  console.log(url);
+  console.log(url.host);
+  console.log(url.hostname);
+  console.log(url.href);
+  console.log(url.origin);
+  console.log(url.password);
+  console.log(url.pathname);
+  console.log(url.search);
+  console.log(url.searchParams);
+  console.log(url.hash);
+  // url search 信息
+  const search = new URLSearchParams(window.location.search);
+  console.log(search);
+  console.log(search.has('token'));
+  if (search.has('token')) {
+    localStorage.setItem(tokenName, search.get('token'));
+  }
   return {
     name: 'sanfendi',
-    currentUser: currentUser,
+    // currentUser: currentUser,
   };
 }
 
