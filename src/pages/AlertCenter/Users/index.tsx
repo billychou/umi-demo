@@ -21,7 +21,6 @@ type VenusUserListItem = {
 };
 
 type InputRef = GetRef<typeof Input>;
-console.log(typeof Input);
 type DataIndex = keyof VenusUserListItem;
 
 /**

@@ -34,7 +34,7 @@ export default [
   {
     name: '告警列表',
     path: '/alert/list',
-    component: './Alert/Users',
+    component: './AlertCenter/Users',
   },
   {
     name: '基础类型',
@@ -59,6 +59,22 @@ export default [
         name: 'GetRef',
         path: '/tools/getref',
         component: './Tools/GetRefDemo',
+      },
+    ],
+  },
+  {
+    name: 'react',
+    path: '/react',
+    routes: [
+      {
+        name: 'ref',
+        path: '/react/ref',
+        component: './Demo/RefDemo',
+      },
+      {
+        name: 'useState',
+        path: '/react/usestate',
+        component: './Demo/StateDemo',
       },
     ],
   },
