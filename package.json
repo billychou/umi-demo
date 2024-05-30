@@ -23,6 +23,8 @@
     "@antv/g-webgl": "^1.9.34",
     "@antv/g2": "^5.1.10",
     "@antv/g2plot": "^2.4.31",
+    "@antv/g6": "^5.0.0-beta.37",
+    "@antv/g6-extension-react": "^0.1.0",
     "@umijs/max": "^4.0.69",
     "antd": "^5.5.1",
     "antd-style": "^3.6.1",

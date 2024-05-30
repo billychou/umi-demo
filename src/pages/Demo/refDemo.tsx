@@ -19,7 +19,7 @@ const RefDemo = () => {
     setStartTime(d);
     setNow(d);
     intervalRef.current = setInterval(() => {
-      countRef.current += 1;
+      Ref.current += 1;
     }, 1000);
 
     // clearInterval(intervalRef.current);
