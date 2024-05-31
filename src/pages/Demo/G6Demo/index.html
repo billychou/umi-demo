@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/@antv/g6@beta/dist/g6.min.js"></script>
+  </head>
+  <body>
+    <!-- 准备一个容器 -->
+    <div id="container" style="width: 500px; height: 500px"></div>
+    <!-- 引入 G6 的 JS 文件 -->
+    <script>
+      console.log('hello');
+      fetch('https://assets.antv.antgroup.com/g6/graph.json')
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          const graph = new Graph({
+            container: 'container',
+            autoFit: 'view',
+            data,
+            node: {
+              style: {
+                size: 10,
+              },
+              palette: {
+                field: 'group',
+                color: 'tableau',
+              },
+            },
+            edge: {},
+            layout: {
+              type: 'd3force',
+              manyBody: {},
+              x: {},
+              y: {},
+            },
+            behaviors: ['drag-canvas', 'zoom-canvas', 'drag-element'],
+          });
+          graph.render();
+        });
+    </script>
+    <script src="https://unpkg.com/@antv/g6@beta/dist/g6.min.js"></script>
+  </body>
+</html>

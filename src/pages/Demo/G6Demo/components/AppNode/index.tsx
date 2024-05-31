@@ -1,7 +1,7 @@
-import { ExtensionCategory, register } from '@antv/g6';
-import { GNode, Group, Image, Rect, Text } from '@antv/g6-extension-react';
+import { Group, Image, Rect, Text } from '@antv/g6-extension-react';
+import React from 'react';
 
-register(ExtensionCategory.NODE, 'app-node', GNode);
+// register(ExtensionCategory.NODE, 'app-node', GNode);
 
 export const AppNode = ({ data, size }) => {
   const [width, height] = size;

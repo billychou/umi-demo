@@ -1,10 +1,10 @@
 export const appData = {
   nodes: [
     {
-      id: 'node-1',
+      id: 'CBS',
       data: {
-        name: 'Module',
-        type: 'module',
+        name: '核心应用',
+        type: 'app',
         status: 'success',
         success: 90,
         time: 58,
@@ -12,10 +12,10 @@ export const appData = {
       },
     },
     {
-      id: 'node-2',
+      id: 'CBF',
       data: {
-        name: 'Process',
-        type: 'process',
+        name: '核心前置',
+        type: 'app',
         status: 'error',
         success: 11,
         time: 12,
@@ -23,11 +23,22 @@ export const appData = {
       },
     },
     {
-      id: 'node-3',
+      id: 'CDQ',
       data: {
-        name: 'Process',
-        type: 'process',
+        name: '核心查询',
+        type: 'app',
         status: 'error',
+        success: 12,
+        time: 12,
+        failure: 26,
+      },
+    },
+    {
+      id: 'MSC',
+      data: {
+        name: '新消息中心',
+        type: 'app',
+        status: 'success',
         success: 12,
         time: 12,
         failure: 26,
@@ -35,7 +46,8 @@ export const appData = {
     },
   ],
   edges: [
-    { source: 'node-1', target: 'node-2' },
-    { source: 'node-1', target: 'node-3' },
+    { source: 'CBF', target: 'CBS' },
+    { source: 'CBF', target: 'CDQ' },
+    { source: 'CBS', target: 'MSC' },
   ],
 };

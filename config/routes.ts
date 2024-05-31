@@ -121,10 +121,11 @@ export default [
       },
       {
         name: '图可视化分析',
+        path: '/demo/g6',
         routes: [
           {
             name: 'G6Demo',
-            path: '/demo/g6demo',
+            path: '/demo/g6/g6demo',
             component: './Demo/G6Demo',
           },
         ],
