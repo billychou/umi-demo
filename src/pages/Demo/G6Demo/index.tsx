@@ -1,24 +1,30 @@
 /**
  * Author  Zhou Songchuan
  */
-import { ProCard } from '@ant-design/pro-components';
 import { ExtensionCategory, Graph, register } from '@antv/g6';
 import { GNode } from '@antv/g6-extension-react';
-import { Flex } from 'antd';
 import React, { useEffect, useRef } from 'react';
 import { AntLine } from './components/AntLine';
 import { AppNode } from './components/AppNode';
 import { appData } from './data';
 
+import { createStyles } from 'antd-style';
+
 // register(ExtensionCategory.NODE, 'react', ReactNode);
 register(ExtensionCategory.NODE, 'g', GNode);
 register(ExtensionCategory.EDGE, 'ant-line', AntLine);
-/**
- * React.FC
- * @returns
- */
+
+const useStyles = createStyles(({ token, css }) => ({
+  container: {
+    backgroundColor: token.blue1,
+    width: '100%',
+    height: '100%',
+  },
+}));
+
 const G6Demo: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { styles } = useStyles();
   const graph = null;
   useEffect(() => {
     if (!graph) {
@@ -38,7 +44,7 @@ const G6Demo: React.FC = () => {
           type: 'ant-line',
           style: {
             stroke: 'red',
-            lineDash: [10, 10],
+            lineDash: [5, 5],
             endArrow: true,
           },
         },
@@ -53,14 +59,7 @@ const G6Demo: React.FC = () => {
       graph.render();
     }
   }, []);
-  return (
-    <Flex vertical={false}>
-      <ProCard>Pannel</ProCard>
-      <ProCard>
-        <div ref={containerRef}></div>
-      </ProCard>
-    </Flex>
-  );
+  return <div ref={containerRef} className={styles.container}></div>;
 };
 
 export default G6Demo;

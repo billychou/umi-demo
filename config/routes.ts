@@ -62,22 +62,22 @@ export default [
       },
     ],
   },
-  {
-    name: 'react',
-    path: '/react',
-    routes: [
-      {
-        name: 'ref',
-        path: '/react/ref',
-        component: './Demo/RefDemo',
-      },
-      {
-        name: 'useState',
-        path: '/react/usestate',
-        component: './Demo/StateDemo',
-      },
-    ],
-  },
+  // {
+  //   name: 'react',
+  //   path: '/react',
+  //   routes: [
+  //     {
+  //       name: 'ref',
+  //       path: '/react/ref',
+  //       component: './Demo/RefDemo',
+  //     },
+  //     {
+  //       name: 'useState',
+  //       path: '/react/usestate',
+  //       component: './Demo/StateDemo',
+  //     },
+  //   ],
+  // },
   {
     name: '组件',
     path: '/demo',

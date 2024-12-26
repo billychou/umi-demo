@@ -5,12 +5,9 @@ import { Line } from '@antv/g6';
  */
 export class AntLine extends Line {
   onCreate() {
-    this.shapeMap.key.animate(
-      [{ lineDashOffset: -20 }, { lineDashOffset: 0 }],
-      {
-        duration: 500,
-        iterations: Infinity,
-      },
-    );
+    this.shapeMap.key.animate([{ lineDashOffset: 0 }, { lineDashOffset: 20 }], {
+      duration: 500,
+      iterations: Infinity,
+    });
   }
 }
