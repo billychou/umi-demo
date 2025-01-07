@@ -3,10 +3,12 @@
  */
 import { ExtensionCategory, Graph, register } from '@antv/g6';
 import { GNode } from '@antv/g6-extension-react';
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { AntLine } from './components/AntLine';
 import { AppNode } from './components/AppNode';
 import { appData } from './data';
+
+import { useFullscreen, useMount } from 'ahooks';
 
 import { createStyles } from 'antd-style';
 
@@ -24,9 +26,11 @@ const useStyles = createStyles(({ token, css }) => ({
 
 const G6Demo: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isFullscreen, { toggleFullscreen }] = useFullscreen(containerRef);
+
   const { styles } = useStyles();
   const graph = null;
-  useEffect(() => {
+  useMount(() => {
     if (!graph) {
       const graph = new Graph({
         container: containerRef.current!,
@@ -58,8 +62,17 @@ const G6Demo: React.FC = () => {
       });
       graph.render();
     }
-  }, []);
-  return <div ref={containerRef} className={styles.container}></div>;
+  });
+  return (
+    <div>
+      <div ref={containerRef} className={styles.container}></div>
+      <div>
+        <button style={{ marginRight: '8px' }} onClick={toggleFullscreen}>
+          ahooks toggleFullscreen
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export default G6Demo;

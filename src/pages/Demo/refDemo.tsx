@@ -21,11 +21,6 @@ const RefDemo = () => {
     intervalRef.current = setInterval(() => {
       Ref.current += 1;
     }, 1000);
-
-    // clearInterval(intervalRef.current);
-    // intervalRef.current = setInterval(() => {
-    //   setNow(Date.now());
-    // }, 10);
   };
 
   const onHandleStop = () => {

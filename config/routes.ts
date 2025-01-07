@@ -128,6 +128,12 @@ export default [
             path: '/demo/g6/g6demo',
             component: './Demo/G6Demo',
           },
+          {
+            name: 'G6HtmlNode',
+            path: '/demo/g6/g6htmlnode',
+            component: './Demo/HtmlNode',
+            // component: './Demo/G6Demo',
+          }
         ],
       },
       {

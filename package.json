@@ -26,6 +26,7 @@
     "@antv/g6": "^5.0.39",
     "@antv/g6-extension-react": "^0.1.0",
     "@umijs/max": "^4.0.69",
+    "ahooks": "^3.8.4",
     "antd": "^5.5.1",
     "antd-style": "^3.6.1",
     "init": "^0.1.2",
