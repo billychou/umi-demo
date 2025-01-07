@@ -1,6 +1,8 @@
 import { Graph } from '@antv/g6';
-import { useFullscreen, useMount } from 'ahooks';
+import { useFullscreen, useRequest } from 'ahooks';
 import React, { useEffect, useRef } from 'react';
+
+import { getLinkData } from '@/services/link';
 
 import { createStyles } from 'antd-style';
 
@@ -34,58 +36,36 @@ const COLOR_MAP: Record<Status, string> = {
 
 const HtmlNode: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const graphRef = useRef<Graph | null>(null);
   const [isFullscreen, { toggleFullscreen }] = useFullscreen(containerRef);
 
   const { styles } = useStyles();
+  const { data, run, error, loading } = useRequest(getLinkData, {
+    defaultParams: ['cbs'],
+    pollingInterval: 10000,
+  });
 
   useEffect(() => {
-    console.log('html g6');
-  }, []);
-
-  useMount(() => {
-    console.log('html g6');
-    const graph = new Graph({
-      container: containerRef.current!,
-      data: {
-        nodes: [
-          {
-            id: 'node-1',
-            data: {
-              location: '个人手机银行-MBS',
-              status: 'error',
-              ip: 'A+',
-            },
-          },
-          {
-            id: 'node-2',
-            data: {
-              location: '核心业务系统-CBS',
-              status: 'overload',
-              ip: 'B',
-            },
-          },
-          {
-            id: 'node-3',
-            data: {
-              location: '渠道中台系统-ECP',
-              status: 'running',
-              ip: 'C',
-            },
-          },
-        ],
-      },
-      node: {
-        type: 'html',
-        style: {
-          size: [180, 60],
-          dx: -120,
-          dy: -40,
-          innerHTML: (d) => {
-            const {
-              data: { location, status, ip },
-            } = d;
-            const color = COLOR_MAP[status];
-            return `
+    if (data && !loading && containerRef.current) {
+      console.log(data);
+      if (graphRef.current) {
+        graphRef.current.destroy();
+      }
+      graphRef.current = new Graph({
+        container: containerRef.current!,
+        data: data.data,
+        node: {
+          type: 'html',
+          style: {
+            size: [180, 60],
+            dx: -120,
+            dy: -40,
+            innerHTML: (d) => {
+              const {
+                data: { label, status, level },
+              } = d;
+              const color = COLOR_MAP[status];
+              return `
 <div 
   style="
     width:100%; 
@@ -100,42 +80,58 @@ const HtmlNode: React.FC = () => {
 >
   <div style="display: flex;flex-direction: column;flex: 1;">
     <div style="font-weight: bold;">
-      ${location}
+      ${label}
     </div>
   </div>
   <div>
     <span style="border: 1px solid white; padding: 2px;">
-      ${ip}
+      ${level}
     </span>
   </div>
 </div>`;
+            },
           },
         },
-      },
-      layout: {
-        type: 'grid',
-      },
-      behaviors: ['drag-element', 'zoom-canvas'],
-      plugins: [
-        {
-          type: 'toolbar',
-          position: 'right-top',
-          onClick: (item) => {
-            // alert('item clicked:' + item);
-            toggleFullscreen();
-          },
-          getItems: () => {
-            return [
-              { id: 'icon-xinjian', value: 'new' },
-              { id: 'icon-fenxiang', value: 'share' },
-              { id: 'icon-chexiao', value: 'undo' },
-            ];
-          },
+        layout: {
+          type: 'dagre',
         },
-      ],
-    });
-    graph.render();
-  });
+        behaviors: ['drag-element', 'zoom-canvas'],
+        plugins: [
+          {
+            type: 'toolbar',
+            position: 'right-top',
+            onClick: (item) => {
+              // alert('item clicked:' + item);
+              toggleFullscreen();
+            },
+            getItems: () => {
+              return [
+                { id: 'icon-xinjian', value: 'new' },
+                { id: 'icon-fenxiang', value: 'share' },
+                { id: 'icon-chexiao', value: 'undo' },
+              ];
+            },
+          },
+        ],
+      });
+      graphRef.current.render();
+    }
+  }, [data, loading]);
+
+  useEffect(() => {
+    return () => {
+      if (graphRef.current) {
+        graphRef.current.destroy();
+      }
+    };
+  }, []);
+  if (loading) {
+    return <div>加载中...</div>;
+  }
+
+  if (error) {
+    return <div>加载出错: {error.message}</div>;
+  }
 
   return (
     <>
