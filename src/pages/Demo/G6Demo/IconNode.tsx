@@ -16,6 +16,7 @@ const useStyles = createStyles(({ token }) => {
       width: '100%',
       height: '100%',
       background: token.colorBgLayout,
+      margin: '20px',
     },
   };
 });
@@ -46,7 +47,7 @@ const IconNode: React.FC = () => {
   const { styles } = useStyles();
   const { data, run, error, loading } = useRequest(getLinkData, {
     defaultParams: ['cbs'],
-    pollingInterval: 10000,
+    pollingInterval: 30000,
   });
 
   useEffect(() => {
@@ -57,7 +58,21 @@ const IconNode: React.FC = () => {
       }
       graphRef.current = new Graph({
         container: containerRef.current!,
+        width: window.innerWidth,
+        height: window.innerHeight,
+        autoFit: 'center',
         data: data.data,
+        edge: {
+          type: 'polyline',
+          style: {
+            stroke: '#1890ff',
+            lineDash: [5, 5],
+            endArrow: true,
+            router: {
+              type: 'orth',
+            },
+          },
+        },
         node: {
           type: (d) => {
             const {
@@ -116,8 +131,12 @@ const IconNode: React.FC = () => {
         },
         layout: {
           type: 'dagre',
+          align: 'UL',
+          rankdir: 'LR',
+          nodesep: 50,
+          ranksep: 100,
         },
-        behaviors: ['drag-element', 'zoom-canvas'],
+        behaviors: ['drag-element', 'zoom-canvas', 'drag-canvas'],
         plugins: [
           {
             type: 'toolbar',
