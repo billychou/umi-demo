@@ -129,11 +129,15 @@ export default [
             component: './Demo/G6Demo',
           },
           {
+            name: 'G6IconNode',
+            path: '/demo/g6/g6iconnode',
+            component: './Demo/G6Demo/IconNode',
+          },
+          {
             name: 'G6HtmlNode',
             path: '/demo/g6/g6htmlnode',
             component: './Demo/HtmlNode',
-            // component: './Demo/G6Demo',
-          }
+          },
         ],
       },
       {
