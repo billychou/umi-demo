@@ -148,7 +148,12 @@ const IconNode: React.FC = () => {
           nodesep: 50,
           ranksep: 100,
         },
-        behaviors: ['drag-element', 'zoom-canvas', 'drag-canvas'],
+        behaviors: [
+          'drag-element',
+          'zoom-canvas',
+          'drag-canvas',
+          'hover-activate',
+        ],
         plugins: [
           {
             type: 'toolbar',
