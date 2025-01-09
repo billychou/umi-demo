@@ -29,6 +29,7 @@
     "ahooks": "^3.8.4",
     "antd": "^5.5.1",
     "antd-style": "^3.6.1",
+    "classnames": "^2.5.1",
     "init": "^0.1.2",
     "interactjs": "^1.10.21",
     "numeral": "^2.0.6",

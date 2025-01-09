@@ -1,6 +1,10 @@
-import { Graph } from '@antv/g6';
+import { Graph, iconfont } from '@antv/g6';
 import { useFullscreen, useRequest } from 'ahooks';
 import React, { useEffect, useRef } from 'react';
+
+const style = document.createElement('style');
+style.innerHTML = `@import url('${iconfont.css}');`;
+document.head.appendChild(style);
 
 import { getLinkData } from '@/services/link';
 
@@ -16,9 +20,9 @@ const useStyles = createStyles(({ token }) => {
   };
 });
 
-const iconFont = document.createElement('script');
-iconFont.src = '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js';
-document.head.appendChild(iconFont);
+// const iconFont = document.createElement('script');
+// iconFont.src = '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js';
+// document.head.appendChild(iconFont);
 
 type Status = 'error' | 'overload' | 'running';
 
@@ -47,48 +51,66 @@ const HtmlNode: React.FC = () => {
 
   useEffect(() => {
     if (data && !loading && containerRef.current) {
-      console.log(data);
       if (graphRef.current) {
         graphRef.current.destroy();
       }
       graphRef.current = new Graph({
         container: containerRef.current!,
+        autoFit: 'view',
         data: data.data,
         node: {
-          type: 'html',
+          type: (d) => {
+            const {
+              data: { node_type },
+            } = d;
+            if (node_type === 'app') {
+              return 'html';
+            } else {
+              return 'circle';
+            }
+            return 'html';
+          },
           style: {
             size: [180, 60],
             dx: -120,
             dy: -40,
+            labelText: (d) => {
+              const {
+                data: { label, status, level },
+              } = d;
+              return label;
+            },
+            iconFontFamily: 'iconfont',
+            iconText: '\ue602',
             innerHTML: (d) => {
               const {
                 data: { label, status, level },
               } = d;
               const color = COLOR_MAP[status];
               return `
-<div 
-  style="
-    width:100%; 
-    height: 100%; 
-    background: ${color}bb; 
-    border: 1px solid ${color};
-    color: #fff;
-    user-select: none;
-    display: flex; 
-    padding: 10px;
-    "
->
-  <div style="display: flex;flex-direction: column;flex: 1;">
-    <div style="font-weight: bold;">
-      ${label}
-    </div>
-  </div>
-  <div>
-    <span style="border: 1px solid white; padding: 2px;">
-      ${level}
-    </span>
-  </div>
-</div>`;
+                  <div 
+                    style="
+                      width:100%; 
+                      height: 100%; 
+                      background: ${color}bb; 
+                      border: 1px solid ${color};
+                      color: #fff;
+                      user-select: none;
+                      display: flex; 
+                      padding: 10px;
+                      "
+                  >
+                    <div style="display: flex;flex-direction: column;flex: 1;">
+                      <div style="font-weight: bold;">
+                        ${label}
+                      </div>
+                    </div>
+                    <div>
+                      <span style="border: 1px solid white; padding: 2px;">
+                        ${level}
+                      </span>
+                    </div>
+                  </div>`;
             },
           },
         },
