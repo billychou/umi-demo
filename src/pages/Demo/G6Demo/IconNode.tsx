@@ -1,12 +1,19 @@
 import { Graph } from '@antv/g6';
 import { useFullscreen, useRequest } from 'ahooks';
-import React, { useEffect, useRef } from 'react';
+import { Drawer } from 'antd';
+import React, { useEffect, useRef, useState } from 'react';
+
+import { getIcon } from '@/utils/tool';
 
 import { getLinkData } from '@/services/link';
 
 const style = document.createElement('style');
 style.innerHTML = `@import '/icons/iconfont.css'`;
 document.head.appendChild(style);
+
+const iconFontJs = document.createElement('script');
+iconFontJs.src = '/icons/iconfont.js';
+document.head.appendChild(iconFontJs);
 
 import { createStyles } from 'antd-style';
 
@@ -20,10 +27,6 @@ const useStyles = createStyles(({ token }) => {
     },
   };
 });
-
-const iconFont = document.createElement('script');
-iconFont.src = '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js';
-document.head.appendChild(iconFont);
 
 type Status = 'error' | 'overload' | 'running';
 
@@ -43,12 +46,19 @@ const IconNode: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const graphRef = useRef<Graph | null>(null);
   const [isFullscreen, { toggleFullscreen }] = useFullscreen(containerRef);
+  const [drawerVisible, setDrawerVisible] = useState(false);
+  const [selectedNode, setSelectedNode] = useState<any>(null);
 
   const { styles } = useStyles();
   const { data, run, error, loading } = useRequest(getLinkData, {
     defaultParams: ['cbs'],
     pollingInterval: 30000,
   });
+
+  const handleNodeClick = (node: any) => {
+    setSelectedNode(node);
+    setDrawerVisible(true);
+  };
 
   useEffect(() => {
     if (data && !loading && containerRef.current) {
@@ -61,6 +71,7 @@ const IconNode: React.FC = () => {
         width: window.innerWidth,
         height: window.innerHeight,
         autoFit: 'center',
+        autoResize: true,
         data: data.data,
         edge: {
           type: 'polyline',
@@ -85,6 +96,7 @@ const IconNode: React.FC = () => {
             }
             return 'html';
           },
+          palette: 'spectral',
           style: {
             size: [180, 60],
             dx: -120,
@@ -96,7 +108,7 @@ const IconNode: React.FC = () => {
               return label;
             },
             iconFontFamily: 'iconfont',
-            iconText: '\ue6cc',
+            iconText: getIcon('shoujiyinhang'),
             innerHTML: (d) => {
               const {
                 data: { label, status, level },
@@ -142,20 +154,25 @@ const IconNode: React.FC = () => {
             type: 'toolbar',
             position: 'right-top',
             onClick: (item) => {
-              // alert('item clicked:' + item);
+              console.log(item);
               toggleFullscreen();
             },
             getItems: () => {
               return [
-                { id: 'icon-xinjian', value: 'new' },
-                { id: 'icon-fenxiang', value: 'share' },
-                { id: 'icon-chexiao', value: 'undo' },
+                // { id: 'icon-xinjian', value: 'new' },
+                // { id: 'icon-fenxiang', value: 'share' },
+                // { id: 'icon-chexiao', value: 'undo' },
+                { id: 'icon-shoujiyinhang', value: 'mobile' },
               ];
             },
           },
         ],
       });
       graphRef.current.render();
+      graphRef.current.on('node:click', (evt: any) => {
+        const nodeId = evt.target.id;
+        handleNodeClick(nodeId);
+      });
     }
   }, [data, loading]);
 
@@ -166,6 +183,16 @@ const IconNode: React.FC = () => {
       }
     };
   }, []);
+
+  // useEffect(() => {
+  //   if (graphRef.current) {
+  //     graphRef.current.on('node:click', (evt: any) => {
+  //       const node = evt.item;
+  //       handleNodeClick(node.getModel());
+  //     });
+  //   }
+  // }, []);
+
   if (loading) {
     return <div>加载中...</div>;
   }
@@ -177,6 +204,22 @@ const IconNode: React.FC = () => {
   return (
     <>
       <div ref={containerRef} className={styles.container} />
+
+      <Drawer
+        title="节点详情"
+        placement="right"
+        onClose={() => setDrawerVisible(false)}
+        open={drawerVisible}
+        width={400}
+      >
+        {selectedNode && (
+          <div>
+            <p>节点ID: {selectedNode.id}</p>
+            <p>节点类型: {selectedNode.type}</p>
+            {/* 根据需要添加更多节点信息 */}
+          </div>
+        )}
+      </Drawer>
     </>
   );
 };
