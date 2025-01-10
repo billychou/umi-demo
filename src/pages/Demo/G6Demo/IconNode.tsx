@@ -1,4 +1,5 @@
-import { Graph } from '@antv/g6';
+import { ProDescriptions } from '@ant-design/pro-components';
+import { Graph, NodeEvent } from '@antv/g6';
 import { useFullscreen, useRequest } from 'ahooks';
 import { Drawer } from 'antd';
 import React, { useEffect, useRef, useState } from 'react';
@@ -55,8 +56,9 @@ const IconNode: React.FC = () => {
     pollingInterval: 30000,
   });
 
-  const handleNodeClick = (node: any) => {
-    setSelectedNode(node);
+  const handleNodeClick = (nodeId: any) => {
+    const nodeData = graphRef.current?.getNodeData(nodeId);
+    setSelectedNode(nodeData);
     setDrawerVisible(true);
   };
 
@@ -169,7 +171,9 @@ const IconNode: React.FC = () => {
         ],
       });
       graphRef.current.render();
-      graphRef.current.on('node:click', (evt: any) => {
+      graphRef.current.on(NodeEvent.CLICK, (evt: any) => {
+        console.log(evt);
+        console.log(evt.target);
         const nodeId = evt.target.id;
         handleNodeClick(nodeId);
       });
@@ -183,15 +187,6 @@ const IconNode: React.FC = () => {
       }
     };
   }, []);
-
-  // useEffect(() => {
-  //   if (graphRef.current) {
-  //     graphRef.current.on('node:click', (evt: any) => {
-  //       const node = evt.item;
-  //       handleNodeClick(node.getModel());
-  //     });
-  //   }
-  // }, []);
 
   if (loading) {
     return <div>加载中...</div>;
@@ -213,11 +208,47 @@ const IconNode: React.FC = () => {
         width={400}
       >
         {selectedNode && (
-          <div>
-            <p>节点ID: {selectedNode.id}</p>
-            <p>节点类型: {selectedNode.type}</p>
-            {/* 根据需要添加更多节点信息 */}
-          </div>
+          <ProDescriptions
+            column={1}
+            title={false}
+            dataSource={selectedNode}
+            columns={[
+              {
+                title: '节点ID',
+                key: 'id',
+                dataIndex: 'id',
+              },
+              {
+                title: '节点名称',
+                key: 'data.label',
+                dataIndex: ['data', 'label'],
+              },
+              {
+                title: '节点类型',
+                key: 'data.node_type',
+                dataIndex: ['data', 'node_type'],
+                valueEnum: {
+                  app: { text: '应用节点', status: 'Success' },
+                  third: { text: '第三方节点', status: 'Warning' },
+                },
+              },
+              {
+                title: '状态',
+                key: 'data.status',
+                dataIndex: ['data', 'status'],
+                valueEnum: {
+                  running: { text: '运行中', status: 'Success' },
+                  error: { text: '错误', status: 'Error' },
+                  overload: { text: '过载', status: 'Warning' },
+                },
+              },
+              {
+                title: '级别',
+                key: 'data.level',
+                dataIndex: ['data', 'level'],
+              },
+            ]}
+          />
         )}
       </Drawer>
     </>
