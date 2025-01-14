@@ -18,6 +18,9 @@ document.head.appendChild(iconFontJs);
 
 import { createStyles } from 'antd-style';
 
+/**
+ * CSS样式统一位置
+ */
 const useStyles = createStyles(({ token }) => {
   return {
     container: {
@@ -29,6 +32,9 @@ const useStyles = createStyles(({ token }) => {
   };
 });
 
+/**
+ * Type Definition
+ */
 type Status = 'error' | 'overload' | 'running';
 
 const ICON_MAP: Record<Status, string> = {
@@ -43,12 +49,28 @@ const COLOR_MAP: Record<Status, string> = {
   running: '#52c41a',
 };
 
-const IconNode: React.FC = () => {
+type NodeData = {
+  data: {
+    label: string;
+    level: string;
+    node_type: 'app' | 'third';
+    status: Status;
+  };
+  id: string;
+};
+
+type IconNodeProps = {
+  data: any;
+  loading: boolean;
+  error: any;
+};
+
+const IconNode: React.FC<IconNodeProps> = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const graphRef = useRef<Graph | null>(null);
-  const [isFullscreen, { toggleFullscreen }] = useFullscreen(containerRef);
+  const [, { toggleFullscreen }] = useFullscreen(containerRef);
   const [drawerVisible, setDrawerVisible] = useState(false);
-  const [selectedNode, setSelectedNode] = useState<any>(null);
+  const [selectedNode, setSelectedNode] = useState<NodeData | null>(null);
 
   const { styles } = useStyles();
   const { data, run, error, loading } = useRequest(getLinkData, {
@@ -56,15 +78,14 @@ const IconNode: React.FC = () => {
     pollingInterval: 30000,
   });
 
-  const handleNodeClick = (nodeId: any) => {
-    const nodeData = graphRef.current?.getNodeData(nodeId);
+  const handleNodeClick = (nodeId: string) => {
+    const nodeData = graphRef.current?.getNodeData(nodeId) as NodeData;
     setSelectedNode(nodeData);
     setDrawerVisible(true);
   };
 
   useEffect(() => {
     if (data && !loading && containerRef.current) {
-      console.log(data);
       if (graphRef.current) {
         graphRef.current.destroy();
       }
@@ -89,7 +110,7 @@ const IconNode: React.FC = () => {
         node: {
           type: (d) => {
             const {
-              data: { label, level, node_type },
+              data: { node_type },
             } = d;
             if (node_type === 'app') {
               return 'html';
@@ -214,7 +235,7 @@ const IconNode: React.FC = () => {
       >
         {selectedNode && (
           <ProDescriptions
-            column={1}
+            bordered
             title={false}
             dataSource={selectedNode}
             columns={[

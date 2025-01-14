@@ -120,9 +120,15 @@ export default [
         component: './Demo/GridDemo',
       },
       {
-        name: 'X6Demo',
+        name: 'X6示例',
         path: '/demo/x6',
-        component: './Demo/X6Demo/demo',
+        routes: [
+          {
+            name: 'basic',
+            path: '/demo/x6/x6demo',
+            component: './Demo/X6Demo/demo',
+          },
+        ],
       },
       {
         name: '图可视化分析',
