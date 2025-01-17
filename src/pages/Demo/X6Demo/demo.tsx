@@ -1,73 +1,16 @@
-import { Graph } from '@antv/x6';
-import { Stencil } from '@antv/x6-plugin-stencil';
-import React, { useEffect, useRef } from 'react';
+/**
+ * 实现图编辑
+ * 1. stencil选择节点类型， 节点类型支持应用、应用子系统、服务、部署单元
+ * 2. 拖拽节点到画布上，节点类型支持应用、应用子系统、服务、部署单元
+ */
+import React from 'react';
+import CustomNode from './components/CustomNode';
 
 const X6Demo: React.FC = () => {
-  const graphContainerRef = useRef<HTMLDivElement>(null);
-  const graphRef = useRef<Graph>();
-  const stencilRef = useRef<Stencil>();
-
-  useEffect(() => {
-    const graph = new Graph({
-      container: graphContainerRef.current!,
-      width: window.innerWidth,
-      height: window.innerHeight,
-      background: {
-        color: '#F2F7FA',
-      },
-      grid: true,
-    });
-
-    const stencil = new Stencil({
-      target: graph,
-      groups: [
-        {
-          name: 'group1',
-        },
-        {
-          name: 'group2',
-        },
-      ],
-    });
-
-    const rect1 = graph.createNode({
-      shape: 'rect',
-      width: 100,
-      height: 40,
-    });
-
-    const rect2 = rect1.clone();
-
-    graph.addNode({
-      x: 32,
-      y: 32,
-      width: 100,
-      height: 40,
-      attrs: {
-        body: {
-          stroke: '#8f8f8f',
-          fill: '#e6ffe6',
-        },
-      },
-    });
-
-    graph.addNode({
-      x: 160,
-      y: 32,
-      width: 100,
-      height: 40,
-      attrs: {
-        body: {
-          stroke: '#8f8f8f',
-        },
-      },
-    });
-    graph.centerContent();
-  }, []);
   return (
-    <div>
-      <div ref={graphContainerRef} />
-    </div>
+    <>
+      <CustomNode></CustomNode>
+    </>
   );
 };
 

@@ -128,6 +128,11 @@ export default [
             path: '/demo/x6/x6demo',
             component: './Demo/X6Demo/demo',
           },
+          {
+            name: 'x6-graph',
+            path: '/demo/x6/x6graph',
+            component: './Demo/X6Demo/GraphEditor',
+          },
         ],
       },
       {
