@@ -3,9 +3,6 @@ import { Flex } from 'antd';
 import React from 'react';
 
 const ColorFC: React.FC = () => {
-  console.log(blue);
-  console.log(blue.primary);
-  console.log();
   return (
     <Flex>
       <ul>
